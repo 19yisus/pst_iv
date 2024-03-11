@@ -139,7 +139,6 @@
                         <input type="text" maxlength="45" minlength="4" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="Solo de admiten letras" required placeholder="Ingrese su texto" name="nombre_grupo" value="<?php echo $nombre_grupo;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
-
                       <div class="w-3/12">
                         <label class="mb-2.5 block text-black dark:text-white">
                           Estado del grupo <span class="text-meta-1">*</span>
@@ -215,7 +214,7 @@
                             <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos"
                               class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
                               <option value="">Seleccione una opcion</option>
-                              <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.cedula_usuario}}</option>
+                              <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.nacionalidad_usuario}}-{{ est.cedula_usuario}}</option>
                             </select>
                           </td>
                           <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -289,7 +288,6 @@
             
             return false;
           }
-
           this.grupo_est[index].nombre = this.estudiantes.find(item => item.id_estudiante == this.grupo_est[index].id_estudiante)['nombre_usuario'];
           return false;
         },
@@ -415,10 +413,7 @@
           this.consultar_estudiantes();
         }
       },
-      mounted(){
-        //this.consultar_secciones();
-        this.consultar_estudiantes();
-      }
+      
     }).mount("#app_vue");
 
     <?php 
@@ -430,14 +425,9 @@
 
       if(isset($datos_inscripcion) && $op == "Registrar"){
         ?>
-        //app.id_carrera = '<?php //echo $datos_inscripcion[0]['id_carrera'];?>'
-        //app.id_seccion = '<?php //echo $datos_inscripcion[0]['id_seccion'];?>'  
         setTimeout(() => {
           //app.consultar_secciones();
           app.consultar_estudiantes();
-          //app.consultar_seccione_por_carrera();
-          // app.Get_estudiantes_por_seccion();
-          //app.consultar_estudiantes_por_carrera();
           app.bloqueoCampos();
         }, 100);
         

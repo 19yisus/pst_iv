@@ -81,7 +81,7 @@
 		}
 
 		public function consulta($id){
-			$sql = "SELECT * FROM grupo INNER JOIN seccion ON seccion.id_seccion = grupo.id_seccion WHERE grupo.id_grupo = '$id';";
+			$sql = "SELECT * FROM grupo WHERE grupo.id_grupo = '$id';";
 
 			$results = $this->Query($sql);
 			return $this->Get_array($results);
