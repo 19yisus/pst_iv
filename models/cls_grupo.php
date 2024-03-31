@@ -2,10 +2,10 @@
 	if(!class_exists("cls_db")) require_once("cls_db.php");
 
 	class cls_grupo extends cls_db{
-		private $id_grupo, $nombre_grupo, $id_seccion, $estudiante, $estado_grupo;
+		private $id_grupo, $nombre_grupo, $id_seccion, $estudiantes, $tipo_grupo, $estado_grupo;
 			public function __construct(){
 			parent::__construct();
-			$this->id_grupo = $this->nombre_grupo = $this->id_seccion = $this->estudiantes = $this->estado_grupo = "";
+			$this->id_grupo = $this->nombre_grupo = $this->id_seccion = $this->tipo_grupo = $this->estudiantes = $this->estado_grupo = "";
 		}
 
 		public function setDatos($d){
@@ -13,6 +13,7 @@
 			$this->nombre_grupo = isset($d['nombre_grupo']) ? $this->Clean($d['nombre_grupo']) : null;
 			$this->id_seccion = isset($d['id_seccion']) ? $this->Clean(intval($d['id_seccion'])) : null;
       $this->estado_grupo = isset($d['estado_grupo']) ? $this->Clean($d['estado_grupo']) : '';
+			$this->tipo_grupo = isset($d['tipo_grupo']) ? $this->Clean($d['tipo_grupo']) : '';
 			$this->estudiantes = isset($d['id_estudiante']) ? $d['id_estudiante'] : '';
 		}
 
@@ -24,7 +25,7 @@
 
 			try{
 				$this->Start_transacction();
-				$sql = "INSERT INTO grupo(nombre_grupo,estado_grupo) VALUES('$this->nombre_grupo','$this->estado_grupo');";
+				$sql = "INSERT INTO grupo(nombre_grupo,tipo_grupo,estado_grupo) VALUES('$this->nombre_grupo','$this->tipo_grupo','$this->estado_grupo');";
 				$this->Query($sql);
 
 				$id = $this->Returning_id();
@@ -81,7 +82,7 @@
 		}
 
 		public function consulta($id){
-			$sql = "SELECT * FROM grupo INNER JOIN seccion ON seccion.id_seccion = grupo.id_seccion WHERE grupo.id_grupo = '$id';";
+			$sql = "SELECT * FROM grupo WHERE grupo.id_grupo = '$id';";
 
 			$results = $this->Query($sql);
 			return $this->Get_array($results);

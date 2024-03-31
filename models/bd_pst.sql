@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 09, 2024 at 07:09 PM
+-- Generation Time: Mar 31, 2024 at 02:34 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,6 +38,13 @@ CREATE TABLE `ano_escolar` (
   `fecha_cierre` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+--
+-- Dumping data for table `ano_escolar`
+--
+
+INSERT INTO `ano_escolar` (`id_ano_escolar`, `ano_escolar_nombre`, `estado_ano_escolar`, `estado_incripciones`, `fecha_inicio`, `fecha_cierre`) VALUES
+(1, '2024-2025', 1, 1, '2024-02-25', '2025-02-10');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +59,15 @@ CREATE TABLE `carrera` (
   `admite_grupos_mixtos` tinyint(1) NOT NULL,
   `estado_carrera` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `carrera`
+--
+
+INSERT INTO `carrera` (`id_carrera`, `nombre_carrera`, `codigo_carrera`, `turno_carrera`, `admite_grupos_mixtos`, `estado_carrera`) VALUES
+(1, 'RELLENO', '4654', 'D', 1, '1'),
+(2, 'NOMIXTO', '9879', 'D', 0, '1'),
+(3, 'MIXTOOO', '7887', 'D', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -151,6 +167,15 @@ CREATE TABLE `estudiante` (
   `matricula_estudiante` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+--
+-- Dumping data for table `estudiante`
+--
+
+INSERT INTO `estudiante` (`id_estudiante`, `cedula_usuario`, `turno_estudiante`, `matricula_estudiante`) VALUES
+(1, 26000555, 'D', '2024-2025-4654D-V-26000555'),
+(2, 65988989, 'D', '2024-2025-9879D-V-65988989'),
+(3, 54521212, 'D', '2024-2025-7887D-V-54521212');
+
 -- --------------------------------------------------------
 
 --
@@ -160,7 +185,7 @@ CREATE TABLE `estudiante` (
 CREATE TABLE `grupo` (
   `id_grupo` int NOT NULL,
   `nombre_grupo` varchar(30) NOT NULL,
-  `id_seccion` int DEFAULT NULL,
+  `tipo_grupo` tinyint DEFAULT NULL,
   `estado_grupo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -178,6 +203,18 @@ CREATE TABLE `grupo_alumno` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `historial_claves`
+--
+
+CREATE TABLE `historial_claves` (
+  `id_historial_claves` int NOT NULL,
+  `clave_vieja` text NOT NULL,
+  `cedula_usuario` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inscripcion`
 --
 
@@ -190,6 +227,15 @@ CREATE TABLE `inscripcion` (
   `id_ano_escolar` int NOT NULL,
   `des_semestre` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `inscripcion`
+--
+
+INSERT INTO `inscripcion` (`id_inscripcion`, `id_carrera`, `id_seccion`, `id_estudiante`, `id_semestre`, `id_ano_escolar`, `des_semestre`) VALUES
+(1, 1, 1, 1, NULL, 1, 1),
+(2, 2, 2, 2, NULL, 1, 1),
+(3, 3, 2, 3, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1732,13 +1778,13 @@ CREATE TABLE `proyecto` (
   `id_grupo` int NOT NULL,
   `id_ano_escolar` int NOT NULL,
   `id_tutor` int NOT NULL,
-  `titulo_proyecto` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `titulo_proyecto` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `planteamiento_proyecto` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `objetivos_generales_proyecto` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `objetivos_especificos_proyecto` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `tipo_proyecto` varchar(255) NOT NULL,
+  `tipo_proyecto` varchar(45) NOT NULL,
   `estado_proyecto` char(1) NOT NULL,
-  `ruta_file` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+  `ruta_file` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
@@ -1829,15 +1875,20 @@ CREATE TABLE `usuario` (
   `pregunta_3` varchar(50) DEFAULT NULL,
   `respuesta_1` varchar(50) DEFAULT NULL,
   `respuesta_2` varchar(50) DEFAULT NULL,
-  `respuesta_3` varchar(50) DEFAULT NULL
+  `respuesta_3` varchar(50) DEFAULT NULL,
+  `dias_de_caducidad_clave` int DEFAULT NULL,
+  `fecha_de_caducidad_clave` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`cedula_usuario`, `clave_usuario`, `nacionalidad_usuario`, `nombre_usuario`, `estatus_usuario`, `edad_usuario`, `genero_usuario`, `permiso_usuario`, `tipo_usuario`, `telefono_usuario`, `correo_usuario`, `id_pregunta_1`, `id_pregunta_2`, `pregunta_3`, `respuesta_1`, `respuesta_2`, `respuesta_3`) VALUES
-(27111222, '$2y$12$IAWEqJh.DjnRIrmpyUhAKOGZj1R1GzPnWbBVibP/SdreiuZIrazHO', 'V', 'administrador', 1, NULL, '', '1', 'administrador', NULL, NULL, NULL, NULL, NULL, 'N', 'N', 'N');
+INSERT INTO `usuario` (`cedula_usuario`, `clave_usuario`, `nacionalidad_usuario`, `nombre_usuario`, `estatus_usuario`, `edad_usuario`, `genero_usuario`, `permiso_usuario`, `tipo_usuario`, `telefono_usuario`, `correo_usuario`, `id_pregunta_1`, `id_pregunta_2`, `pregunta_3`, `respuesta_1`, `respuesta_2`, `respuesta_3`, `dias_de_caducidad_clave`, `fecha_de_caducidad_clave`) VALUES
+(26000555, '$2y$12$j5LMgkqV/V3m4TSEuOoI3el2YLh2LaB6D2cYzza9uyxApmbOJDpH.', 'V', 'JOSE JOSE', 1, '20', 'M', '3', 'ESTUDIANTE', '0424-519-8989', 'JESSEFASD@GMAIL.COM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27111222, '$2y$12$Dx.Nhzd2qxg.kAoYe6eQ0umyLgnd2wA7vw0Jr2AiYMF2w2b3k2Vay', 'V', 'ADMINISTRADOR', 1, '20', 'M', '1', 'administrador', '0424-519-8398', 'FAKE@GMAIL.COM', 1, 2, 'NADA', 'N', 'N', 'N', NULL, NULL),
+(54521212, '$2y$12$IjVEnrEbUk/WvTvu4o0JZuqLGY2.wOeOJyTGbS5/CMpTt0MyUrmGC', 'V', 'AAAAAAAAAA', 1, '26', 'M', '3', 'ESTUDIANTE', '0546-545-6456', 'FSADASDFASD@GMAIL.COM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(65988989, '$2y$12$n2j67WYvILi3lILFRhBYPOkuBWUltmqnS2JVTqsGwmWPw23gF/C2i', 'V', 'FASDFASDFDS', 1, '20', 'F', '3', 'ESTUDIANTE', '0650-456-0456', 'FASDFASDF@GMAIL.COM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1892,8 +1943,7 @@ ALTER TABLE `estudiante`
 -- Indexes for table `grupo`
 --
 ALTER TABLE `grupo`
-  ADD PRIMARY KEY (`id_grupo`),
-  ADD KEY `id_seccion` (`id_seccion`);
+  ADD PRIMARY KEY (`id_grupo`);
 
 --
 -- Indexes for table `grupo_alumno`
@@ -1901,6 +1951,13 @@ ALTER TABLE `grupo`
 ALTER TABLE `grupo_alumno`
   ADD KEY `fk_grupo_alumno_grupo1` (`id_grupo`),
   ADD KEY `fk_grupo_alumno_alumno1` (`id_alumno`);
+
+--
+-- Indexes for table `historial_claves`
+--
+ALTER TABLE `historial_claves`
+  ADD PRIMARY KEY (`id_historial_claves`),
+  ADD KEY `cedula_usuario` (`cedula_usuario`);
 
 --
 -- Indexes for table `inscripcion`
@@ -1987,13 +2044,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `ano_escolar`
 --
 ALTER TABLE `ano_escolar`
-  MODIFY `id_ano_escolar` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ano_escolar` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `id_carrera` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrera` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categorias_documentos`
@@ -2023,7 +2080,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT for table `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `id_estudiante` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estudiante` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `grupo`
@@ -2032,10 +2089,16 @@ ALTER TABLE `grupo`
   MODIFY `id_grupo` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `historial_claves`
+--
+ALTER TABLE `historial_claves`
+  MODIFY `id_historial_claves` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `id_inscripcion` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_inscripcion` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `parroquias`
@@ -2096,17 +2159,17 @@ ALTER TABLE `estudiante`
   ADD CONSTRAINT `fk_alumno_usuario1` FOREIGN KEY (`cedula_usuario`) REFERENCES `usuario` (`cedula_usuario`);
 
 --
--- Constraints for table `grupo`
---
-ALTER TABLE `grupo`
-  ADD CONSTRAINT `grupo_ibfk_1` FOREIGN KEY (`id_seccion`) REFERENCES `seccion` (`id_seccion`);
-
---
 -- Constraints for table `grupo_alumno`
 --
 ALTER TABLE `grupo_alumno`
   ADD CONSTRAINT `fk_grupo_alumno_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `estudiante` (`id_estudiante`),
   ADD CONSTRAINT `fk_grupo_alumno_grupo1` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`);
+
+--
+-- Constraints for table `historial_claves`
+--
+ALTER TABLE `historial_claves`
+  ADD CONSTRAINT `historial_claves_ibfk_1` FOREIGN KEY (`cedula_usuario`) REFERENCES `usuario` (`cedula_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `inscripcion`

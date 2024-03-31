@@ -173,8 +173,7 @@ if (isset($this->id_consulta)) {
                             <div class="mr-3">
                               <label for="tipoCarrera1" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" @click="setTipoCarrera(1)" :checked="tipo_carrera == 1" required id="tipoCarrera1" class="" name="tipo_grupo" value="1" <?php //echo ($tipo_grupo == '1') ? "checked" : "";
-                                                                                                                                                                              ?> />
+                                  <input type="radio" @click="setTipoCarrera(1)" :checked="tipo_grupo == 1" required id="tipoCarrera1" class="" name="tipo_grupo" value="1" <?php //echo ($tipo_grupo == '1') ? "checked" : "";?> />
                                 </div>
                                 Carreras mixtas
                               </label>
@@ -183,8 +182,7 @@ if (isset($this->id_consulta)) {
                             <div>
                               <label for="tipoCarrera2" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" @click="setTipoCarrera(0)" :checked="tipo_carrera == 0" required id="tipoCarrera2" class="" name="tipo_grupo" value="0" <?php //echo ($tipo_grupo == '0') ? "checked" : "";
-                                                                                                                                                                              ?> />
+                                  <input type="radio" @click="setTipoCarrera(0)" :checked="tipo_grupo == 0" required id="tipoCarrera2" class="" name="tipo_grupo" value="0" <?php //echo ($tipo_grupo == '0') ? "checked" : "";?> />
                                 </div>
                                 Carreras no mixtas
                               </label>
@@ -257,17 +255,19 @@ if (isset($this->id_consulta)) {
           id_carrera: "",
           id_seccion: "",
           id_grupo: "",
-          tipo_carrera: 1,
+          tipo_grupo: 1,
         }
       },
       methods: {
         arreglo_grupo_est(e) {
-
-          if (this.grupo_est.length <= 2) {
-
-            e.preventDefault()
-
+          if (this.grupo_est.length < 2){
+            e.preventDefault();
+            Toast.fire({
+              icon: "error",
+              title: "Los grupos solo pueden estar conformados por minimo (2) integrantes"
+            });
           }
+          else e.submit();
 
         },
         add() {
@@ -278,7 +278,7 @@ if (isset($this->id_consulta)) {
         },
         async set_datos(i) {
           if (!i.target.dataset.index) return false;
-
+          
           let index = i.target.dataset.index;
           let contador = 0;
 
@@ -294,7 +294,7 @@ if (isset($this->id_consulta)) {
 
             return false;
           }
-
+          
           this.grupo_est.forEach(item => {
             if (item.id_estudiante == this.grupo_est[index].id_estudiante) contador++
           })
@@ -329,42 +329,7 @@ if (isset($this->id_consulta)) {
             }).catch(error => console.error(error))
         },
         async consultar_estudiantes() {
-          await fetch(`<?php $this->SetURL('controllers/estudiante_controller.php?ope=Get_todos_byTipoCarrera&tipo='); ?>${this.tipo_carrera}`)
-            .then(response => response.json())
-            .then(result => {
-
-              if (result) this.estudiantes = result['data'];
-              else this.estudiantes = [];
-            }).catch(error => console.error(error))
-        },
-
-        async consultar_seccione_por_carrera() {
-          if (this.id_carrera == '') return false;
-
-          await fetch(`<?php $this->SetURL('controllers/seccion_controller.php?ope=Get_seccion_por_carrera&id_carrera='); ?>${this.id_carrera}`)
-            .then(response => response.json())
-            .then(result => {
-
-              if (result) this.secciones = result['data'];
-              else this.secciones = [];
-            }).catch(error => console.error(error))
-          await this.consultar_estudiantes_por_carrera();
-        },
-        // async Get_estudiantes_por_seccion(){
-        //   if(this.id_seccion == '') return false;
-
-        //   await fetch(`<?php //$this->SetURL('controllers/inscripcion_controller.php?ope=Get_estudiantes_seccion&id_seccion=');
-                          ?>${this.id_seccion}`)
-        //   .then( response => response.json())
-        //   .then( result => {
-
-        //     if(result) this.estudiantes = result['data']; else this.estudiantes = [];
-        //   }).catch( error => console.error(error))
-        // },
-        async consultar_estudiantes_por_carrera() {
-          if (this.id_carrera == '') return false;
-
-          await fetch(`<?php $this->SetURL('controllers/carrera_controller.php?ope=Get_estudiantes_por_carrera&id_carrera='); ?>${this.id_carrera}`)
+          await fetch(`<?php $this->SetURL('controllers/estudiante_controller.php?ope=Get_todos_byTipoCarrera&tipo='); ?>${this.tipo_grupo}`)
             .then(response => response.json())
             .then(result => {
 
@@ -396,9 +361,9 @@ if (isset($this->id_consulta)) {
               let grupo = data['grupo'];
               let estudiantes = data['est'];
               this.id_carrera = grupo['carrera_id'];
-              this.id_seccion = grupo['id_seccion'];
+              this.tipo_grupo = grupo['tipo_grupo'];
 
-              await this.consultar_seccione_por_carrera();
+              await this.consultar_estudiantes();
               // await this.Get_estudiantes_por_seccion();
 
               this.grupo_est = [];
@@ -464,11 +429,7 @@ if (isset($this->id_consulta)) {
       //app.id_seccion = '<?php //echo $datos_inscripcion[0]['id_seccion'];
                           ?>'  
       setTimeout(() => {
-        //app.consultar_secciones();
         app.consultar_estudiantes();
-        //app.consultar_seccione_por_carrera();
-        // app.Get_estudiantes_por_seccion();
-        //app.consultar_estudiantes_por_carrera();
         app.bloqueoCampos();
       }, 100);
 

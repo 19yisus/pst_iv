@@ -49,7 +49,7 @@
 		}
 
 		public function Get_estudiantesPorTipoCarrera($tipo){
-			$sql = "SELECT * FROM estudiante WHERE EXISTS( SELECT * FROM inscripcion
+			$sql = "SELECT estudiante.*,usuario.nombre_usuario FROM estudiante INNER JOIN usuario ON usuario.cedula_usuario = estudiante.cedula_usuario WHERE EXISTS( SELECT * FROM inscripcion
 				INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = inscripcion.id_ano_escolar
 				INNER JOIN carrera ON carrera.id_carrera = inscripcion.id_carrera
 				WHERE estudiante.id_estudiante = inscripcion.id_estudiante AND ano_escolar.estado_ano_escolar = '1' AND carrera.admite_grupos_mixtos = $tipo);";
