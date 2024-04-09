@@ -73,7 +73,8 @@ if (isset($_POST['op'])) {
                   <div class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                     <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                       <h3 class="font-semibold text-black dark:text-white text-center">
-                        Consultar datos del usuario
+                        <!-- Consultar datos del usuario -->
+                        Recuperación de clave de acceso
                       </h3>
                     </div>
                     <form action="#" method="POST" class="" autocomplete="off">
@@ -82,7 +83,7 @@ if (isset($_POST['op'])) {
                         <div class="mb-4.5 flex justify-center items-center">
                           <div class="w-1/2 xl:w-2/6">
                             <label class="mb-2.5 block text-black dark:text-white">
-                              Cedula del Usuario<span class="ml-4 text-meta-1 ">*</span>
+                              Ingrese la cedula del usuario para poder continuar con el proceso<span class="ml-4 text-meta-1 ">*</span>
                             </label>
                             <input type="text" placeholder="" name="cedula_usuario" pattern="[0-9]{7,8}" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                           </div>
