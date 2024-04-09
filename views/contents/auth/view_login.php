@@ -24,10 +24,7 @@
 										<img class="" src="<?php $this->SetURL('views/img/logo_unefa.png'); ?>" alt="Logo 1" style="height:10rem;" />
 									</a>
 									<p class="font-bold 2xl:px-20 text-sm">
-										REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
-										MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
 										UNIVERSIDAD NACIONAL EXPERIMENTAL POLITÉCNICA DE LA FUERZA ARMADA NACIONAL BOLIVARIANA <br>
-										VICERRECTORADO REGIÓN LOS LLANOS <br>
 										NÚCLEO PORTUGUESA - EXTENSIÓN ACARIGUA
 									</p>
 
@@ -35,7 +32,7 @@
 							</div>
 							<div class="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
 								<div class="w-full p-4 sm:p-12.5 xl:p-17.5">
-									<span class="mb-1.5 block font-medium">Sistema de Gestión de Servicios Comunitarios (SGSC)</span>
+									<span class="mb-1.5 block font-medium">Sistema de Gestión de Servicio Comunitario (SGSC)</span>
 									<h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
 										Inicia sesion
 									</h2>
@@ -45,7 +42,7 @@
 											<label class="mb-2.5 block font-medium text-black dark:text-white">Cédula del usuario</label>
 											<div class="relative">
 												<input type="hidden" name="ope" value="Ingresar">
-												<input type="text" id="cedula_user" required maxlength="8" minlength="7" pattern="[0-9]{7,8)" placeholder="Ingresa tu cedula" name="cedula_usuario" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+												<input type="text" id="cedula_user" onkeyup="validarNumerico(this)" required maxlength="8" minlength="7" pattern="[0-9](7,8)" placeholder="Ingresa tu cedula" name="cedula_usuario" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 
 												<span class="absolute right-4 top-4">
 													<svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +57,7 @@
 										<div class="mb-6">
 											<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña</label>
 											<div class="relative">
-												<input type="password" id="pass_user" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" minlength="7" placeholder="7+ Caracteres, 1 mayuscula, 1 numero, 1 caracter especial" name="clave_usuario" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+												<input type="password" id="pass_user" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" minlength="7" placeholder="7+ Caracteres, 1 mayuscula, 1 numero, 1 caracter especial" name="clave_usuario" onkeyup="validarPassword()" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 
 												<span class="absolute right-4 top-4">
 													<svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +67,7 @@
 														</g>
 													</svg>
 												</span>
+												<span id="messages_clave"></span>
 											</div>
 										</div>
 
@@ -81,7 +79,7 @@
 											<p class="font-medium">
 												<!-- <a href="<?php //$this->SetURL($this->controlador . "/registro_estudiante"); ?>" class="text-primary">Registro de Estudiante</a> o -->
 												<!-- <a href="<?php //$this->SetURL($this->controlador . "/registro_tutor"); ?>" class="text-primary">Registro de Docente</a> -->
-												<a href="<?php $this->SetURL($this->controlador . "/recuperar_clave"); ?>" class="text-primary">Click aqui para recupera tu clave de acceso</a>
+												<a href="<?php $this->SetURL($this->controlador . "/recuperar_clave"); ?>" class="text-primary">Click aquí para recupera tu clave de acceso</a>
 											</p>
 										</div>
 									</form>
@@ -107,6 +105,44 @@
 			if (e.target.value === $("#cedula_user").val()) $("#pass_user").removeAttr("pattern", "");
 			else $("#pass_user").attr("pattern", '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{7,}');
 		});
+
+		function validarNumerico(input) {
+			// Reemplazar cualquier caracter que no sea un número con una cadena vacía
+			input.value = input.value.replace(/[^\d]/g, '');
+		}
+
+		function validarPassword() {
+			const password = document.getElementById('pass_user').value;
+			const messages = document.getElementById('messages_clave');
+			messages.innerHTML = '';
+
+			// Validaciones
+			let valido = true;
+
+			if (password.length < 7) {
+				messages.innerHTML += 'La contraseña debe tener al menos 7 caracteres.<br>';
+				valido = false;
+			}
+
+			if (!/[A-Z]/.test(password)) {
+				messages.innerHTML += 'La contraseña debe contener al menos una mayúscula.<br>';
+				valido = false;
+			}
+
+			if (!/\d/.test(password)) {
+				messages.innerHTML += 'La contraseña debe contener al menos un número.<br>';
+				valido = false;
+			}
+
+			if (!/[^a-zA-Z0-9]/.test(password)) {
+				messages.innerHTML += 'La contraseña debe contener al menos un caracter especial ejemplo puede ser (@, #, &, $ etc...).<br>';
+				valido = false;
+			}
+
+			if (valido) {
+				messages.innerHTML = 'La contraseña cumple con todas las condiciones.';
+			}
+		}
 	</script>
 </body>
 
