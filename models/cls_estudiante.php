@@ -34,8 +34,9 @@
 		}
 
 		public function update(){
+			if($this->matricula_estudiante == '') return "estudiante/index/msg/01DONE";
 			$sql = "UPDATE estudiante SET matricula_estudiante = '$this->matricula_estudiante' WHERE id_estudiante = $this->id_estudiante ;";
-			
+		
       $res = $this->Query($sql);
 			if($res->num_rows > 0) return "estudiante/index/msg/01DONE"; else return "estudiante/index/err/01ERR";
 		}

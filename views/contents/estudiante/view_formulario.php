@@ -106,13 +106,13 @@ if (isset($this->id_consulta)) {
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Cédula<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" maxlength="8" autocomplete="off" title="solo se admiten numeros" pattern="[0-9]{7,8}" placeholder="Ingrese su cedula" name="cedula_usuario" value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op == "Actualizar") ? "readonly" : ""; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="8" autocomplete="off" title="solo se admiten numeros" pattern="[0-9]{7,8}" placeholder="Ingrese su cédula" name="cedula_usuario" value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op == "Actualizar") ? "readonly" : ""; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">
-                      Nombre y Apellido<span class="text-meta-1">*</span>
+                      Nombres y Apellidos<span class="text-meta-1">*</span>
                     </label>
                     <div class="relative">
 
@@ -135,9 +135,9 @@ if (isset($this->id_consulta)) {
                   </div>
 
                   <div class="mb-6">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">Numero de Teléfono<span class="text-meta-1">*</span></label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">Número de Teléfono<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13" title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13" title="solo se admiten números" placeholder="Ingrese su Némero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 

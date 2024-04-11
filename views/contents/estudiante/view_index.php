@@ -28,9 +28,9 @@
                     <th class="min-w-[220px] py-2 px-2 font-bold text-black dark:text-white xl:pl-11">
                       Matricula
                     </th>
-                    <th class="min-w-[220px] py-2 px-2 font-bold text-black dark:text-white xl:pl-11">
+                    <!-- <th class="min-w-[220px] py-2 px-2 font-bold text-black dark:text-white xl:pl-11">
                       Cédula
-                    </th>
+                    </th> -->
                     <th class="min-w-[220px] py-2 px-2 font-bold text-black dark:text-white xl:pl-11">
                       Nombre
                     </th>
@@ -64,9 +64,9 @@
                         <td class="border-b border-[#eee] py-3 px-2 dark:border-strokedark">
                           <p class="text-black dark:text-white"><?php echo $est['matricula_estudiante'];?></p>
                         </td>
-                        <td class="border-b border-[#eee] py-3 px-2 pl-9 dark:border-strokedark xl:pl-11">
-                          <h5 class="font-medium text-black dark:text-white"><?php echo $est['nacionalidad_usuario'].'-'.$est['cedula_usuario'];?></h5>
-                        </td>
+                        <!-- <td class="border-b border-[#eee] py-3 px-2 pl-9 dark:border-strokedark xl:pl-11">
+                          <h5 class="font-medium text-black dark:text-white"><?php //echo $est['nacionalidad_usuario'].'-'.$est['cedula_usuario'];?></h5>
+                        </td> -->
                         <td class="border-b border-[#eee] py-3 px-2 dark:border-strokedark">
                           <p class="text-black dark:text-white"><?php echo $est['nombre_usuario'];?></p>
                         </td>

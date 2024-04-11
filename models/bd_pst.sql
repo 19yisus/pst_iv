@@ -210,7 +210,7 @@ CREATE TABLE `historial_claves` (
   `id_historial_claves` int NOT NULL,
   `clave_vieja` text NOT NULL,
   `cedula_usuario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 

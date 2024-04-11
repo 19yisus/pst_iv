@@ -33,7 +33,7 @@
       $this->respuesta3 = isset($d['respuesta_3']) ? $this->Clean($d['respuesta_3']) : null;
       $this->estatus_usuario = isset($d['estatus_usuario']) ? $this->Clean($d['estatus_usuario']) : null;
       $this->periodo_caducidad = isset($d['periodo_caducidad']) ? $this->Clean($d['periodo_caducidad']) : null;
-      $this->fecha_de_caducidad_clave = isset($d['fecha_de_caducidad_clave']) ? $this->Clean($d['fecha_de_caducidad_clave']) : null;
+      $this->fecha_de_caducidad_clave = isset($d['fecha_de_caducidad_clave']) ? $this->Clean($d['fecha_de_caducidad_clave']) : NULL;
 		}
 
 		public function create(){
@@ -66,20 +66,17 @@
 				genero_usuario = '$this->genero_usuario',
 				correo_usuario = '$this->correo_usuario',
 				telefono_usuario = '$this->telefono_usuario',
-				estatus_usuario = '1', 
+				estatus_usuario = '1'
+				";
+			
+			if($this->pregunta1 != null) $sql .= ", id_pregunta_1 = '$this->pregunta1', respuesta_1 = '$this->respuesta1' ";
+			if($this->pregunta2 != null) $sql .= ", id_pregunta_2 = '$this->pregunta2', respuesta_2 = '$this->respuesta2' ";
+			if($this->pregunta3 != null) $sql .= ", pregunta_3 = '$this->pregunta3' ";
+			if($this->periodo_caducidad != null) $sql .= ", dias_de_caducidad_clave = $this->periodo_caducidad, fecha_de_caducidad_clave = '$this->fecha_de_caducidad_clave'";
 
-				id_pregunta_1 = '$this->pregunta1',
-				id_pregunta_2 = '$this->pregunta2',
-				pregunta_3 = '$this->pregunta3',
+			$sql .= " WHERE cedula_usuario = '$this->cedula_usuario';";
 
-				respuesta_1 = '$this->respuesta1',
-				respuesta_2 = '$this->respuesta2',
-				respuesta_3 = '$this->respuesta3',
-
-				dias_de_caducidad_clave = $this->periodo_caducidad,
-				fecha_de_caducidad_clave = '$this->fecha_de_caducidad_clave'
-				
-				WHERE cedula_usuario = '$this->cedula_usuario';";
+		
       $this->Query($sql);
 			return "msg/01DONE";
 		}
