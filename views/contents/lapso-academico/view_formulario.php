@@ -70,7 +70,7 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Descripción <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" maxlength="10" minlength="5" placeholder="" name="ano_escolar_nombre" value="<?php echo $ano_escolar_nombre;?>"
+                        <input type="text" required maxlength="10" minlength="5" placeholder="" name="ano_escolar_nombre" value="<?php echo $ano_escolar_nombre;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
 
@@ -78,7 +78,7 @@
                       </div> -->
                       <div class="mb-4">
                         <label class="mb-2.5 block text-black dark:text-white">Fecha de Inicio</label>
-                        <input type="date" :max="fecha_maxima" v-model="fecha_minima" name="fecha_inicio" value="<?php echo $fecha_inicio;?>"
+                        <input type="date" required :max="fecha_maxima" v-model="fecha_minima" name="fecha_inicio" value="<?php echo $fecha_inicio;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <!-- <span
                           class="absolute right-0.5 top-0.5 block rounded-tr rounded-br bg-white p-3.5 dark:bg-form-input">
@@ -93,7 +93,7 @@
     
                       <div class="mb-4">
                         <label class="mb-2.5 block text-black dark:text-white">Fecha de Cierre</label>
-                        <input type="date" :min="fecha_minima" v-model="fecha_maxima" name="fecha_cierre" value="<?php echo $fecha_cierre;?>"
+                        <input type="date" required :min="fecha_minima" v-model="fecha_maxima" name="fecha_cierre" value="<?php echo $fecha_cierre;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
     
                         <!-- <span
