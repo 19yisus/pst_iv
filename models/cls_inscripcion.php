@@ -2,10 +2,10 @@
 	if(!class_exists("cls_db")) require_once("cls_db.php");
 
 	class cls_inscripcion extends cls_db{
-		private $id_inscripcion, $id_carrera, $id_seccion, $id_estudiante, $id_semestre, $id_ano_escolar, $turno, $des_semestre;
+		private $id_inscripcion, $id_carrera, $id_seccion, $id_estudiante, $anio_escolar, $id_ano_escolar, $turno, $des_semestre;
 		public function __construct(){
 			parent::__construct();
-      $this->id_inscripcion = $this->id_carrera = $this->id_seccion = $this->id_estudiante = $this->id_semestre = $this->id_ano_escolar = $this->turno = $this->des_semestre = "";
+      $this->id_inscripcion = $this->id_carrera = $this->id_seccion = $this->id_estudiante = $this->anio_escolar = $this->id_ano_escolar = $this->turno = $this->des_semestre = "";
 		}
 
 		public function setDatos($d){
@@ -13,7 +13,7 @@
 			$this->id_carrera = isset($d['id_carrera']) ? $this->Clean(intval($d['id_carrera'])) : null;
       $this->id_seccion = isset($d['id_seccion']) ? $this->Clean(intval($d['id_seccion'])) : null;
       $this->id_estudiante = isset($d['id_estudiante']) ? $this->Clean(intval($d['id_estudiante'])) : null;
-			$this->id_semestre = isset($d['id_semestre']) ? $this->Clean(intval($d['id_semestre'])) : null;
+			$this->anio_escolar = isset($d['anio_escolar']) ? $this->Clean($d['anio_escolar']) : null;
 			$this->des_semestre = isset($d['des_semestre']) ? $this->Clean(intval($d['des_semestre'])) : null;
       $this->id_ano_escolar = isset($d['id_ano_escolar']) ? $this->Clean(intval($d['id_ano_escolar'])) : null;
       $this->turno = isset($d['turno_estudiante']) ? $this->Clean($d['turno_estudiante']) : null;
@@ -76,11 +76,11 @@
 
 		private function makeCodeMatricula($cedula){
 			try{
-				$lapso = $this->getData("SELECT * FROM ano_escolar WHERE id_ano_escolar = '$this->id_ano_escolar';")['ano_escolar_nombre'];
+				// $lapso = $this->getData("SELECT * FROM ano_escolar WHERE id_ano_escolar = '$this->id_ano_escolar';")['ano_escolar_nombre'];
 				$carrera = $this->getData("SELECT * FROM carrera WHERE id_carrera = '$this->id_carrera';")['codigo_carrera'];
 				$nacionalidad = $this->getData("SELECT * FROM usuario WHERE cedula_usuario = '$cedula';")['nacionalidad_usuario'];
 
-				$matricula = $lapso."-".$carrera.$this->turno."-".$nacionalidad."-".$cedula;
+				$matricula = $this->anio_escolar."-".$carrera.$this->turno."-".$nacionalidad."-".$cedula;
 				return $matricula;
 			}catch (Exception $e){
 				die("ERROR: ". $e->getMessage());
