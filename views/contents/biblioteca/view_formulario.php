@@ -75,7 +75,7 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Nombre <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingresa el nombre del documento" name="nombre_documento" value="<?php print($nombre_documento);?>"
+                        <input type="text" maxlength="45" minlength="5" required placeholder="Ingresa el nombre del documento" name="nombre_documento" value="<?php print($nombre_documento);?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                       <div class="w-full xl:w-2/6">
@@ -99,7 +99,7 @@
                           </span>
                         </div>
                     </div>
-                    <div class="w-full xl:w-2/6">
+                    <div class="w-full xl:w-2/6" style="display: none;">
                         <label class="mb-2.5 block text-black dark:text-white">
                           Estado<span class="text-meta-1">*</span>
                         </label>
@@ -147,7 +147,7 @@
 	</div>
 	<!-- ===== Page Wrapper End ===== -->
 	<?php $this->GetComplement('scripts');?>
-  <script src="<?php echo constant("URL");?>views/js/biblioteca/formulario.js"></script>
+  <script src="<?php echo constant("URL");?>views/js/biblioteca/formulario.js?v=<?php print(microtime())?>"></script>
 </body>
 
 </html>

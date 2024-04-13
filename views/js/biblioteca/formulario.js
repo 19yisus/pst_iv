@@ -30,11 +30,14 @@ function mensajeCargarDeArchivo(){
 }
 
 function guardar(event){
-    event.d()
+    // event.d()
+    event.preventDefault()
     let archivoPdf=document.getElementById("archivoPdf")
     let formulario=document.getElementById("formulario")
+    console.log("files => ",archivoPdf)
     if(archivoPdf.files.length>0){
         formulario.submit()
+        // alert("ok")
     }
     else{
         Swal.fire(

@@ -21,8 +21,8 @@
           <!-- ====== Table Three Start -->
           <div class="w-full mb-5">
             <div x-data="{modalOpen: false}">
-              <button @click="modalOpen = true" class="rounded-md bg-primary py-3 px-9 font-medium text-white w-28">Categoria </button>
-              <div x-show="modalOpen" x-transition class="fixed top-0 left-0 z-999999 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5">
+              <button @click="modalOpen = true" class="rounded-md bg-primary py-3 px-9 font-medium text-white w-28">Categoría</button>
+              <div x-show="modalOpen" x-transition class="fixed top-0 left-0 z-100 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5">
                 <div @click.outside="modalOpen = false" class="w-full max-w-142.5 rounded-lg bg-white py-12 px-8 dark:bg-boxdark md:py-15 md:px-17.5 relative">
                   <div style="position: absolute;top: 20px;right: 20px;">
                     <svg @click="modalOpen = false" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -30,7 +30,7 @@
                   <div id="app_vue" >
                     <div class="text-center">
                       <h3 class="pb-2 text-xl font-bold text-black dark:text-white sm:text-2xl">
-                        Categoria
+                        Categoría
                       </h3>
                       <span class="mx-auto mb-6 inline-block h-1 w-22.5 rounded bg-primary"></span>
                     </div>
@@ -43,7 +43,7 @@
                           <input type="text" v-model="formulario.des_categoria" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Nombre" name="des_categoria" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         </div>
                       </div>
-                      <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                      <div class="mb-4.5 flex flex-col gap-6 xl:flex-row" style="display: none;">
                         <div class="w-full xl:w-2/6">
                           <label class="mb-2.5 block text-black dark:text-white">
                             Estado<span class="text-meta-1">*</span>
@@ -76,7 +76,7 @@
                       <thead>
                         <tr class="bg-gray-2 text-left dark:bg-meta-4">
                           <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white" style="width: 280px !important;">
-                            Nombre
+                            Categorías Registras
                           </th>
                           <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
   
@@ -128,10 +128,7 @@
                       Nombre
                     </th>
                     <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                      Categoria
-                    </th>
-                    <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                      Estado
+                      Categoría
                     </th>
                     <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
 
@@ -160,11 +157,6 @@
                       </td>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white"><?php print($documento["des_categoria"]) ?></p>
-                      </td>
-                      <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                        <?php $text = ($documento['estatus_documento'] == '1') ? "text-success" : "text-danger"; ?>
-                        <p class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium <?php echo $text; ?>">
-                          <?php echo ($documento['estatus_documento'] == '1') ? "Activo" : "Inactivo"; ?>
                       </td>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white">
@@ -235,15 +227,30 @@
           });
         },
         async Guardar(){
-          var dataBody = new FormData();
-          for(var item in this.formulario){ dataBody.append(item, this.formulario[item]); }
-          await fetch(`<?php $this->SetURL('controllers/categorias_documentos_controller.php');?>`,{ method: "post", body: dataBody })
-          .then( response => response.json())
-          .then( result => {
-            if(result.data.code == 200) this.alerta("success", result.data.mensaje);
-            else this.alerta("error", result.data.mensaje)
-          }).catch( error => console.error(error))
-          await this.consultar();
+          console.log(this.formulario.des_categoria)
+          if(this.formulario.des_categoria.trim()!=""){
+            var dataBody = new FormData();
+            for(var item in this.formulario){ 
+              dataBody.append(item, this.formulario[item]);
+            }
+            await fetch(`<?php $this->SetURL('controllers/categorias_documentos_controller.php');?>`,{ method: "post", body: dataBody })
+            .then( response => response.json())
+            .then( result => {
+              if(result.data.code == 200) this.alerta("success", result.data.mensaje);
+              else this.alerta("error", result.data.mensaje)
+            }).catch( error => console.error(error))
+            await this.consultar();
+          }
+          else{
+              Swal.fire(
+                {
+                  icon:"warning",
+                  text:"No campo nombre no puede estar vacío",
+                  timer:3000,
+                }
+              )
+          }
+          
         },
         async consultar(){
           this.limpiar()
