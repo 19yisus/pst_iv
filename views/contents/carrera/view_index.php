@@ -16,7 +16,7 @@
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
           <?php
-          $this->GetComplement('breadcrumb', ['title_breadcrumb' => "Gestión Carrera"]);
+          $this->GetComplement('breadcrumb', ['title_breadcrumb' => "Gestión De Carreras"]);
           ?>
           <!-- ====== Table Three Start -->
           <div class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -25,9 +25,6 @@
               <table class="w-full table-auto">
                 <thead>
                   <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                    <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      ID
-                    </th>
                     <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
                       Nombre
                     </th>
@@ -55,9 +52,6 @@
                   foreach ($datos as $car) {
                   ?>
                     <tr>
-                      <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                        <h5 class="font-medium text-black dark:text-white"><?php echo $car['codigo_carrera']; ?></h5>
-                      </td>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white"><?php echo $car['nombre_carrera']; ?></p>
                       </td>
