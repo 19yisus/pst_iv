@@ -83,7 +83,7 @@
                           <p class="text-black dark:text-white"><?php echo $est['ano_escolar_nombre'];?></p>
                           <?php }else{?>
                           <p class="text-black dark:text-white">
-                            <a href="<?php $this->SetURL('estudiante/formulario_inscripcion/i/'.$est['id_estudiante']);?>" class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-2 font-medium text-white transition hover:bg-opacity-90">Click para inscribir</a>
+                            <a href="<?php $this->SetURL('estudiante/formulario_inscripcion/i/'.$est['id_estudiante']);?>" class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-2 font-medium text-white transition hover:bg-opacity-90">Inscripción estudiante</a>
                           </p>
                           <?php }?>
                         </td>

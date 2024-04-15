@@ -195,15 +195,15 @@ if (isset($this->id_consulta)) {
                         <thead>
                           <tr class="bg-gray-2 text-left dark:bg-meta-4">
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                              Cedula del estudiante
+                              Matricula del estudiante
                             </th>
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                               Nombre del estudiante
                             </th>
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                               <div class="rounded-full">
-                                <button type="button" title="Anadir" v-show="grupo_est.length < 6" v-on:click="add()" class="bg-success p-2 text-white">+</button>
-                                <button type="button" v-show="grupo_est.length > 1" v-on:click="remo()" title="Eliminar" class="bg-danger p-2 text-white">-</button>
+                                <button type="button" title="Anadir" v-show="grupo_est.length < 6" v-on:click="add()" class="bg-success p-2 text-white">Añadir</button>
+                                <button type="button" v-show="grupo_est.length > 1" v-on:click="remo()" title="Eliminar" class="bg-danger p-2 text-white">Eliminar</button>
                               </div>
                             </th>
                           </tr>
@@ -214,7 +214,7 @@ if (isset($this->id_consulta)) {
                             <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                               <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
                                 <option value="">Seleccione una opcion</option>
-                                <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.cedula_usuario}}</option>
+                                <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
                               </select>
                             </td>
                             <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -264,7 +264,7 @@ if (isset($this->id_consulta)) {
             e.preventDefault();
             Toast.fire({
               icon: "error",
-              title: "Los grupos solo pueden estar conformados por minimo (2) integrantes"
+              title: "Los grupos solo pueden estar conformados por mínimo (2) integrantes"
             });
           }
           else e.submit();
@@ -401,7 +401,7 @@ if (isset($this->id_consulta)) {
           }, 100);
         },
         setTipoCarrera(nuevo) {
-          this.tipo_carrera = nuevo;
+          this.tipo_grupo = nuevo;
           var LenLista = this.grupo_est.length;
           for (let x = 0; x < LenLista; x++) {
             this.grupo_est.pop();
