@@ -116,14 +116,14 @@ if (isset($this->id_consulta)) {
                     </label>
                     <div class="relative">
 
-                      <input type="text" maxlength="45" autocomplete="off" placeholder="Ingrese su Nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="nombre_usuario" value="<?php echo $nombre; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="45" autocomplete="off" placeholder="Ingrese su nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="nombre_usuario" value="<?php echo $nombre; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Correo<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="email" maxlength="120" autocomplete="off" placeholder="Ingrese su Correo" name="correo_usuario" value="<?php echo $correo; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="email" maxlength="120" autocomplete="off" placeholder="Ingrese su correo electrónico" name="correo_usuario" value="<?php echo $correo; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
@@ -137,7 +137,7 @@ if (isset($this->id_consulta)) {
                   <div class="mb-6">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Número de Teléfono<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13" title="solo se admiten números" placeholder="Ingrese su Némero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13" title="solo se admiten números" placeholder="Ingrese su número de teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 

@@ -90,4 +90,11 @@ class cls_carrera extends cls_db
 		$results = $this->Query($sql);
 		return $this->Get_todos_array($results);
 	}
+
+	public function Get_carreras_exclusivas()
+	{
+		$sql = "SELECT * FROM carrera WHERE admite_grupos_mixtos = 0;";
+		$results = $this->Query($sql);
+		return $this->Get_todos_array($results);
+	}
 }

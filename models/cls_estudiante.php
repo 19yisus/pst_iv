@@ -50,7 +50,7 @@
 		}
 
 		public function Get_estudiantesPorTipoCarrera($tipo){
-			$sql = "SELECT estudiante.*,usuario.nombre_usuario FROM estudiante
+			$sql = "SELECT estudiante.*,usuario.nombre_usuario,carrera.* FROM estudiante
 				INNER JOIN usuario ON usuario.cedula_usuario = estudiante.cedula_usuario
 				INNER JOIN inscripcion ON inscripcion.id_estudiante = estudiante.id_estudiante
 				INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = inscripcion.id_ano_escolar

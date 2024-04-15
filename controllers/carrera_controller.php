@@ -21,6 +21,10 @@
 			case "Get_estudiantes_por_carrera":
 				fn_Estudians_por_Carrera();
 			break;
+
+			case "Get_exclusivas":
+				fn_GeT_Carreras_Exclusivas();
+			break;
 		}
 	}
 
@@ -52,4 +56,9 @@
 		// ESTA FUNCIONA UN POCO DIFERENTE, PORQUE AL FINAL, NO ESTOY HACIENDO NINGUNA REDIRECCION, ESTOY IMPRIMIENDO UNA RESPUSTA, DICHA RESPUESTA LA ESTOY RECIBIENDO CON JAVASCRIPT EN LA VISTA
 		print json_encode(["data" => $result]);
 	}
-?>
+
+	function fn_GeT_Carreras_Exclusivas(){
+		$models_c = new cls_carrera();
+		$result = $models_c->Get_carreras_exclusivas();
+		print json_encode(["data" => $result]);
+	}
