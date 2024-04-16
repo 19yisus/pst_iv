@@ -26,9 +26,6 @@
                 <thead>
                   <tr class="bg-gray-2 text-left dark:bg-meta-4">
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      ID
-                    </th>
-                    <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       Nombre del grupo
                     </th>
                     <th class="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
@@ -51,9 +48,6 @@
                     foreach($datos as $grup){
                       ?>
                       <tr>
-                        <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                          <h5 class="font-medium text-black dark:text-white"><?php echo $grup['id_grupo'];?></h5>
-                        </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <p class="text-black dark:text-white"><?php echo $grup['nombre_grupo'];?></p>
                         </td>

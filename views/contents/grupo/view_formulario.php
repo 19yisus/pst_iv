@@ -146,18 +146,18 @@ if (isset($this->id_consulta)) {
                           </label>
                           <div class="flex items-center space-x-2">
                             <div class="mr-3">
-                              <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                              <label for="checkActive" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" required id="checkboxLabelFour" class="" name="estado_grupo" value="1" <?php echo ($estado_grupo == '1') ? "checked" : ""; ?> />
+                                  <input type="radio" required id="checkActive" class="" name="estado_grupo" value="1" <?php echo ($estado_grupo == '1') ? "checked" : ""; ?> />
                                 </div>
                                 Activo
                               </label>
                             </div>
 
                             <div>
-                              <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                              <label for="checkInactive" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" required id="checkboxLabelFour" class="" name="estado_grupo" value="0" <?php echo ($estado_grupo == '0') ? "checked" : ""; ?> />
+                                  <input type="radio" required id="checkInactive" class="" name="estado_grupo" value="0" <?php echo ($estado_grupo == '0') ? "checked" : ""; ?> />
                                 </div>
                                 Inactivo
                               </label>
@@ -175,7 +175,7 @@ if (isset($this->id_consulta)) {
                                 <div class="relative">
                                   <input type="radio" @click="setTipoCarrera(1)" :checked="tipo_grupo == 1" required id="tipoCarrera1" class="" name="tipo_grupo" value="1" <?php //echo ($tipo_grupo == '1') ? "checked" : "";?> />
                                 </div>
-                                Carreras mixtas
+                                Mixtas
                               </label>
                             </div>
 
@@ -184,9 +184,28 @@ if (isset($this->id_consulta)) {
                                 <div class="relative">
                                   <input type="radio" @click="setTipoCarrera(0)" :checked="tipo_grupo == 0" required id="tipoCarrera2" class="" name="tipo_grupo" value="0" <?php //echo ($tipo_grupo == '0') ? "checked" : "";?> />
                                 </div>
-                                Carreras no mixtas
+                                No mixtas
                               </label>
                             </div>
+                          </div>
+                        </div>
+
+                        <div class="w-3/12" v-show="tipo_grupo == 0">  
+                          <label class="mb-3 block font-medium text-black dark:text-white">
+                            Seleccione carrera <span class="text-meta-1">*</span>
+                          </label>
+                          <div class="relative z-20 bg-white dark:bg-form-input">
+                            <select required v-model="id_carrera_filtro" name="id_pregunta_1" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
+                              <option value="">Seleccione una opcion</option>
+                              <option v-for="item in carreras">{{ item.nombre_carrera }}</option>
+                            </select>
+                            <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.8">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z" fill="#637381"></path>
+                                </g>
+                              </svg>
+                            </span>
                           </div>
                         </div>
 
@@ -195,15 +214,15 @@ if (isset($this->id_consulta)) {
                         <thead>
                           <tr class="bg-gray-2 text-left dark:bg-meta-4">
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                              Cedula del estudiante
+                              Matricula del estudiante
                             </th>
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                               Nombre del estudiante
                             </th>
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                               <div class="rounded-full">
-                                <button type="button" title="Anadir" v-show="grupo_est.length < 6" v-on:click="add()" class="bg-success p-2 text-white">+</button>
-                                <button type="button" v-show="grupo_est.length > 1" v-on:click="remo()" title="Eliminar" class="bg-danger p-2 text-white">-</button>
+                                <button type="button" title="Anadir" v-show="grupo_est.length < 6" v-on:click="add()" class="bg-success p-2 text-white">Añadir</button>
+                                <button type="button" v-show="grupo_est.length > 1" v-on:click="remo()" title="Eliminar" class="bg-danger p-2 text-white">Eliminar</button>
                               </div>
                             </th>
                           </tr>
@@ -214,7 +233,8 @@ if (isset($this->id_consulta)) {
                             <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                               <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
                                 <option value="">Seleccione una opcion</option>
-                                <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.cedula_usuario}}</option>
+                                <!-- <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option> -->
+                                <option v-for="est in estudiantes_filter" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
                               </select>
                             </td>
                             <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -256,6 +276,13 @@ if (isset($this->id_consulta)) {
           id_seccion: "",
           id_grupo: "",
           tipo_grupo: 1,
+          id_carrera_filtro: 0
+        }
+      },
+      computed:{
+        estudiantes_filter: function(){ 
+          if(this.id_carrera_filtro != 0) return this.estudiantes.filter( i => i.id_carrera == this.id_carrera_filtro) 
+          return this.estudiantes
         }
       },
       methods: {
@@ -264,7 +291,7 @@ if (isset($this->id_consulta)) {
             e.preventDefault();
             Toast.fire({
               icon: "error",
-              title: "Los grupos solo pueden estar conformados por minimo (2) integrantes"
+              title: "Los grupos solo pueden estar conformados por mínimo (2) integrantes"
             });
           }
           else e.submit();
@@ -319,13 +346,13 @@ if (isset($this->id_consulta)) {
             }).catch(error => console.error(error))
           return res;
         },
-        async consultar_secciones() {
-          await fetch(`<?php $this->SetURL('controllers/seccion_controller.php?ope=Get_secciones'); ?>`)
+        async consultar_carreras() {
+          await fetch(`<?php $this->SetURL('controllers/carrera_controller.php?ope=Get_exclusivas'); ?>`)
             .then(response => response.json())
             .then(result => {
 
-              if (result) this.secciones = result['data'];
-              else this.secciones = [];
+              if (result) this.carreras = result['data'];
+              else this.carreras = [];
             }).catch(error => console.error(error))
         },
         async consultar_estudiantes() {
@@ -401,7 +428,7 @@ if (isset($this->id_consulta)) {
           }, 100);
         },
         setTipoCarrera(nuevo) {
-          this.tipo_carrera = nuevo;
+          this.tipo_grupo = nuevo;
           var LenLista = this.grupo_est.length;
           for (let x = 0; x < LenLista; x++) {
             this.grupo_est.pop();
@@ -412,6 +439,7 @@ if (isset($this->id_consulta)) {
       mounted() {
         //this.consultar_secciones();
         this.consultar_estudiantes();
+        this.consultar_carreras();
       }
     }).mount("#app_vue");
 
