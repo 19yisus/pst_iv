@@ -61,13 +61,13 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Nombre de la Comunidad <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" maxlength="80" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" placeholder="" name="nombre_comunidad" value="<?php echo $nombre_comunidad;?>"
+                        <input type="text" required maxlength="80" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" placeholder="" name="nombre_comunidad" value="<?php echo $nombre_comunidad;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
 
                       <div class="w-full xl:w-2/6">
                         <label class="mb-2.5 block text-black dark:text-white">Tipo de Comunidad<span class="text-meta-1">*</span></label>
-                        <input type="text" maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder="" name="tipo_comunidad" value="<?php echo $tipo_comunidad;?>"
+                        <input type="text" required maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder="" name="tipo_comunidad" value="<?php echo $tipo_comunidad;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                   </div>
@@ -76,7 +76,7 @@
                       <label class="mb-2.5 block text-black dark:text-white">
                        Direcciòn de la comunidad <span class="text-meta-1">*</span>
                       </label>
-                      <textarea rows="6" maxlength="80" minlength="5" placeholder="Ingrese su Direccion" name="direccion_comunidad"
+                      <textarea rows="6" required maxlength="80" minlength="5" placeholder="Ingrese su Direccion" name="direccion_comunidad"
                         class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo $direccion_comunidad;?></textarea>
                     </div>
                     <div class="flex flex-row justify-center items-center">
