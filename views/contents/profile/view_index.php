@@ -101,7 +101,7 @@
 														class="text-meta-1">*</span></label>
 												<div class="relative">
 													<input type="text" required readonly="readonly" maxlength="8" autocomplete="off" title="solo se admiten numeros"
-														pattern="[0-9]{7,8}" placeholder="Ingrese su cedula" name="cedula_usuario"
+														pattern="[0-9]{7,8}" placeholder="Ingrese su cédula" name="cedula_usuario"
 														value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op=="Actualizar" ) ? "readonly"
 														: "" ; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10
 													outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark
@@ -142,11 +142,11 @@
 											</div>
 
 											<div class="mb-6">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Némero de teléfono<span
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Número de teléfono<span
 														class="text-meta-1">*</span></label>
 												<div class="relative">
 													<input type="text" id="telefono" required autocomplete="off" minmength="13" maxlength="13"
-														title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono"
+														title="solo se admiten numeros" placeholder="Ingrese su Número de Teléfono"
 														name="telefono_usuario" value="<?php echo $telefono; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
@@ -298,10 +298,9 @@
 												</div>
 											</div>
 											<div class="mb-6 col-span-2">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña <span
-														class="text-meta-1">*</span></label>
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña <span class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="password" onkeyup="validarPassword()" required autocomplete="off" minlength="8" maxlength="60" placeholder="Ingrese su clave"
+													<input type="password" onkeyup="validarPassword()" autocomplete="off" minlength="8" maxlength="60" placeholder="Ingrese su clave"
 														name="clave_usuario" id="clave_usuario" value=""
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 														<span class="absolute" style="right: 20px;bottom: 16px;" onclick="mostrarClave('clave_usuario',this)">
