@@ -90,7 +90,12 @@
         $this->ruta_actual = $nameView[0]."/".$this->file_view_name;
         $this->controlador = $nameView[0];
         require_once($file_view_path);
-      }else $this->NotFound404();
+      }else if($nameView[0] == "PUBLIC"){
+        var_dump($_GET['url']);
+        //require_once("./".$_GET['url']);
+      }else{
+        $this->NotFound404();  
+      }
     }
   }
   // y aqui se ejecutan todos los metodos de la clase APP

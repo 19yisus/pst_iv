@@ -48,9 +48,6 @@
                       Grupo
                     </th>
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      Carrera
-                    </th>
-                    <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       Lapso académico
                     </th>
                     <th class="min-w-[40px] py-4 px-4 font-medium text-black dark:text-white">
@@ -178,8 +175,14 @@
           },
           "columns": [
           { data: "id_proyecto" },{ data: "titulo_proyecto"},{ data: "nombre_comunidad"},
-          { data: "nombre_grupo"},{ data: "nombre_carrera"},{ data: "ano_escolar_nombre"},
-          { data: "estado_proyecto"},
+          { data: "nombre_grupo"},{ data: "ano_escolar_nombre"},
+          { 
+            data: "estado_proyecto",
+            defaultContent: "",
+            render(data){
+              return (data == 0) ? "En proceso" : "Aprobado";
+            }
+          },
           {
             defaultContent: "",
             render(data, type, row) {

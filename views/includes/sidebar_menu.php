@@ -190,6 +190,17 @@
 								</li>
 								<!-- Menu Item Calendar -->
 								<li>
+									<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+										href="<?php $this->SetURL('proyecto/');?>" @click="selected = (selected === 'proyecto' ? '':'proyecto')"
+										:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'proyecto') && (page === 'proyecto') }">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
+											<path d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+										</svg>
+										proyecto
+									</a>
+								</li>
+								<!-- Menu Item Calendar -->
+								<li>
 									<button type="button" onclick="document.getElementById('form_logout').submit()" class="group relative flex items-center gap-2.5  rounded-sm py-2 px-3 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 " href="calendar.html" @click="selected = (selected === 'logout' ? '':'logout')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'logout') && (page === 'logout') }">
 										<svg class="fill-current " width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M15.5375 0.618744H11.6531C10.7594 0.618744 10.0031 1.37499 10.0031 2.26874V4.64062C10.0031 5.05312 10.3469 5.39687 10.7594 5.39687C11.1719 5.39687 11.55 5.05312 11.55 4.64062V2.23437C11.55 2.16562 11.5844 2.13124 11.6531 2.13124H15.5375C16.3625 2.13124 17.0156 2.78437 17.0156 3.60937V18.3562C17.0156 19.1812 16.3625 19.8344 15.5375 19.8344H11.6531C11.5844 19.8344 11.55 19.8 11.55 19.7312V17.3594C11.55 16.9469 11.2062 16.6031 10.7594 16.6031C10.3125 16.6031 10.0031 16.9469 10.0031 17.3594V19.7312C10.0031 20.625 10.7594 21.3812 11.6531 21.3812H15.5375C17.2219 21.3812 18.5625 20.0062 18.5625 18.3562V3.64374C18.5625 1.95937 17.1875 0.618744 15.5375 0.618744Z" fill="" />
@@ -198,21 +209,6 @@
 										Cerrar sesion
 									</button>
 								</li>
-								<!-- Menu Item Calendar -->
-
-								<!-- Menu Item Calendar -->
-								<!-- Menu Item Calendar -->
-								<!-- <li>
-								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-									href="<?php //$this->SetURL('proyecto/');
-											?>" @click="selected = (selected === 'proyecto' ? '':'proyecto')"
-									:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'proyecto') && (page === 'proyecto') }">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
-										<path d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
-									</svg>
-									proyecto
-								</a>
-							</li> -->
 								<!-- Menu Item Calendar -->
 							<?php } ?>
 							<!-- Menu Item Calendar -->

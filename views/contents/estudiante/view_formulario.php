@@ -84,18 +84,18 @@ if (isset($this->id_consulta)) {
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Nacionalidad<span class="text-meta-1">*</span>:</label>
                     <div class="flex items-center space-x-4">
                       <div class="mr-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="radioVenezolano" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour1" required class="" name="nacionalidad_usuario" value="V" <?php if (isset($nacionalidad) && $nacionalidad == "V") echo "checked"; ?> />
+                            <input type="radio" id="radioVenezolano" required class="" name="nacionalidad_usuario" value="V" <?php if (isset($nacionalidad) && $nacionalidad == "V") echo "checked"; ?> />
                           </div>
                           Venezolano
                         </label>
                       </div>
 
                       <div class="ml-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="radioExtranjero" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour2" required class="" name="nacionalidad_usuario" value="E" <?php if (isset($nacionalidad) && $nacionalidad == "E") echo "checked"; ?> />
+                            <input type="radio" id="radioExtranjero" required class="" name="nacionalidad_usuario" value="E" <?php if (isset($nacionalidad) && $nacionalidad == "E") echo "checked"; ?> />
                           </div>
                           Extranjero
                         </label>
@@ -145,18 +145,18 @@ if (isset($this->id_consulta)) {
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Sexo<span class="text-meta-1">*</span>:</label>
                     <div class="flex items-center space-x-4">
                       <div class="mr-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="radioSexoF" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour1" required class="" name="genero_usuario" value="F" <?php if (isset($sexo) && $sexo == "F") echo "checked"; ?> />
+                            <input type="radio" id="radioSexoF" required class="" name="genero_usuario" value="F" <?php if (isset($sexo) && $sexo == "F") echo "checked"; ?> />
                           </div>
                           Femenino
                         </label>
                       </div>
 
                       <div class="ml-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="RadioSexoM" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour2" required class="" name="genero_usuario" value="M" <?php if (isset($sexo) && $sexo == "M") echo "checked"; ?> />
+                            <input type="radio" id="RadioSexoM" required class="" name="genero_usuario" value="M" <?php if (isset($sexo) && $sexo == "M") echo "checked"; ?> />
                           </div>
                           Masculino
                         </label>

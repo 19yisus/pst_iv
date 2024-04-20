@@ -26,9 +26,6 @@
                 <thead>
                   <tr class="bg-gray-2 text-left dark:bg-meta-4">
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      ID
-                    </th>
-                    <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       Nombre
                     </th>
                     <th class="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
@@ -48,9 +45,6 @@
                     foreach($datos as $com){
                       ?>
                       <tr>
-                        <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                          <h5 class="font-medium text-black dark:text-white"><?php echo $com['id_comunidad'];?></h5>
-                        </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <p class="text-black dark:text-white"><?php echo $com['nombre_comunidad'];?></p>
                         </td>

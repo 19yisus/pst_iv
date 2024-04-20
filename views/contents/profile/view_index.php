@@ -73,9 +73,9 @@
 														class="text-meta-1">*</span>:</label>
 												<div class="flex items-center space-x-4">
 													<div class="mr-3">
-														<label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+														<label for="checkRadioVenezolano" class="flex cursor-pointer select-none items-center">
 															<div class="relative">
-																<input type="radio" readonly="readonly" id="checkboxLabelFour1" required class=""
+																<input type="radio" readonly="readonly" id="checkRadioVenezolano" required class=""
 																	name="nacionalidad_usuario" value="V" <?php if (isset($nacionalidad) &&
 																	$nacionalidad=="V" ) echo "checked" ; ?> />
 															</div>
@@ -84,9 +84,9 @@
 													</div>
 
 													<div class="ml-3">
-														<label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+														<label for="checkRadioExtranjero" class="flex cursor-pointer select-none items-center">
 															<div class="relative">
-																<input type="radio" readonly="readonly" id="checkboxLabelFour2" required class=""
+																<input type="radio" readonly="readonly" id="checkRadioExtranjero" required class=""
 																	name="nacionalidad_usuario" value="E" <?php if (isset($nacionalidad) &&
 																	$nacionalidad=="E" ) echo "checked" ; ?> />
 															</div>
@@ -100,8 +100,8 @@
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Cédula<span
 														class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="text" readonly="readonly" maxlength="8" autocomplete="off" title="solo se admiten numeros"
-														pattern="[0-9]{7,8}" placeholder="Ingrese su cedula" name="cedula_usuario"
+													<input type="text" required readonly="readonly" maxlength="8" autocomplete="off" title="solo se admiten numeros"
+														pattern="[0-9]{7,8}" placeholder="Ingrese su cédula" name="cedula_usuario"
 														value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op=="Actualizar" ) ? "readonly"
 														: "" ; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10
 													outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark
@@ -115,7 +115,7 @@
 												</label>
 												<div class="relative">
 
-													<input type="text" maxlength="45" autocomplete="off" placeholder="Ingrese su Nombre"
+													<input type="text" required maxlength="45" autocomplete="off" placeholder="Ingrese su Nombre"
 														pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="nombre_usuario" value="<?php echo $nombre; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
@@ -125,7 +125,7 @@
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Correo<span
 														class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="email" maxlength="120" autocomplete="off" placeholder="Ingrese su Correo"
+													<input type="email" required maxlength="120" autocomplete="off" placeholder="Ingrese su Correo"
 														name="correo_usuario" value="<?php echo $correo; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
@@ -135,31 +135,30 @@
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Edad<span
 														class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="text" maxlength="2" autocomplete="off" placeholder="edad" pattern="[0-9]{1,2}"
+													<input type="text" required maxlength="2" autocomplete="off" placeholder="edad" pattern="[0-9]{1,2}"
 														title="solo se ingresan numeros" name="edad_usuario" value="<?php echo $edad; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
 											</div>
 
 											<div class="mb-6">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Numero de Teléfono<span
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Número de teléfono<span
 														class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13"
-														title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono"
+													<input type="text" id="telefono" required autocomplete="off" minmength="13" maxlength="13"
+														title="solo se admiten numeros" placeholder="Ingrese su Número de Teléfono"
 														name="telefono_usuario" value="<?php echo $telefono; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
 											</div>
 
 											<div class="mb-6">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Sexo<span
-														class="text-meta-1">*</span>:</label>
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Sexo<span class="text-meta-1">*</span>:</label>
 												<div class="flex items-center space-x-4">
 													<div class="mr-3">
-														<label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+														<label for="CheckRadioFemenino" class="flex cursor-pointer select-none items-center">
 															<div class="relative">
-																<input type="radio" id="checkboxLabelFour1" required class="" name="genero_usuario"
+																<input type="radio" id="CheckRadioFemenino" required class="" name="genero_usuario"
 																	value="F" <?php if (isset($sexo) && $sexo=="F" ) echo "checked" ; ?> />
 															</div>
 															Femenino
@@ -167,9 +166,9 @@
 													</div>
 
 													<div class="ml-3">
-														<label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+														<label for="CheckRadioMasculino" class="flex cursor-pointer select-none items-center">
 															<div class="relative">
-																<input type="radio" id="checkboxLabelFour2" required class="" name="genero_usuario"
+																<input type="radio" id="CheckRadioMasculino" required class="" name="genero_usuario"
 																	value="M" <?php if (isset($sexo) && $sexo=="M" ) echo "checked" ; ?> />
 															</div>
 															Masculino
@@ -219,7 +218,7 @@
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Primera respuesta de
 													seguridad</label>
 												<div class="relative">
-													<input type="text" maxlength="60" autocomplete="off"
+													<input type="text" maxlength="60" required minlength="4" autocomplete="off"
 														placeholder="Ingrese su respuesta de seguridad" name="respuesta_1" value="<?php echo $respuesta1; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
@@ -256,7 +255,7 @@
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Segunda respuesta de
 													seguridad</label>
 												<div class="relative">
-													<input type="text" maxlength="60" autocomplete="off"
+													<input type="text" required minlength="4" maxlength="60" autocomplete="off"
 														placeholder="Ingrese su respuesta de seguridad" name="respuesta_2"
 														value="<?php echo $respuesta2; ?>"
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
@@ -265,14 +264,14 @@
 											<div class="mb-6 col-span-1">
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Tercera pregunta de seguridad</label>
 												<div class="relative">
-													<input type="text" maxlength="60" autocomplete="off" placeholder="Ingrese su pregunta de seguridad" name="pregunta_3" value="<?php echo $pregunta3; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+													<input type="text" required minlength="4" maxlength="60" autocomplete="off" placeholder="Ingrese su pregunta de seguridad" name="pregunta_3" value="<?php echo $pregunta3; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
 											</div>
 
 											<div class="mb-6 col-span-2">
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Tercera respuesta de seguridad</label>
 												<div class="relative">
-													<input type="text" maxlength="60" autocomplete="off" placeholder="Ingrese su respuesta de seguridad" name="respuesta_3" value="<?php echo $respuesta3; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+													<input type="text" required minlength="4" maxlength="60" autocomplete="off" placeholder="Ingrese su respuesta de seguridad" name="respuesta_3" value="<?php echo $respuesta3; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
 											</div>
 											<div class="w-full">
@@ -299,10 +298,9 @@
 												</div>
 											</div>
 											<div class="mb-6 col-span-2">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña <span
-														class="text-meta-1">*</span></label>
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña <span class="text-meta-1">*</span></label>
 												<div class="relative">
-													<input type="password" onkeyup="validarPassword()" autocomplete="off" maxlength="60" placeholder="Ingrese su clave"
+													<input type="password" onkeyup="validarPassword()" autocomplete="off" minlength="8" maxlength="60" placeholder="Ingrese su clave"
 														name="clave_usuario" id="clave_usuario" value=""
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 														<span class="absolute" style="right: 20px;bottom: 16px;" onclick="mostrarClave('clave_usuario',this)">
