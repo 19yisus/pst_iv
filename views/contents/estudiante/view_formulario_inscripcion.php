@@ -249,11 +249,10 @@
                         </div> -->
                       </div>
                       <div class="w-full xl:w-4/6">
-                        <label class="mb-2.5 block text-black dark:text-white">
-                          Primer año escolar <span class="text-meta-1">*</span>
+                        <label class="mb-2.5 block text-black dark:text-white">Lapso académico de ingreso<span class="text-meta-1">*</span>
                         </label>
                         <div class="relative">
-                          <input type="text" minlength="4" maxlength="4" autocomplete="off" placeholder="Ingrese primer año escolar del estudiante" name="anio_escolar" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                          <input type="text" minlength="6" maxlength="6" autocomplete="off" placeholder="Ingrese primer año escolar del estudiante" name="anio_escolar" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         </div>
                       </div>
                       <div class="w-full xl:w-4/6">

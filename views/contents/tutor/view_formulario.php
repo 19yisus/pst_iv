@@ -272,19 +272,19 @@
                   <div class="mb-6">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Calle</label>
                     <div class="relative">
-                      <input type="text" id="calle_tutor" autocomplete="off" placeholder="Ingrese su Numero de Teléfono" name="calle_tutor" value="<?php echo $calle_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="calle_tutor" autocomplete="off" placeholder="Ingrese su dirrección de calle" name="calle_tutor" value="<?php echo $calle_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
                   <div class="mb-6">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Avenida</label>
                     <div class="relative">
-                      <input type="text" id="avenida_tutor" autocomplete="off" placeholder="Ingrese su Numero de Teléfono" name="avenida_tutor" value="<?php echo $avenida_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="avenida_tutor" autocomplete="off" placeholder="Ingrese su dirección de avenida" name="avenida_tutor" value="<?php echo $avenida_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
                   <div class="mb-6">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Sector</label>
                     <div class="relative">
-                      <input type="text" id="sector_tutor" autocomplete="off" placeholder="Ingrese su Numero de Teléfono" name="sector_tutor" value="<?php echo $sector_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="sector_tutor" autocomplete="off" placeholder="Ingrese su dirección de sector" name="sector_tutor" value="<?php echo $sector_tutor; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
                   <?php if ($op === "Actualizar" && $if_tutor === true) { ?>
