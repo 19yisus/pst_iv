@@ -24,9 +24,9 @@ class cls_documentos extends cls_db{
     public function setDatos($d){
         $this->id_documento=isset($d['id_documento']) ? $this->Clean(intval($d['id_documento'])) : null;
         $this->nombre_documento=isset($d['nombre_documento']) ? $this->Clean($d['nombre_documento']) : null;
-        $this->ruta_file_documento=isset($d['ruta_file_documento']) ? $this->Clean($d['ruta_file_documento']) : null;
+        $this->ruta_file_documento=isset($d['ruta_file_documento']) ? $d['ruta_file_documento'] : null;
         $this->categoria_id_documento=isset($d['categoria_id_documento']) ? $this->Clean($d['categoria_id_documento']) : null;
-        $this->extension_documento=isset($d['extension_documento']) ? $this->Clean($d['extension_documento']) : null;
+        $this->extension_documento=isset($d['extension_documento']) ? $d['extension_documento'] : null;
         $this->fecha_subida_documento=isset($d['fecha_subida_documento']) ? $this->Clean($d['fecha_subida_documento']) : null;
         $this->estatus_documento=isset($d['estatus_documento']) ? $this->Clean($d['estatus_documento']) : null;
     }

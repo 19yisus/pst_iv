@@ -59,6 +59,9 @@ function crearCarpeta($nombreCarpeta, $rutaDestino) {
             // Si la creación falla, mostrar un mensaje de error
             die('Error al crear la carpeta ' . $rutaCompleta);
         } else {
+			if (!chmod($rutaCompleta, 0755)) { // Cambiar a 0755
+                die('Error al cambiar los permisos de la carpeta ' . $rutaCompleta);
+            }
             echo 'Carpeta creada con éxito: ' . $rutaCompleta;
         }
     } else {
