@@ -50,8 +50,6 @@
       $id_municipio = $datos['id_municipio'];
       $id_parroquia = $datos['id_parroquia'];
 
-      // var_dump($id_estado);
-      // die("sdfdf");
       $id_tutor = $this->id_consulta;
 
       $lista_preguntas = $model->getListOfPreguntas();
@@ -101,6 +99,7 @@
                 <input type="hidden" name="permisos_usuario" value="2" readonly>
                 <input type="hidden" name="tipo_usuario" value="TUTOR" readonly>
                 <input type="hidden" name="return" value="tutor/index" readonly>
+                <input type="hidden" name="id_tutor" value="<?php echo $id_tutor; ?>">
 
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Cédula<span class="text-meta-1">*</span></label>
@@ -115,28 +114,28 @@
                     </label>
                     <div class="relative">
 
-                      <input type="text" maxlength="45" autocomplete="off" placeholder="Ingrese su Nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="nombre_usuario" value="<?php echo $nombre; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="45" required autocomplete="off" placeholder="Ingrese su Nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="nombre_usuario" value="<?php echo $nombre; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Correo<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="email" maxlength="120" autocomplete="off" placeholder="Ingrese su Correo" name="correo_usuario" value="<?php echo $correo; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="email" maxlength="120" required autocomplete="off" placeholder="Ingrese su Correo" name="correo_usuario" value="<?php echo $correo; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Edad<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" maxlength="2" autocomplete="off" placeholder="edad" pattern="[0-9]{1,2}" title="solo se ingresan numeros" name="edad_usuario" value="<?php echo $edad; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="2" autocomplete="off" required placeholder="edad" pattern="[0-9]{1,2}" title="solo se ingresan numeros" name="edad_usuario" value="<?php echo $edad; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-6">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Numero de Teléfono<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" id="telefono" autocomplete="off" minmength="13" maxlength="13" title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="telefono" autocomplete="off" required minmength="11" maxlength="11" title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
@@ -144,18 +143,18 @@
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Sexo<span class="text-meta-1">*</span>:</label>
                     <div class="flex items-center space-x-4">
                       <div class="mr-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="radioSexoF" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour1" required class="" name="genero_usuario" value="F" <?php if (isset($sexo) && $sexo == "F") echo "checked"; ?> />
+                            <input type="radio" id="radioSexoF" required class="" name="genero_usuario" value="F" <?php if (isset($sexo) && $sexo == "F") echo "checked"; ?> />
                           </div>
                           Femenino
                         </label>
                       </div>
 
                       <div class="ml-3">
-                        <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                        <label for="RadioSexoM" class="flex cursor-pointer select-none items-center">
                           <div class="relative">
-                            <input type="radio" id="checkboxLabelFour2" required class="" name="genero_usuario" value="M" <?php if (isset($sexo) && $sexo == "M") echo "checked"; ?> />
+                            <input type="radio" id="RadioSexoM" required class="" name="genero_usuario" value="M" <?php if (isset($sexo) && $sexo == "M") echo "checked"; ?> />
                           </div>
                           Masculino
                         </label>
@@ -163,9 +162,7 @@
                     </div>
                   </div>
                   <div class="w-full xl:w-4/6">
-                    <label class="mb-3 block font-medium text-black dark:text-white">
-                      Categoria Docente
-                    </label>
+                    <label class="mb-3 block font-medium text-black dark:text-white">Categoria Docente<span class="text-meta-1">*</span>:</label>
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="categoria_tutor"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
@@ -188,9 +185,7 @@
                   </div>
                   <!-- // SELECT DE TIPO DE PERSONAL: DOCENTE - ADMINISTRATIVO -->
                   <div class="w-full xl:w-4/6">
-                    <label class="mb-3 block font-medium text-black dark:text-white">
-                      Tipo de personal
-                    </label>
+                    <label class="mb-3 block font-medium text-black dark:text-white">Tipo de personal<span class="text-meta-1">*</span>:</label>
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="tipo_tutor"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
@@ -211,8 +206,7 @@
                   </div>
                   <div class="col-span-3"></div>
                   <div class="w-full xl:w-4/6">
-                    <label class="mb-3 block font-medium text-black dark:text-white">
-                      Estado<span class="text-meta-1">*</span>
+                    <label class="mb-3 block font-medium text-black dark:text-white">Estado<span class="text-meta-1">*</span>
                     </label>
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="id_estado" @change="getMunicipios" v-model="id_estado"

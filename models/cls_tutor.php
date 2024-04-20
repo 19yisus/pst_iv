@@ -24,14 +24,23 @@
 			$result = $this->Query($sqlConsulta);
 
 			if($result->num_rows > 0) return "err/02ERR";
-			$sql = "INSERT INTO tutor(cedula_usuario,tipo_tutor,categoria_tutor,parroquia_id_tutor,calle_tutor,avenida_tutor,sector_tutor) VALUES('$this->cedula_usuario','$this->tipo_tutor','$this->categoria_tutor',$this->parroquia_id_tutor,'$this->calle_tutor','$this->avenida_tutor','$this->sector_tutor');";
+			$sql = "INSERT INTO 
+				tutor(cedula_usuario,tipo_tutor,categoria_tutor,parroquia_id_tutor,calle_tutor,avenida_tutor,sector_tutor) VALUES('$this->cedula_usuario','$this->tipo_tutor','$this->categoria_tutor',$this->parroquia_id_tutor,'$this->calle_tutor','$this->avenida_tutor','$this->sector_tutor');";
 			$this->Query($sql);
 
 			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
 		}
 
 		public function update(){
-			$sql = "UPDATE tutor SET tipo_tutor = '$this->tipo_tutor', categoria_tutor = '$this->categoria_tutor', parroquia_id_tutor = $this->parroquia_id_tutor, calle_tutor = '$this->calle_tutor', avenida_tutor = '$this->avenida_tutor', sector_tutor = '$this->sector_tutor' WHERE id_tutor = $this->id_tutor ;";
+			$sql = "UPDATE tutor SET 
+				tipo_tutor = '$this->tipo_tutor', 
+				categoria_tutor = '$this->categoria_tutor', 
+				parroquia_id_tutor = $this->parroquia_id_tutor, 
+				calle_tutor = '$this->calle_tutor', 
+				avenida_tutor = '$this->avenida_tutor', 
+				sector_tutor = '$this->sector_tutor' 
+			WHERE id_tutor = $this->id_tutor ;";
+			
       $this->Query($sql);
 			return "msg/01DONE";
 		}
