@@ -245,7 +245,7 @@
               Swal.fire(
                 {
                   icon:"warning",
-                  text:"No campo nombre no puede estar vacío",
+                  text:"El nombre no puede estar vacío",
                   timer:3000,
                 }
               )

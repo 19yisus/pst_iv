@@ -25,7 +25,6 @@ if (isset($this->id_consulta)) {
     $estado_carrera = $datos['estado_carrera'];
     $turno_carrera = $datos['turno_carrera'];
     $admite_grupos_mixtos = $datos['admite_grupos_mixtos'];
-    var_dump($datos);
   }
 }
 
@@ -53,7 +52,7 @@ if (isset($this->id_consulta)) {
               <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                   <h3 class="font-semibold text-black dark:text-white">
-                    Gestión De Carrera (PREGADO)
+                    Gestión De Carrera (PREGRADO)
                   </h3>
                 </div>
                 <!-- ACA ESTA EL FOMULARIO, EL ACTION CONTIENE LA URL ESTATICA QUE APUNTA AL CONTROLADOR DE CARRERA, DICHO FORMULARIO CONTIENE PRIMERO 2 INPUTS DE TIPO HIDDEN (ESCONDIDO), UNO ES PARA DEFINIR QUE OPERACION VAMOS A REALIZAR OPE, Y EL OTRO CAMPO ES PARA METER EL ID DE LA CARRERA -->

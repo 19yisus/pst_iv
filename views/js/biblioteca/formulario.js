@@ -41,8 +41,8 @@ function guardar(event){
     }
     else{
         Swal.fire(
-            'Porfavor ajunte un archivo para poder continuar',
             '',
+            'Por favor, adjunte un archivo para poder continuar',
             'warning'
           )
     }

@@ -28,6 +28,8 @@
 		$respuesta2 = $data['respuesta_2'];
 		$pregunta3 = $data['pregunta_3'];
 		$respuesta3 = $data['respuesta_3'];
+
+		$caducidad = $data['dias_de_caducidad_clave'];
 	}
 
 ?>
@@ -281,9 +283,9 @@
 													<select required name="periodo_caducidad"
 														class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
 														<option value="">Seleccione una opcion</option>
-														<option value="30">30 Dias</option>
-														<option value="60">60 Dias</option>
-														<option value="120">120 Dias</option>
+														<option <?php if($caducidad == 30) echo "Selected"; ?> value="30">30 Dias</option>
+														<option <?php if($caducidad == 60) echo "Selected"; ?> value="60">60 Dias</option>
+														<option <?php if($caducidad == 120) echo "Selected"; ?> value="120">120 Dias</option>
 													</select>
 													<span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="none"

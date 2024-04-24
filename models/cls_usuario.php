@@ -71,7 +71,7 @@
 			
 			if($this->pregunta1 != null) $sql .= ", id_pregunta_1 = '$this->pregunta1', respuesta_1 = '$this->respuesta1' ";
 			if($this->pregunta2 != null) $sql .= ", id_pregunta_2 = '$this->pregunta2', respuesta_2 = '$this->respuesta2' ";
-			if($this->pregunta3 != null) $sql .= ", pregunta_3 = '$this->pregunta3' ";
+			if($this->pregunta3 != null) $sql .= ", pregunta_3 = '$this->pregunta3', respuesta_3 = '$this->respuesta3' ";
 			if($this->periodo_caducidad != null) $sql .= ", dias_de_caducidad_clave = $this->periodo_caducidad, fecha_de_caducidad_clave = '$this->fecha_de_caducidad_clave'";
 
 			$sql .= " WHERE cedula_usuario = '$this->cedula_usuario';";

@@ -26,9 +26,6 @@
                 <thead>
                   <tr class="bg-gray-2 text-left dark:bg-meta-4">
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      Id
-                    </th>
-                    <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       Descripcion
                     </th>
                     <th class="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
@@ -54,9 +51,6 @@
                     foreach($datos as $lap){
                       ?>
                       <tr>
-                        <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                          <h5 class="font-medium text-black dark:text-white"><?php echo $lap['id_ano_escolar'];?></h5>
-                        </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <p class="text-black dark:text-white"><?php echo $lap['ano_escolar_nombre'];?></p>
                         </td>
