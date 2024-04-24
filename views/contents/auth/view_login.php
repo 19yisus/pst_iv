@@ -83,7 +83,7 @@
 											<p class="font-medium">
 												<!-- <a href="<?php //$this->SetURL($this->controlador . "/registro_estudiante"); ?>" class="text-primary">Registro de Estudiante</a> o -->
 												<!-- <a href="<?php //$this->SetURL($this->controlador . "/registro_tutor"); ?>" class="text-primary">Registro de Docente</a> -->
-												<a href="<?php $this->SetURL($this->controlador . "/recuperar_clave"); ?>" class="text-primary">Click aquí para recupera tu clave de acceso</a>
+												<a href="<?php $this->SetURL($this->controlador . "/recuperar_clave"); ?>" class="text-primary">Recuperar acceso</a>
 											</p>
 										</div>
 									</form>
