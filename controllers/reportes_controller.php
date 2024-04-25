@@ -15,7 +15,7 @@
       $this->setFont('Arial', '', 9);
       $this->cell(190, 5, "Punto de CuentaN VAC-04 Punto de Cuenta al Consejo Universitario OrdinarionN 004-2017 de Fecha 12 de Julio del 2017",0,1,"C",0);
       $this->cell(190, 5, "Cargo: Vicerrector Academico",0,1,"C",0);
-      $this->Multicell(190, 5, "ASUNTO: SOLICITUD DE APROBACION DE LA 'REFORMA DEL REGLAMENTO DE SERVICIO COMUNITARIO DEL ESTUDIANTE DE LA UNIVERSIDAD NACIONAL EXPERIMENTAL POLITECNICA DE LA FUERZA ARMADA NACIONAL BOLIVARIANA (UNEFA)'");
+      $this->Multicell(190, 5, "ASUNTO: SOLICITUD DE APROBACION DE LA REFORMA DEL REGLAMENTO DE SERVICIO COMUNITARIO DEL ESTUDIANTE DE LA UNIVERSIDAD NACIONAL EXPERIMENTAL POLITECNICA DE LA FUERZA ARMADA NACIONAL BOLIVARIANA (UNEFA)");
     }
   }
   
@@ -42,7 +42,7 @@
     $pdf->cell(190, 5, "UNIDAD DE EXTENSION",0,1,"C",0);
     $pdf->ln(8);
     $pdf->cell(95, 5, "NUMERO DE CONTROL: ______________________",0,0,"L");
-    $pdf->cell(95, 5, "FECHA 00/00/0000",0,1,"R",0);
+    $pdf->cell(95, 5, "FECHA ____/_____/_______",0,1,"R",0);
     $pdf->ln(10);
     $pdf->cell(95, 5, "NUCLEO:______________________",0,0,"L");
     $pdf->cell(95, 5, "EMISION:_______________________",0,1,"R",0);
@@ -52,15 +52,15 @@
     $pdf->setFont('Arial', '', 9);
     $pdf->cell(190, 5, "1. Datos de los preestadores del servicio comunitario:",0,1,"C",0);
     $pdf->ln(5);
-    $pdf->setFont('Arial', '', 8);
-    $pdf->cell(5, 5, "N",1,0,"C");
-    $pdf->cell(40, 5, "APELLIDOS Y NOMBRES",1,0,"C");
+    $pdf->setFont('Arial', '', 7);
+    $pdf->cell(3, 5, "N",1,0,"C");
+    $pdf->cell(45, 5, "APELLIDOS Y NOMBRES",1,0,"C");
     $pdf->cell(16, 5, "CEDULA",1,0,"C");
     $pdf->cell(23, 5, "TELEFONO",1,0,"C");
     $pdf->cell(41, 5, "CORREO ELECTRONICO",1,0,"C");
     $pdf->cell(35, 5, "CARRERA",1,0,"C");
     $pdf->cell(11, 5, "TURNO",1,0,"C");
-    $pdf->cell(19, 5, "SEMESTRE",1,1,"C");
+    $pdf->cell(16, 5, "SEMESTRE",1,1,"C");
     $pdf->setFont('Arial', '', 7);
     for($i = 0; $i < 7; $i++){
       $nombre = (isset($d_estudiantes[$i]['nombre_usuario']) ? utf8_decode($d_estudiantes[$i]['nombre_usuario']) : '');
@@ -74,8 +74,8 @@
       if($turno == "D") $turno = "Diurno"; 
       if($turno == "N") $turno = "Nocturno";
 
-      $pdf->cell(5, 10, ($i+1),1,0,"C");
-      $pdf->cell(40, 10, utf8_decode($nombre),1,0,"C");
+      $pdf->cell(3, 10, ($i+1),1,0,"C");
+      $pdf->cell(45, 10, utf8_decode($nombre),1,0,"C");
       $pdf->cell(16, 10, utf8_decode($cedula),1,0,"C");
       $pdf->cell(23, 10, utf8_decode($telefono),1,0,"C");
       $pdf->cell(41, 10, utf8_decode($correo),1,0,"C");
@@ -83,7 +83,7 @@
       $pdf->cell(35, 10, utf8_decode($carrera),1,0,"C");
       $pdf->setFont('Arial', '', 7);
       $pdf->cell(11, 10, $turno,1,0,"C");
-      $pdf->cell(19, 10, $semestre,1,1,"C");
+      $pdf->cell(16, 10, $semestre,1,1,"C");
     }
     $pdf->ln(5);
     $pdf->setFont('Arial', '', 9);
@@ -106,16 +106,16 @@
     $pdf->setFont('Arial', '', 9);
     $pdf->cell(190, 5, "3. Datos del proyecto:",0,1,"L",0);
     $pdf->cell(190, 5, "3.1 Titulo del proyecto: ".utf8_decode($d_proyecto['titulo_proyecto']),0,1,"L",0);
-    $pdf->ln(10);
+    $pdf->ln(2);
   
     $pdf->addPage();
-    $pdf->ln(50);
+    $pdf->ln(10);
     $pdf->MultiCell(190, 5, "3.2 Planteamiento del proyecto: ".utf8_decode($d_proyecto['planteamiento_proyecto']).".");
-    $pdf->ln(20);
+    $pdf->ln(40);
     $pdf->MultiCell(190, 5, "3.3 Objetivo General del proyecto: ".utf8_decode($d_proyecto['objetivos_generales_proyecto']).".");
-    $pdf->ln(20);
+    $pdf->ln(50);
     $pdf->MultiCell(190, 5, "3.4 Objetivos Especificos del proyecto: ".utf8_decode($d_proyecto['objetivos_especificos_proyecto']).".");
-    $pdf->ln(70);
+    $pdf->ln(60);
     $pdf->cell(190, 5, "FIRMA",0,1,"C",0);
     $pdf->ln(10);
     $pdf->cell(190, 5, "__________________________________",0,1,"C",0);

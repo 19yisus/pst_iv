@@ -188,7 +188,8 @@
             render(data, type, row) {
               return `
                 <a class="text-primary" href="<?php $this->SetURL('proyecto/formulario/b/');?>${row['id_proyecto']}">Editar</a>
-                <a class="text-danger" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">PDF</a>`;
+                <a class="text-danger" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">PDF</a>
+                <a class="text-primary" href="<?php $this->SetURL('proyecto/formulario/e/');?>${row['id_proyecto']}">Evaluar</a>`;
             }
           }
           ],

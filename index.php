@@ -74,6 +74,7 @@
       if(sizeof($url) > 2 && $url[2] === "err") $this->code_error = $url[3];
       if(sizeof($url) > 2 && $url[2] === "msg") $this->code_done = $url[3];
       if(sizeof($url) > 2 && $url[2] === "b") $this->id_consulta = $url[3];
+      if(sizeof($url) > 2 && $url[2] === "e") $this->id_consulta = $url[3];
       if(sizeof($url) > 2 && $url[2] === "i") $this->id_consulta_estudiante = $url[3];
       return $url;
     }

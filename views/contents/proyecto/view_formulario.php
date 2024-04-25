@@ -52,6 +52,8 @@
     }
   }
 
+  if(strpos($_GET['url'], "/e/") != null) $op = "EVALUATE";
+    
 ?>
 <body
 	x-data="{ page: 'signin', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -102,7 +104,7 @@
                           Seleccione una comunidad <span class="text-meta-1">*</span>
                         </label>
                         <div class="relative z-20 bg-white dark:bg-form-input">
-                          <select required name="id_comunidad"
+                          <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_comunidad"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                             <option value="">Seleccione una opcion</option>
                             <?php foreach($comunidades as $comu){?>
@@ -125,7 +127,7 @@
                           Seleccione un grupo <span class="text-meta-1">*</span>
                         </label>
                         <div class="relative z-20 bg-white dark:bg-form-input">
-                          <select required name="id_grupo"
+                          <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_grupo"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                             <option value="">Seleccione una opcion</option>
                             <?php foreach($grupos as $grup){?>
@@ -148,7 +150,7 @@
                           Seleccione una Tutor <span class="text-meta-1">*</span>
                         </label>
                         <div class="relative z-20 bg-white dark:bg-form-input">
-                          <select required name="id_tutor"
+                          <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_tutor"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                             <option value="">Seleccione una opcion</option>
                             <?php foreach($tutores as $tut){?>
@@ -170,7 +172,7 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Titulo del proyecto <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" maxlength="255" minlength="4" required placeholder="" name="titulo_proyecto" value="<?php echo $titulo_proyecto;?>"
+                        <input <?php if($op == "EVALUATE") echo "disabled";?> type="text" maxlength="255" minlength="4" required placeholder="" name="titulo_proyecto" value="<?php echo $titulo_proyecto;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                       <!-- <div class="col-end-6">
@@ -186,7 +188,7 @@
                           Tipo de proyecto <span class="text-meta-1">*</span>
                         </label>
                         <div class="relative z-20 bg-white dark:bg-form-input">
-                          <select required name="tipo_proyecto"
+                          <select <?php if($op == "EVALUATE") echo "disabled";?> required name="tipo_proyecto"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                             <option value="">Seleccione una opcion</option>
                             <option <?php echo ($tipo_proyecto == "SOCIO-PRODUCTIVO") ? "selected" : "";?> value="SOCIO-PRODUCTIVO">Socio-productivo</option>
@@ -211,7 +213,7 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Planteamiento del proyecto <span class="text-meta-1">*</span>
                         </label>
-                        <textarea rows="6" maxlength="180" minlength="5" placeholder="Ingrese su texto" name="planteamiento_proyecto"
+                        <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="planteamiento_proyecto"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($planteamiento_proyecto) ? $planteamiento_proyecto : '');?></textarea>
                       </div>
                       <div class="col-span-3">
@@ -219,7 +221,7 @@
                           <label class="mb-2.5 block text-black dark:text-white">
                           Objetivos generales <span class="text-meta-1">*</span>
                           </label>
-                          <textarea rows="6" maxlength="180" minlength="5" placeholder="Ingrese su texto" name="objetivos_generales_proyecto"
+                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="objetivos_generales_proyecto"
                             class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($objetivos_generales_proyecto) ? $objetivos_generales_proyecto : '');?></textarea>
                         </div>
                       </div>
@@ -228,12 +230,12 @@
                           <label class="mb-2.5 block text-black dark:text-white">
                           Objetivos especificos <span class="text-meta-1">*</span>
                           </label>
-                          <textarea rows="6" maxlength="180" minlength="5" placeholder="Ingrese su texto" name="objetivos_especificos_proyecto"
+                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="objetivos_especificos_proyecto"
                             class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($objetivos_especificos_proyecto) ? $objetivos_especificos_proyecto : '');?></textarea>
                         </div>
                       </div>
                       <?php 
-                        if($_SESSION['permisos'] != 3){
+                        if($_SESSION['permisos'] != 3 && $op == "EVALUATE"){
                           ?>
                           <div class="w-full xl:w-2/6">
                             <label class="mb-2.5 block text-black dark:text-white">
