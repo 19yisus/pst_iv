@@ -49,7 +49,7 @@
                 class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                   <h3 class="font-semibold text-black dark:text-white text-center">
-                  Gestión de Comunidad 
+                  Registro de comunidad
                   </h3>
                 </div>
                 <form action="<?php $this->SetURL('controllers/comunidad_controller.php');?>" autocomplete="off" method="POST">
@@ -66,7 +66,7 @@
                       </div>
 
                       <div class="w-full xl:w-2/6">
-                        <label class="mb-2.5 block text-black dark:text-white">Tipo de Comunidad<span class="text-meta-1">*</span></label>
+                        <label class="mb-2.5 block text-black dark:text-white">Tipo de comunidad<span class="text-meta-1">*</span></label>
                         <input type="text" required maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder="" name="tipo_comunidad" value="<?php echo $tipo_comunidad;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
@@ -74,7 +74,7 @@
                   <div>
                     <div class="mb-6">
                       <label class="mb-2.5 block text-black dark:text-white">
-                       Direcciòn de la comunidad <span class="text-meta-1">*</span>
+                       Dirección de la comunidad <span class="text-meta-1">*</span>
                       </label>
                       <textarea rows="6" required maxlength="80" minlength="5" placeholder="Ingrese su Direccion" name="direccion_comunidad"
                         class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo $direccion_comunidad;?></textarea>

@@ -195,7 +195,7 @@
 												<div class="relative z-20 bg-white dark:bg-form-input">
 													<select required name="id_pregunta_1"
 														class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-														<option value="">Seleccione una opcion</option>
+														<option value="">Seleccione una opción</option>
 														<?php foreach ($lista_preguntas as $item) { ?>
 														<option value="<?php echo $item['id_pregunta']; ?>" <?php echo (isset($pregunta1) &&
 															$pregunta1===$item['id_pregunta']) ? "selected" : "" ; ?>>
@@ -233,7 +233,7 @@
 												<div class="relative z-20 bg-white dark:bg-form-input">
 													<select required name="id_pregunta_2"
 														class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-														<option value="">Seleccione una opcion</option>
+														<option value="">Seleccione una opción</option>
 														<?php foreach ($lista_preguntas as $item) { ?>
 														<option value="<?php echo $item['id_pregunta']; ?>" <?php echo (isset($pregunta2) &&
 															$pregunta2===$item['id_pregunta']) ? "selected" : "" ; ?>>
@@ -282,7 +282,7 @@
 												<div class="relative z-20 bg-white dark:bg-form-input">
 													<select required name="periodo_caducidad"
 														class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-														<option value="">Seleccione una opcion</option>
+														<option value="">Seleccione una opción</option>
 														<option <?php if($caducidad == 30) echo "Selected"; ?> value="30">30 Dias</option>
 														<option <?php if($caducidad == 60) echo "Selected"; ?> value="60">60 Dias</option>
 														<option <?php if($caducidad == 120) echo "Selected"; ?> value="120">120 Dias</option>

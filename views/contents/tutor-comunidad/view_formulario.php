@@ -58,7 +58,7 @@
                 class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                   <h3 class="font-semibold text-black dark:text-white">
-                  Gestión de Tutor comunitario
+                  Registro de tutor comunitario
                   </h3>
                 </div>
                 <form action="<?php $this->SetURL('controllers/tutor_comunidad_controller.php');?>" autocomplete="off" method="POST">
@@ -86,20 +86,20 @@
                     <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
                       <div class="w-full xl:w-4/6">
                         <label class="mb-2.5 block text-black dark:text-white">
-                          Telefono <span class="text-meta-1">*</span>
+                          Teléfono <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" minlength="13" maxlength="13" id="telefono" title="Solo de admiten numeros" required placeholder="Ingrese el numero de telefono" name="telefono_tutor" value="<?php echo $telefono_tutor;?>"
+                        <input type="text" minlength="13" maxlength="13" id="telefono" title="Solo de admiten números" required placeholder="Ingrese el número de teléfono" name="telefono_tutor" value="<?php echo $telefono_tutor;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                     </div>
                     <div class="mb-4.5">
                       <label class="mb-3 block font-medium text-black dark:text-white">
-                        Seleccione la comunidad representada  <span class="text-meta-1">*</span>
+                        Seleccione la comunidad representada <span class="text-meta-1">*</span>
                       </label>
                       <div class="relative z-20 bg-white dark:bg-form-input">
                         <select required name="id_comunidad"
                           class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                          <option value="">Seleccione una opcion</option>
+                          <option value="">Seleccione una opción</option>
                           <?php foreach($comu as $co){?>
                             <option <?php echo ($id_comunidad == $co['id_comunidad']) ? "selected" : "";?> value="<?php echo $co['id_comunidad'];?>">Comunidad: <?php echo $co['nombre_comunidad'];?></option>
                           <?php }?>
