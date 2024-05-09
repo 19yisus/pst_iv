@@ -34,7 +34,14 @@
 						
 			$this->Query($sql);
 
-			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'],
+					'table_name'=> "LAPSO_ACADEMICO",
+					'des' => "REGISTRO DE LAPSO ACADEMICO: $this->ano_escolar_nombre"
+				]);
+				return "msg/01DONE";
+			} else return "err/01ERR";
 		}
 
 		public function update(){
@@ -61,6 +68,11 @@
 				WHERE id_ano_escolar = $this->id_ano_escolar ;";
 
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "LAPSO_ACADEMICO",
+				'des' => "ACTUALIZACIÓN DE LAPSO ACADEMICO: $this->ano_escolar_nombre"
+			]);
 			return "msg/01DONE";
 		}
 

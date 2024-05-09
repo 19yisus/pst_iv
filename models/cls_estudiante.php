@@ -25,6 +25,11 @@
 			$res = $this->Query($sql);
 
 			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'], 
+					'table_name'=> "ESTUDIANTES", 
+					'des' => "REGISTRO DE ESTUDIANTE: ".$this->cedula_usuario
+				]);
 				$id = $this->Returning_id();
 				return "estudiante/formulario_inscripcion/i/$id";
 			}
@@ -38,7 +43,14 @@
 			$sql = "UPDATE estudiante SET matricula_estudiante = '$this->matricula_estudiante' WHERE id_estudiante = $this->id_estudiante ;";
 		
       $res = $this->Query($sql);
-			if($res->num_rows > 0) return "estudiante/index/msg/01DONE"; else return "estudiante/index/err/01ERR";
+			if($res->num_rows > 0){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'], 
+					'table_name'=> "ESTUDIANTES", 
+					'des' => "ACTUALIZACIÓN DE MATRICULA DEL ESTUDIANTE: ".$this->matricula_estudiante
+				]);
+				return "estudiante/index/msg/01DONE"; 
+			} else return "estudiante/index/err/01ERR";
 		}
 
 		public function Get_estudiantes($condicion = ''){

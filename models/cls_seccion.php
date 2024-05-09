@@ -27,8 +27,15 @@ class cls_seccion extends cls_db
 		$sql = "INSERT INTO seccion(numero_seccion,estado_seccion) VALUES('$this->numero_seccion','$this->estado_seccion');";
 		$this->Query($sql);
 
-		if ($this->Result_last_query()) return "msg/01DONE";
-		else return "err/01ERR";
+		if ($this->Result_last_query()){
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "SECCION",
+				'des' => "REGISTRO DE SECCION: $this->numero_seccion"
+			]);
+
+			return "msg/01DONE";
+		} else return "err/01ERR";
 	}
 
 	public function update()
@@ -38,12 +45,16 @@ class cls_seccion extends cls_db
 
 		// if($result->num_rows > 0) return "err/02ERR";
 		// numero_seccion = '$this->numero_seccion',
-		$sql = "UPDATE seccion SET 
-				
-				estado_seccion = '$this->estado_seccion'
-				WHERE id_seccion = $this->id_seccion ;";
+		$sql = "UPDATE seccion SET estado_seccion = '$this->estado_seccion' WHERE id_seccion = $this->id_seccion ;";
 
 		$this->Query($sql);
+		$estado = ($this->estado_seccion == 1) ? "ACTIVACIÓN" : "DESABILIDADO";
+
+		$this->reg_bitacora([
+			'user_id' => $_SESSION['cedula'],
+			'table_name'=> "SECCION",
+			'des' => "ACTUALIZACIÓN DE SECCION: $estado"
+		]);
 		return "msg/01DONE";
 	}
 

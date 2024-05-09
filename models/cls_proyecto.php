@@ -38,7 +38,15 @@
 
 			$this->Query($sql);
 
-			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'],
+					'table_name'=> "PROYECTO",
+					'des' => "REGISTRO DE PROYECTO: $this->titulo_proyecto"
+				]);
+
+				return "msg/01DONE";
+			} else return "err/01ERR";
 		}
 
 		public function update(){
@@ -68,6 +76,11 @@
 				WHERE id_proyecto = $this->id_proyecto ;";
 
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "PROYECTO",
+				'des' => "ACTUALIZACIÓN DE PROYECTO: $this->titulo_proyecto"
+			]);
 			return "msg/01DONE";
 		}
 

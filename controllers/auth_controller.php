@@ -24,17 +24,13 @@
     }
   }
 
-  // if(isset($_GET['ope'])){
-  //   switch($_GET['ope']){
-  //     case "Get_respuesta":
-  //       fn_Get_respuesta();
-  //     break;
-
-  //     case "Consultar_grupo":
-  //       fn_Consultar_grupo();
-  //     break;
-  //   }
-  // }
+  if(isset($_GET['ope'])){
+    switch($_GET['ope']){
+      case "Get_bitacora":
+        fn_bitacora_all();
+      break;
+    }
+  }
 
   function fn_Login(){
     $model = new cls_auth();    
@@ -77,6 +73,12 @@
   //   $result = $model->Get_Respuestas_to_preguntas($_GET['id']);
   //   print json_encode(["data" => $result]);
   // }
+
+  function fn_bitacora_all(){
+    $model = new cls_usuario();
+    $results = $model->Get_All_bitacora();
+    print json_encode(["data" => $results]);
+  }
 
   function fn_Cerrar(){
     session_start();

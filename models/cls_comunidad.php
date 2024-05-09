@@ -2,10 +2,10 @@
 	if(!class_exists("cls_db")) require_once("cls_db.php");
 
 	class cls_comunidad extends cls_db{
-		private $id_comunidad, $nombre_comunidad, $tipo_comunidad;
+		private $id_comunidad, $nombre_comunidad, $tipo_comunidad, $direccion_comunidad;
 			public function __construct(){
 			parent::__construct();
-			$this->id_comunidad = $this->nombre_comunidad = $this->tipo_comunidad = "";
+			$this->id_comunidad = $this->nombre_comunidad = $this->tipo_comunidad = $this->direccion_comunidad= "";
 		}
 
 		public function setDatos($d){
@@ -23,7 +23,14 @@
 			$sql = "INSERT INTO comunidad(nombre_comunidad,tipo_comunidad,direccion_comunidad) VALUES('$this->nombre_comunidad','$this->tipo_comunidad','$this->direccion_comunidad');";
 			$this->Query($sql);
 
-			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'], 
+					'table_name'=> "COMUNIDAD", 
+					'des' => "REGISTRO DE COMUNIDAD: ".$this->nombre_comunidad
+				]);
+				return "msg/01DONE"; 
+			} else return "err/01ERR";
 		}
 
 		public function update(){
@@ -39,6 +46,11 @@
 				WHERE id_comunidad = $this->id_comunidad ;";
 
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "COMUNIDAD", 
+				'des' => "ACTUALIZACIÓN DE COMUNIDAD: ".$this->nombre_comunidad
+			]);
 			return "msg/01DONE";
 		}
 

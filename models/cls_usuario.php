@@ -54,7 +54,14 @@
 			$sql = str_ireplace("''","null",$sql);
 						
 			$this->Query($sql);
-			if($this->Result_last_query()) return true; else return false;
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'],
+					'table_name'=> "USUARIOS",
+					'des' => "REGISTRO DE USUARIO: $this->cedula_usuario. NOMBRE: $this->nombre_usuario"
+				]);
+				return true; 
+			} else return false;
 		}
 
 		public function update(){
@@ -78,6 +85,11 @@
 
 		
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "USUARIOS",
+				'des' => "ACTUALIZACIÓN DE USUARIO: $this->cedula_usuario. NOMBRE: $this->nombre_usuario"
+			]);
 			return "msg/01DONE";
 		}
 
@@ -87,5 +99,11 @@
 			clave_usuario = '$pass',
 			estatus_usuario = '1' WHERE cedula_usuario = '$this->cedula_usuario';";
 			$this->Query($sql);
+		}
+
+		public function Get_All_bitacora(){
+			$sql = "SELECT * FROM bitacora INNER JOIN usuario ON usuario.cedula_usuario = bitacora.id_usuario ";
+			$results = $this->query($sql);
+			return $this->Get_todos_array($results);
 		}
 	}

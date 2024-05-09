@@ -50,6 +50,11 @@ class cls_auth extends cls_db
             if ($results->num_rows > 0) {
               $_SESSION['update_required'] = true;
               $d = $this->Get_array($results)['id_estudiante'];
+              $this->reg_bitacora([
+                'user_id' => $_SESSION['cedula'],
+                'table_name'=> "USUARIOS",
+                'des' => "NUEVO INICIO DE SESION: ".$datos['nombre_usuario']." - USUARIO DE TIPO ESTUDIANTE"
+              ]);
               return [true, 'msg/01AUTH', "estudiante/formulario/b/$d/"];
             }
           }
@@ -59,13 +64,25 @@ class cls_auth extends cls_db
             if ($results->num_rows > 0) {
               $_SESSION['update_required'] = true;
               $d = $this->Get_array($results)['id_tutor'];
+              $this->reg_bitacora([
+                'user_id' => $_SESSION['cedula'],
+                'table_name'=> "USUARIOS",
+                'des' => "NUEVO INICIO DE SESION: ".$datos['nombre_usuario']." - USUARIO DE TIPO TUTOR"
+              ]);
               return [true, 'msg/01AUTH', "tutor/formulario/b/$d/"];
             }
           }
 
           $_SESSION['update_required'] = false;
           return [true, 'msg/01AUTH', "inicio/index/"];
-        } else return [true, 'msg/01AUTH', "inicio/index/"];
+        } else{
+          $this->reg_bitacora([
+            'user_id' => $_SESSION['cedula'], 
+            'table_name'=> "USUARIOS", 
+            'des' => "NUEVO INICIO DE SESION: ".$datos['nombre_usuario']." - USUARIO DE TIPO ".$datos['tipo_usuario']
+          ]);
+          return [true, 'msg/01AUTH', "inicio/index/"];
+        }
       }
       // if($datos['id_rol'] != 1) $this->intentos($datos['id_user']);
       return [false, 'err/07AUTH', "auth/login/"];
@@ -115,6 +132,11 @@ class cls_auth extends cls_db
     $sql = "UPDATE usuario SET clave_usuario = '$clave_usuario' WHERE cedula_usuario = '$cedula';";
 
     $result = $this->Query($sql);
+    $this->reg_bitacora([
+      'user_id' => $_SESSION['cedula'], 
+      'table_name'=> "USUARIOS", 
+      'des' => "ACTUALIZACIÓN DE CONTRASEÑA"
+    ]);
     return true;
   }
 }

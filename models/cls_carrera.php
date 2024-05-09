@@ -38,7 +38,14 @@ class cls_carrera extends cls_db
 		// EL METODO QUERY VIENE DE CLS_DB, PERO COMO ESTAMOS EN UNA CLASE HIJA, SE PUEDE USAR AQUI
 		$this->Query($sql);
 		// Y ESTO VERIFICA QUE SE EJECUTO BIEN LA CONSULTA
-		if ($this->Result_last_query()) return "msg/01DONE";
+		if ($this->Result_last_query()){
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "CARRERA",
+				'des' => "REGISTRO DE CARRERA: $this->nombre_carrera, TURNO: $this->turno_carrera"
+			]);
+			return "msg/01DONE";
+		} 
 		else return "err/01ERR";
 	}
 	// MISMO PROCESO, PARA NO DUPLICAR NADA
@@ -62,6 +69,11 @@ class cls_carrera extends cls_db
 				WHERE id_carrera = $this->id_carrera ;";
 
 		$this->Query($sql);
+		$this->reg_bitacora([
+			'user_id' => $_SESSION['cedula'],
+			'table_name'=> "CARRERA",
+			'des' => "ACTUALIZACIÓN DE CARRERA: $this->nombre_carrera, TURNO: $this->turno_carrera"
+		]);
 		return "msg/01DONE";
 	}
 	// AQUI OBTENGO TODAS LAS CARRERAS

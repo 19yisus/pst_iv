@@ -31,13 +31,22 @@
         if($result->num_rows > 0) return "err/02ERR";
 
         $this->Start_transacction();
-
         $sql = "INSERT INTO inscripcion(id_carrera,id_seccion,id_estudiante,id_ano_escolar,des_semestre) 
         VALUES('$this->id_carrera','$this->id_seccion','$this->id_estudiante','$this->id_ano_escolar','$this->des_semestre');";
         if(!$this->Query($sql)){
 					$this->Rollback();
 					return "err/01ERR"; 
 				}
+
+				$carr = $this->consultaCarrera($this->id_carrera);
+				$est = $this->consultaEstudiante($this->id_estudiante);
+				$turno = ($this->turno == "D") ? "DIURNO"  : "NOCTURNO";
+
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'], 
+					'table_name'=> "INSCRIPCIÓN", 
+					'des' => "INSCRIPCIÓN DE UN ESTUDIANTE: ".$est['nombre_usuario']." EN LA CARRERA: ".$carr['nombre_carrera']." EN EL TURNO: ".$turno
+				]);
 
 				// $sqlCon = "SELECT * FROM estudiante WHERE id_estudiante = '$this->id_estudiante' AND turno_estudiante <> '$this->turno';";
 				// $result2 = $this->Query($sqlCon);
@@ -51,6 +60,19 @@
       }catch (Exception $e) {
         die("AH OCURRIDO UN ERROR: " . $e->getMessage());
       }
+		}
+
+		public function consultaCarrera($id)
+		{
+			$sql = "SELECT * FROM carrera WHERE id_carrera = '$id';";
+			$results = $this->Query($sql);
+			return $this->Get_array($results);
+		}
+
+		public function consultaEstudiante($id){
+			$sql = "SELECT * FROM estudiante INNER JOIN usuario ON usuario.cedula_usuario = estudiante.cedula_usuario WHERE estudiante.id_estudiante = $id;";
+			$results = $this->Query($sql);
+			return $this->Get_array($results);
 		}
 
 		public function verificarMatricula(){

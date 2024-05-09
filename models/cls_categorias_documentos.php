@@ -40,34 +40,55 @@ class cls_categorias_documentos extends cls_db{
         return $this->Get_array($results);
     }
 
-    public function create(){
-        $SQL="INSERT INTO categorias_documentos(
-            des_categoria,
-            estatus_categoria
-        )
-        VALUES(
-            '$this->des_categoria',
-            '$this->estatus_categoria'
-        );";
-        $this->Query($SQL);
-        if($this->Result_last_query()) return ['code' => 200, 'mensaje' => 'Categoria registrada']; else return ['code' => 400, 'mensaje' => 'Categoria no registrada'];
-    }
-    
-    public function update(){
-        $SQL="UPDATE categorias_documentos SET 
-            des_categoria='$this->des_categoria',
-            estatus_categoria='$this->estatus_categoria'
-        WHERE
-            id_categoria=$this->id_categoria; ";
-        $this->Query($SQL);
-        if($this->Result_last_query()) return ['code' => 200, 'mensaje' => 'Categoria actualizada']; else return ['code' => 400, 'mensaje' => 'Categoria no actualizada'];
-    }
+	public function create(){
+		$SQL="INSERT INTO categorias_documentos(
+			des_categoria,
+			estatus_categoria
+		)
+		VALUES(
+			'$this->des_categoria',
+			'$this->estatus_categoria'
+		);";
+		$this->Query($SQL);
+		if($this->Result_last_query()){
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "CATEGORIAS_DOCUMENTOS", 
+				'des' => "REGISTRO DE NUEVA CATEGORIA: ".$this->des_categoria
+			]);
+			return ['code' => 200, 'mensaje' => 'Categoria registrada']; 
+		} else return ['code' => 400, 'mensaje' => 'Categoria no registrada'];
+	}
+	
+	public function update(){
+		$SQL="UPDATE categorias_documentos SET 
+			des_categoria='$this->des_categoria',
+			estatus_categoria='$this->estatus_categoria'
+		WHERE id_categoria=$this->id_categoria; ";
+		$this->Query($SQL);
+		if($this->Result_last_query()){
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "CATEGORIAS_DOCUMENTOS", 
+				'des' => "ACTUALIZACIÓN DE CATEGORIA: ".$this->des_categoria
+			]);
+			return ['code' => 200, 'mensaje' => 'Categoria actualizada']; 
+		} else return ['code' => 400, 'mensaje' => 'Categoria no actualizada'];
+	}
 
-    public function eliminar(){
-        $SQL="DELETE FROM categorias_documentos WHERE id_categoria=$this->id_categoria;";
-        $this->Query($SQL);
-        if($this->Result_last_query()) return ['code' => 200, 'mensaje' => 'Categoria eliminada']; else return ['code' => 400, 'mensaje' => 'la categoria no pudo ser eliminada'];
-    }
+	public function eliminar(){
+		$data = $this->consultarPorId();
+		$SQL="DELETE FROM categorias_documentos WHERE id_categoria=$this->id_categoria;";
+		$this->Query($SQL);
+		if($this->Result_last_query()){
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "CATEGORIAS_DOCUMENTOS", 
+				'des' => "ELIMINACIÓN DE CATEGORIA: ".$data['des_categoria']
+			]);
+			return ['code' => 200, 'mensaje' => 'Categoria eliminada']; 
+		} else return ['code' => 400, 'mensaje' => 'la categoria no pudo ser eliminada'];
+	}
 
 }
 

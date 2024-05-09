@@ -28,7 +28,14 @@
 				tutor(cedula_usuario,tipo_tutor,categoria_tutor,parroquia_id_tutor,calle_tutor,avenida_tutor,sector_tutor) VALUES('$this->cedula_usuario','$this->tipo_tutor','$this->categoria_tutor',$this->parroquia_id_tutor,'$this->calle_tutor','$this->avenida_tutor','$this->sector_tutor');";
 			$this->Query($sql);
 
-			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'],
+					'table_name'=> "TUTOR",
+					'des' => "REGISTRO DE TUTOR ACADÉMICO: $this->cedula_usuario"
+				]);
+				return "msg/01DONE"; 
+			} else return "err/01ERR";
 		}
 
 		public function update(){
@@ -42,6 +49,11 @@
 			WHERE id_tutor = $this->id_tutor ;";
 			
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "TUTOR",
+				'des' => "ACTUALIZACIÓN DE TUTOR ACADÉMICO: $this->cedula_usuario"
+			]);
 			return "msg/01DONE";
 		}
 

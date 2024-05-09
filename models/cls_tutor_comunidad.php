@@ -25,7 +25,14 @@
 			// die($sql);
 			$this->Query($sql);
 
-			if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+			if($this->Result_last_query()){
+				$this->reg_bitacora([
+					'user_id' => $_SESSION['cedula'],
+					'table_name'=> "TUTOR_COMUNIDAD",
+					'des' => "REGISTRO DE TUTOR COMUNITARIO: $this->nombre_tutor_comunidad"
+				]);
+				return "msg/01DONE"; 
+			} else return "err/01ERR";
 		}
 
 		public function update(){
@@ -41,6 +48,11 @@
 				WHERE id_tutor = $this->id_tutor ;";
 
       $this->Query($sql);
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "TUTOR_COMUNIDAD",
+				'des' => "ACTUALIZACIÓN DE TUTOR COMUNITARIO: $this->nombre_tutor_comunidad"
+			]);
 			return "msg/01DONE";
 		}
 

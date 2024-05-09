@@ -113,6 +113,16 @@
 				return $variable;
 			}
 
+			protected function reg_bitacora($datos_array){
+				$descripcion = $datos_array['des'];
+				$id_user = $datos_array['user_id'];
+				$table_name = $datos_array['table_name'];
+				
+				$sql = "INSERT INTO bitacora(descripcion, tabla_change, hora_fecha, id_usuario)
+						VALUES('$descripcion','$table_name',NOW(),$id_user)";
+				$this->Query($sql);
+			}
+
 			public function getListOfPreguntas(){
 				$sql = "SELECT * FROM preguntas_seguridad";
 				$results = $this->Query($sql);

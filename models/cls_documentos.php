@@ -50,7 +50,14 @@ class cls_documentos extends cls_db{
         );
         ";
         $this->Query($SQL);
-        if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+        if($this->Result_last_query()){
+            $this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "DOCUMENTOS", 
+				'des' => "REGISTRO DE DOCUMENTO: ".$this->nombre_documento
+			]);
+            return "msg/01DONE";
+        } else return "err/01ERR";
     }
 
     public function consultarTodo(){
@@ -62,13 +69,21 @@ class cls_documentos extends cls_db{
     public function consultar(){
         $SQL="SELECT * FROM documentos WHERE id_documento=$this->id_documento;";
         $results = $this->Query($SQL);
-        return $this->Get_todos_array($results);
+        return $this->Get_array($results);
     }
 
     public function eliminar(){
+        $d = $this->consultar();
         $SQL="DELETE FROM documentos WHERE id_documento=$this->id_documento;";
         $this->Query($SQL);
-        if($this->Result_last_query()) return "msg/01DONE"; else return "err/01ERR";
+        if($this->Result_last_query()){
+            $this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'], 
+				'table_name'=> "DOCUMENTOS", 
+				'des' => "ELIMINACIÓN DE DOCUMENTO: ".$d['nombre_documento']
+			]);
+            return "msg/01DONE"; 
+        } else return "err/01ERR";
     }
 
 }
