@@ -10,34 +10,131 @@ if(isset($_POST['ope'])){
             crearActividad();
         break;
             
-        case "Actualizar":
-            print("Actualizar");
+        case "actualizarActividad":
+            actualizarActividad();
+        break;
+        case "consultarUnaActividadDelProyecto":
+            consultarUnaActividadDelProyecto();
+        break;
+        case "consultarActividadesDelProyectoPorFecha":
+            consultarActividadesDelProyectoPorFecha();
+        break;
+        case "consultarTodasLasActvidadesDelProyecto":
+            consultarTodasLasActvidadesDelProyecto();
+        break;
+        case "eliminarAsistenciaDeUnaActividad":
+            eliminarAsistenciaDeUnaActividad();
+        break;
+        case "eliminarActividad":
+            eliminarActividad();
+        break;
+        case "crearAsistenciaHaUnaActividad":
+            crearAsistenciaHaUnaActividad();
         break;
     }
 }
 
 function crearActividad(){
+    // $actividad_proyecto=$_POST['actividad_proyecto'];
     $actividad_proyecto=json_decode($_POST['actividad_proyecto']);
     $asistencia_estudiantes=json_decode($_POST['asistencia_estudiantes']);
     
     $actividadModelo=new cls_actividad();
     $actividadModelo->setDatos($actividad_proyecto);
+    $id_actividad=$actividadModelo->create();
 
-    print(json_encode(["msj" => "hola"]));
+    $idsAsistencias=[];
+
+    for ($index=0; $index < count($asistencia_estudiantes); $index++) { 
+        # code...
+        $asistencia=$asistencia_estudiantes[$index];
+        $asistencia->id_actividad=$id_actividad;
+        $asistenciaActividadModelo=new cls_asistencia_actividad();
+        $id_asistencia_actividad=$asistenciaActividadModelo->setDatos($asistencia);
+        // $consulta=$asistenciaActividadModelo->consultarAsistenciaEstudiante();
+        // if(count($consulta)==0){
+        //     $id_asistencia_actividad=$asistenciaActividadModelo->create();
+        //     $idsAsistencias[]=$id_asistencia_actividad;
+        // }
+        $id_asistencia_actividad=$asistenciaActividadModelo->create();
+        $idsAsistencias[]=$id_asistencia_actividad;
+    }
+
+
+
+    print(json_encode(["msj" => $idsAsistencias]));
 }
 
-function actualizarActividad(){}
+function actualizarActividad(){
 
-function eliminarActividad(){}
+    $actividad_proyecto=json_decode($_POST['actividad_proyecto']);
+    $actividadModelo=new cls_actividad();
+    $actividadModelo->setDatos($actividad_proyecto);
+    $id_actividad=$actividadModelo->actualizarActividad();
+    
+    print(json_encode(["msj" => $id_actividad]));
+}
 
-function crearAsistenciaHaUnaActividad(){}
+function eliminarActividad(){
+    $data= new stdClass();
+    $data->id_actividad=$_POST["id_actividad"];
+    $actividadModelo=new cls_actividad();
+    $actividadModelo->setDatos($data);
+    $respuestaConsulta=$actividadModelo->eliminarActividad();
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
 
-function eliminarAsistenciaDeUnaActividad(){}
+function crearAsistenciaHaUnaActividad(){
 
-function consultarTodasLasActvidadesDelProyecto(){}
+    $asistencia_estudiantes=json_decode($_POST["asistencia_estudiantes"]);
+    $asistenciaActividadModelo=new cls_asistencia_actividad();
+    $asistenciaActividadModelo->setDatos($asistencia_estudiantes);
+    $consulta=$asistenciaActividadModelo->consultarAsistenciaEstudiante();
+    $respuestaConsulta=null;
+    if(count($consulta)==0){
+        $respuestaConsulta=$asistenciaActividadModelo->create();
+    }
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
 
-function consultarUnaActividadDelProyecto(){}
+function eliminarAsistenciaDeUnaActividad(){
+    $data= new stdClass();
+    $data->id_actividad=$_POST["id_actividad"];
+    $data->id_asistencia_actividad=$_POST["id_asistencia_actividad"];
+    $asistenciaActividadModelo=new cls_asistencia_actividad();
+    $asistenciaActividadModelo->setDatos($data);
+    $respuestaConsulta=$asistenciaActividadModelo->eliminarAsistenciaDeUnaActividad();
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
 
-function consultarActividadesDelProyectoPorFecha(){}
+function consultarTodasLasActvidadesDelProyecto(){
+    $data= new stdClass();
+    $data->id_proyecto=$_POST["id_proyecto"];
+    $actividadModelo=new cls_actividad();
+    $actividadModelo->setDatos($data);
+    $respuestaConsulta=$actividadModelo->consultarTodasLasActvidadesDelProyecto();
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
 
+function consultarUnaActividadDelProyecto(){
+    $data= new stdClass();
+    $data->id_proyecto=$_POST["id_proyecto"];
+    $data->id_actividad=$_POST["id_actividad"];
+    $actividadModelo=new cls_actividad();
+    $actividadModelo->setDatos($data);
+    $respuestaConsulta=$actividadModelo->consultarUnaActividadDelProyecto();
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
+
+function consultarActividadesDelProyectoPorFecha(){
+    $data= new stdClass();
+    $data->fecha_actividad=$_POST["fecha_actividad"];
+    $data->id_proyecto=$_POST["id_proyecto"];
+    $actividadModelo=new cls_actividad();
+    $actividadModelo->setDatos($data);
+    $respuestaConsulta=$actividadModelo->consultarActividadesDelProyectoPorFecha();
+    print(json_encode(["msj" => $respuestaConsulta]));
+}
+
+?>
 

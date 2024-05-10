@@ -17,13 +17,13 @@ class cls_asistencia_actividad extends cls_db {
     }
 
     public function setDatos($datos){
-        $this->id_asistencia_actividad=isset($datos['id_asistencia_actividad']) ? $this->Clean(intval($datos['id_asistencia_actividad'])) : null;
-        $this->id_actividad=isset($datos['id_actividad']) ? $this->Clean(intval($datos['id_actividad'])) : null;
-        $this->id_estudiante=isset($datos['id_estudiante']) ? $this->Clean(intval($datos['id_estudiante'])) : null;
+        $this->id_asistencia_actividad=isset($datos->id_asistencia_actividad) ? $this->Clean(intval($datos->id_asistencia_actividad)) : null;
+        $this->id_actividad=isset($datos->id_actividad) ? $this->Clean(intval($datos->id_actividad)) : null;
+        $this->id_estudiante=isset($datos->id_estudiante) ? $this->Clean(intval($datos->id_estudiante)) : null;
     }
 
     public function create(){
-        $sqlConsulta = "SELECT * FROM actividad WHERE id_actividad = '$this->id_actividad' AND estado_proyecto = '1'";
+        $sqlConsulta = "SELECT * FROM actividad WHERE id_actividad = $this->id_actividad";
         $result = $this->Query($sqlConsulta);
 
         if($result->num_rows < 0) return "err/02ERR";
@@ -51,16 +51,25 @@ class cls_asistencia_actividad extends cls_db {
             //     $this->Rollback();
             //     return "err/01ERR";
             // }
+            return $id;
         }
         catch (Exception $e) {
             die("AH OCURRIDO UN ERROR: " . $e->getMessage());
         }		
     }
 
+    function consultarAsistenciaEstudiante(){
+        $sqlConsulta = "SELECT * FROM asistencia_actividad  WHERE id_estudiante = $this->id_estudiante AND id_actividad = $this->id_actividad";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
+
     function eliminarAsistenciaDeUnaActividad(){
-        $sqlConsulta = "DELETE FROM asistencia_actividad WHERE id_asistencia_actividad = $this->id_asistencia_actividad";
+        $sqlConsulta = "DELETE FROM asistencia_actividad WHERE id_asistencia_actividad = $this->id_asistencia_actividad AND id_actividad = $this->id_actividad";
         $result = $this->Query($sqlConsulta);
         return $result;
     }
 
 }
+
+?>
