@@ -27,7 +27,7 @@
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
         <?php 
-          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión Proyecto"]);
+          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión de proyectos"]);
         ?>
           <!-- ====== Table Three Start -->
           <div class="rounded-sm border border-stroke bg-white px-5 mb-2 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -35,9 +35,9 @@
               <table class="w-full table-auto overflow-x-auto my-2" id="tabla">
                 <thead>
                   <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                    <th class="min-w-[20px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+                    <!-- <th class="min-w-[20px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       ID
-                    </th>
+                    </th> -->
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                       Titulo
                     </th>
@@ -174,7 +174,8 @@
             "dataSrc": "data"
           },
           "columns": [
-          { data: "id_proyecto" },{ data: "titulo_proyecto"},{ data: "nombre_comunidad"},
+          // { data: "id_proyecto" },
+          { data: "titulo_proyecto"},{ data: "nombre_comunidad"},
           { data: "nombre_grupo"},{ data: "ano_escolar_nombre"},
           { 
             data: "estado_proyecto",

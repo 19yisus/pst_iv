@@ -106,7 +106,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_comunidad"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($comunidades as $comu){?>
                               <option <?php echo ($id_comunidad == $comu['id_comunidad']) ? "selected" : "";?> value="<?php echo $comu['id_comunidad'];?>"><?php echo $comu['nombre_comunidad'];?></option>
                             <?php }?>
@@ -129,7 +129,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_grupo"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($grupos as $grup){?>
                               <option <?php echo ($id_grupo == $grup['id_grupo']) ? "selected" : "";?> value="<?php echo $grup['id_grupo'];?>"><?php echo $grup['nombre_grupo'];?></option>
                             <?php }?>
@@ -152,7 +152,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select <?php if($op == "EVALUATE") echo "disabled";?> required name="id_tutor"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($tutores as $tut){?>
                               <option <?php echo ($id_tutor == $tut['id_tutor']) ? "selected" : "";?> value="<?php echo $tut['id_tutor'];?>"><?php echo $tut['cedula_usuario']." ".$tut['nombre_usuario'];?></option>
                             <?php }?>
@@ -190,7 +190,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select <?php if($op == "EVALUATE") echo "disabled";?> required name="tipo_proyecto"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <option <?php echo ($tipo_proyecto == "SOCIO-PRODUCTIVO") ? "selected" : "";?> value="SOCIO-PRODUCTIVO">Socio-productivo</option>
                             <option <?php echo ($tipo_proyecto == "SOCIO-COMUNITARIO") ? "selected" : "";?> value="SOCIO-COMUNITARIO">Socio-comunitario</option>
                             <option <?php echo ($tipo_proyecto == "AMBIENTAL") ? "selected" : "";?> value="AMBIENTAL">Ambiental</option>

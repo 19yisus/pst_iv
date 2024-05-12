@@ -66,7 +66,9 @@
 
 		$model_e->setDatos($_POST);
 		$mensaje = $model_e->Update();
+		
 
+		if($_SESSION['cedula'] == $_POST['cedula_usuario']) $mensaje = "estudiante/formulario/msg/10DONE"; 
 		header("Location: ".constant("URL"). $mensaje);	
 	}
 

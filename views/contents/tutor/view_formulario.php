@@ -88,7 +88,7 @@
 					<div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
 						<div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
 							<h3 class="font-semibold text-black dark:text-white">
-              Gestión de Tutor
+              Registro de tutor académico
 							</h3>
 						</div>
             <form action="<?php $this->SetURL("controllers/tutor_controller.php");?>" method="POST" autocomplete="off" class="flex flex-wrap items-center" id="app_vue">
@@ -104,7 +104,7 @@
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Cédula<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" maxlength="8" autocomplete="off" title="solo se admiten numeros" pattern="[0-9]{7,8}" placeholder="Ingrese su cedula" name="cedula_usuario" value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op == "Actualizar") ? "readonly" : ""; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="8" autocomplete="off" title="solo se admiten numeros" pattern="[0-9]{7,8}" placeholder="Ingrese su cédula" name="cedula_usuario" value="<?php echo $cedula; ?>" <?php echo (isset($op) && $op == "Actualizar") ? "readonly" : ""; ?> class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
@@ -128,14 +128,14 @@
                   <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Edad<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" maxlength="2" autocomplete="off" required placeholder="edad" pattern="[0-9]{1,2}" title="solo se ingresan numeros" name="edad_usuario" value="<?php echo $edad; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" maxlength="2" autocomplete="off" required placeholder="Edad" pattern="[0-9]{1,2}" title="solo se ingresan numeros" name="edad_usuario" value="<?php echo $edad; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
                   <div class="mb-6">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">Numero de Teléfono<span class="text-meta-1">*</span></label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">Número de Teléfono<span class="text-meta-1">*</span></label>
                     <div class="relative">
-                      <input type="text" id="telefono" autocomplete="off" required minmength="11" maxlength="11" title="solo se admiten numeros" placeholder="Ingrese su Numero de Teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                      <input type="text" id="telefono" autocomplete="off" required minmength="11" maxlength="11" title="solo se admiten números" placeholder="Ingrese su número de teléfono" name="telefono_usuario" value="<?php echo $telefono; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div>
 
@@ -166,7 +166,7 @@
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="categoria_tutor"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         <option <?php echo ($categoria == 'DXCL') ? "selected" : "";?> value="DXCL">Dedicación exclusiva</option>
                         <option <?php echo ($categoria == 'TC') ? "selected" : "";?> value="TC">Tiempo completo</option>
                         <option <?php echo ($categoria == 'MT') ? "selected" : "";?> value="MT">Medio tiempo</option>
@@ -189,7 +189,7 @@
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="tipo_tutor"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         <option <?php echo ($tipo_tutor == 'DOCENTE') ? "selected" : "";?> value="DOCENTE">Docente</option>
                         <option <?php echo ($tipo_tutor == 'ADMINISTRATIVO') ? "selected" : "";?> value="ADMINISTRATIVO">Administrativo</option>
                       </select>
@@ -211,7 +211,7 @@
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="id_estado" @change="getMunicipios" v-model="id_estado"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         <?php foreach($estados as $item){?>
                           <option <?php echo ($id_estado == $item['id_estado']) ? "selected" : "";?> value="<?php echo $item['id_estado'];?>"><?php echo $item['estado'];?></option>
                         <?php }?>
@@ -234,7 +234,7 @@
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="id_municipio" @change="getParroquias" v-model="id_municipio"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         <option v-for="item in municipios" :value="item.id_municipio">{{item.municipio}}</option>
                       </select>
                       <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -255,7 +255,7 @@
                     <div class="relative z-20 bg-white dark:bg-form-input">
                       <select required name="id_parroquia" v-model="id_parroquia"
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         <option v-for="item in parroquias" :value="item.id_parroquia">{{item.parroquia}}</option>
                       </select>
                       <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -294,7 +294,7 @@
                       </label>
                       <div class="relative z-20 bg-white dark:bg-form-input">
                         <select required name="id_pregunta_1" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                          <option value="">Seleccione una opcion</option>
+                          <option value="">Seleccione una opción</option>
                           <?php foreach ($lista_preguntas as $item) { ?>
                             <option value="<?php echo $item['id_pregunta']; ?>" <?php echo (isset($pregunta1) && $pregunta1 === $item['id_pregunta']) ? "selected" : ""; ?>><?php echo $item['des_pregunta']; ?></option>
                           <?php } ?>
@@ -322,7 +322,7 @@
                       </label>
                       <div class="relative z-20 bg-white dark:bg-form-input">
                         <select required name="id_pregunta_1" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                          <option value="">Seleccione una opcion</option>
+                          <option value="">Seleccione una opción</option>
                           <?php foreach ($lista_preguntas as $item) { ?>
                             <option value="<?php echo $item['id_pregunta']; ?>" <?php echo (isset($pregunta2) && $pregunta2 === $item['id_pregunta']) ? "selected" : ""; ?>><?php echo $item['des_pregunta']; ?></option>
                           <?php } ?>

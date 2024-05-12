@@ -47,7 +47,7 @@
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
         <?php 
-          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión Lapso Académico"]);
+          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión lapso académico"]);
         ?>
           <!-- ====== Form Layout Section Start -->   
           <div class="grid grid-cols-1 gap-9 sm:grid-cols-1">
@@ -57,7 +57,7 @@
                 class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                   <h3 class="font-semibold text-black dark:text-white">
-                  Gestión de Lapso Académico
+                  Registro de lapso académico
                   </h3>
                 </div>
                 <form id="app_vue" action="<?php $this->SetURL('controllers/lapso_academico_controller.php');?>" autocomplete="off" method="POST">

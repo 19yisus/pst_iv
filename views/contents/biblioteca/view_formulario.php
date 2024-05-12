@@ -75,12 +75,12 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Nombre <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" maxlength="45" minlength="5" required placeholder="Ingresa el nombre del documento" name="nombre_documento" value="<?php print($nombre_documento);?>"
+                        <input type="text" maxlength="2" minlength="5" required placeholder="Ingresa el nombre del documento" name="nombre_documento" value="<?php print($nombre_documento);?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                       <div class="w-full xl:w-2/6">
                         <label class="mb-3 block font-medium text-black dark:text-white">
-                          Categoria <span class="text-meta-1"></span>
+                          CategorÍa <span class="text-meta-1"></span>
                         </label>
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="categoria_id_documento" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
@@ -127,7 +127,7 @@
                   </div>
                     <div class="w-full xl:w-2/6 relative mb-5">
                       <div class="flex justify-center items-center" style="height: 100px;border: 5px #1a222c dashed;">
-                          <div class=" absolute z-10" id="textoInputFiles">Abjuntar Pdf</div>
+                          <div class=" absolute z-10" id="textoInputFiles">ADJUNTAR PDF</div>
                       </div>
                       <input class=" absolute z-99 top-1 w-full h-full opacity-0" type="file" name="archivoPdf" id="archivoPdf" draggable="draggable" onchange="mensajeCargarDeArchivo()" accept=".pdf">
                     </div>

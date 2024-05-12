@@ -72,7 +72,7 @@ if (isset($_POST['op'])) {
                   <!-- Contact Form -->
                   <div class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                     <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                      <h3 class="font-semibold text-black dark:text-white text-center">
+                      <h3 class="font-semibold text-black text-2xl dark:text-white text-center">
                         <!-- Consultar datos del usuario -->
                         Recuperación de clave de acceso
                       </h3>
@@ -83,7 +83,7 @@ if (isset($_POST['op'])) {
                         <div class="mb-4.5 flex justify-center items-center">
                           <div class="w-1/2 xl:w-2/6">
                             <label class="mb-2.5 block text-black dark:text-white">
-                              Ingrese la cédula del usuario para poder continuar con el proceso<span class="ml-4 text-meta-1 ">*</span>
+                              Ingrese la cédula de identidad<span class="ml-4 text-meta-1 ">*</span>
                             </label>
                             <input type="text" placeholder="" name="cedula_usuario" pattern="[0-9]{7,8}" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                           </div>
@@ -91,7 +91,7 @@ if (isset($_POST['op'])) {
 
                         <div id="abrir" class="flex flex-row justify-center items-center mb-6 ">
                           <button type="submit" class=" flex w-72 flex-col justify-center items-center rounded bg-primary p-3 font-medium text-gray cursor-pointer">
-                            <label class="" for="btn">Enviar</label>
+                            <label class="" for="btn">Siguiente</label>
                           </button>
                         </div>
                       </div>
@@ -112,7 +112,7 @@ if (isset($_POST['op'])) {
                   <div class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                     <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                       <h3 class="font-semibold text-black dark:text-white text-center">
-                        Preguntas de Seguridad
+                        Responde tus preguntas de seguridad
                       </h3>
                     </div>
                     <form action="#" method="POST" class="" autocomplete="off">
@@ -120,30 +120,30 @@ if (isset($_POST['op'])) {
                       <input type="hidden" name="cedula_usuario" value="<?php echo $cedula_usuario; ?>">
                       <div class="p-6.5">
                         <div class="mb-6">
-                          <label class="mb-2.5 block font-medium text-black dark:text-white"><?php echo $pregunta1; ?>?</label>
+                          <label class="mb-2.5 block font-medium text-black dark:text-white">¿<?php echo $pregunta1; ?>?</label>
                           <div class="relative">
-                            <input type="text" placeholder="Ingrese Respuesta de Seguridad" name="respuesta_1" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                            <input type="text" placeholder="Ingrese Respuesta" name="respuesta_1" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                           </div>
                         </div>
 
                         <div class="mb-6">
-                          <label class="mb-2.5 block font-medium text-black dark:text-white"><?php echo $pregunta2; ?>?</label>
+                          <label class="mb-2.5 block font-medium text-black dark:text-white">¿<?php echo $pregunta2; ?>?</label>
                           <div class="relative">
-                            <input type="text" placeholder="Ingrese Respuesta de Seguridad" name="respuesta_2" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                            <input type="text" placeholder="Ingrese Respuesta" name="respuesta_2" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                           </div>
                         </div>
 
                         <div class="mb-6">
-                          <label class="mb-2.5 block font-medium text-black dark:text-white"><?php echo $pregunta3; ?>?</label>
+                          <label class="mb-2.5 block font-medium text-black dark:text-white">¿<?php echo $pregunta3; ?>?</label>
                           <div class="relative">
-                            <input type="text" placeholder="Ingrese Respuesta de Seguridad" name="respuesta_3" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                            <input type="text" placeholder="Ingrese Respuesta" name="respuesta_3" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                           </div>
                         </div>
 
                       </div>
                       <div class="flex flex-row justify-center items-center mb-6">
                         <button type="submit" class=" flex w-72 flex-col justify-center items-center rounded bg-primary p-3 font-medium text-gray cursor-pointer">
-                          <label class="" for="btn">Enviar</label>
+                          <label class="" for="btn">Siguiente</label>
                         </button>
                       </div>
                   </div>
@@ -164,7 +164,7 @@ if (isset($_POST['op'])) {
                   <div class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                     <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                       <h3 class="font-semibold text-black dark:text-white text-center">
-                        Actualicacion de Clave de acceso
+                        Ingresa tu nueva clave de contraseña
                       </h3>
                     </div>
                     <form action="#" method="POST" class="" autocomplete="off">
@@ -173,7 +173,7 @@ if (isset($_POST['op'])) {
                         <div class="mb-4.5 flex justify-center items-center">
                           <div class="m-4 w-full xl:w-2/6">
                             <label class="mb-2.5 block text-black dark:text-white">
-                              Cedula del Usuario<span class="ml-4 text-meta-1 ">*</span>
+                              Cédula del Usuario<span class="ml-4 text-meta-1 ">*</span>
                             </label>
                             <input type="text" placeholder="" readonly value="<?php echo $cedula_usuario; ?>" name="cedula_usuario" class=" w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                             <span class="absolute" style="right: 20px;bottom: 14px;" onclick="mostrarClave('pass_user',this)">

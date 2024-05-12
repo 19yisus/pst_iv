@@ -17,7 +17,7 @@
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
         <?php 
-          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión Tutor"]);
+          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Gestión de tutor académico"]);
         ?>
           <!-- ====== Table Three Start -->
           <div class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -32,10 +32,10 @@
                       Nombre
                     </th>
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      Telefono 
+                      Teléfono 
                     </th>
                     <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                      Tipo Tutor 
+                      Tipo tutor 
                     </th>
                     <th class="py-4 px-4 font-medium text-black dark:text-white">
                       Opciones

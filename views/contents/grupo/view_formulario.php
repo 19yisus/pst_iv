@@ -62,7 +62,7 @@ if (isset($this->id_consulta)) {
               <div id="app_vue" class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
                   <h3 class="font-semibold text-black dark:text-white">
-                    Gestión de Grupo
+                    Registro de grupo
                   </h3>
                 </div>
                 <form action="<?php $this->SetURL('controllers/grupo_controller.php'); ?>" v-on:submit="arreglo_grupo_est" autocomplete="off" method="POST">
@@ -86,7 +86,7 @@ if (isset($this->id_consulta)) {
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required id="sel_id_carrera" name="id_carrera" v-model="id_carrera" 
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php //foreach($carreras as $carr){
                             ?>
                               <option 
@@ -118,7 +118,7 @@ if (isset($this->id_consulta)) {
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required id="sel_id_seccion" name="id_seccion" v-model="id_seccion"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <option v-for="sec in secciones" :key="sec.id_seccion" :value="sec.id_seccion">{{ sec.numero_seccion}}</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -196,7 +196,7 @@ if (isset($this->id_consulta)) {
                           </label>
                           <div class="relative z-20 bg-white dark:bg-form-input">
                             <select required v-model="id_carrera_filtro" name="id_pregunta_1" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                              <option value="">Seleccione una opcion</option>
+                              <option value="">Seleccione una opción</option>
                               <option v-for="item in carreras" :value="item.id_carrera">{{ item.nombre_carrera }}</option>
                             </select>
                             <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -214,7 +214,7 @@ if (isset($this->id_consulta)) {
                         <thead>
                           <tr class="bg-gray-2 text-left dark:bg-meta-4">
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                              Matricula del estudiante
+                              Matrícula del estudiante
                             </th>
                             <th class="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                               Nombre del estudiante
@@ -232,7 +232,7 @@ if (isset($this->id_consulta)) {
                           <tr v-for="(d,index) in grupo_est">
                             <td class="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                               <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
-                                <option value="">Seleccione una opcion</option>
+                                <option value="">Seleccione una opción</option>
                                 <!-- <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option> -->
                                 <option v-for="est in estudiantes_filter" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
                               </select>

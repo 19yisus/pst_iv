@@ -118,7 +118,7 @@
   <div class="relative z-20 bg-white dark:bg-form-input">
     <select required name="categoria_tutor"
       class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-      <option value="">Seleccione una opcion</option>
+      <option value="">Seleccione una opción</option>
       <option <?php echo ($categoria == 'DXCL') ? "selected" : "";?> value="DXCL">Dedicación exclusiva</option>
       <option <?php echo ($categoria == 'TC') ? "selected" : "";?> value="TC">Tiempo completo</option>
       <option <?php echo ($categoria == 'MT') ? "selected" : "";?> value="MT">Medio tiempo</option>
@@ -144,7 +144,7 @@
   <div class="relative z-20 bg-white dark:bg-form-input">
     <select required name="tipo_tutor"
       class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-      <option value="">Seleccione una opcion</option>
+      <option value="">Seleccione una opción</option>
       <option <?php echo ($tipo_tutor == 'DOCENTE') ? "selected" : "";?> value="DOCENTE">Docente</option>
       <option <?php echo ($tipo_tutor == 'ADMINISTRATIVO') ? "selected" : "";?> value="ADMINISTRATIVO">Administrativo</option>
     </select>
