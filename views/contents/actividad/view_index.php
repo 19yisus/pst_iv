@@ -25,8 +25,19 @@ $datosDelProyecto=$cls_actividad->consultarProyecto($_GET["id_proyecto"])[0];
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
         <?php 
-          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Actividades del Proyecto: ".$datosDelProyecto["titulo_proyecto"]]);
+          // $this->GetComplement('breadcrumb',['title_breadcrumb' => "Actividades del Proyecto: ".$datosDelProyecto["titulo_proyecto"]]);
         ?>
+        <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 class="text-title-md2 font-bold text-black dark:text-white">
+            <?php echo" Actividades del Proyecto: ".$datosDelProyecto["titulo_proyecto"];?>
+          </h2>
+          <nav>
+            <ol class="flex items-center gap-2">
+              <li><a class="font-medium text-capitalize" href="<?php $this->SetURL();?>"><?php echo $this->controlador;?> /</a></li>
+              <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/formulario?id_proyecto=".$_GET["id_proyecto"]."&ope=Registrar");?>">Registrar</a></li>
+            </ol>
+          </nav>
+        </div>
         <?php
 
         ?>

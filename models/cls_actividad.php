@@ -111,6 +111,15 @@ class cls_actividad extends cls_db {
         return $this->Get_todos_array($results);
     }
 
+    function consultarEstudiantesGrupo($id_grupo){
+        $sqlConsulta = "SELECT * FROM grupo_alumno 
+        INNER JOIN estudiante ON  grupo_alumno.id_alumno=estudiante.id_estudiante
+        INNER JOIN usuario ON  estudiante.cedula_usuario=usuario.cedula_usuario
+        where grupo_alumno.id_grupo=$id_grupo ;";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
+
 }
 
 ?>
