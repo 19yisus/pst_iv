@@ -80,9 +80,15 @@ class cls_actividad extends cls_db {
         $result = $this->Query($sqlConsulta);
         return $result;
     }
+
+    function consultarTodasLasActvidadesDelProyectoSinAsistencias(){
+        $sqlConsulta = "SELECT * FROM actividad where id_proyecto=$this->id_proyecto ORDER BY fecha_actividad ;";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
     
     function consultarTodasLasActvidadesDelProyecto(){
-        $sqlConsulta = "SELECT * FROM actividad INNER JOIN asistencia_actividad ON asistencia_actividad.id_actividad=actividad.id_actividad where actividad.id_proyecto=$this->id_proyecto ;";
+        $sqlConsulta = "SELECT * FROM actividad INNER JOIN asistencia_actividad ON asistencia_actividad.id_actividad=actividad.id_actividad where actividad.id_proyecto=$this->id_proyecto ORDER BY actividad.fecha_actividad ;";
         $results = $this->Query($sqlConsulta);
         return $this->Get_todos_array($results);
     }
@@ -95,6 +101,12 @@ class cls_actividad extends cls_db {
 
     function consultarActividadesDelProyectoPorFecha(){
         $sqlConsulta = "SELECT * FROM actividad INNER JOIN asistencia_actividad ON asistencia_actividad.id_actividad=actividad.id_actividad where actividad.fecha_actividad='$this->fecha_actividad' AND actividad.id_proyecto=$this->id_proyecto ;";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
+
+    function consultarProyecto($id_proyecto){
+        $sqlConsulta = "SELECT * FROM proyecto where id_proyecto=$id_proyecto ;";
         $results = $this->Query($sqlConsulta);
         return $this->Get_todos_array($results);
     }

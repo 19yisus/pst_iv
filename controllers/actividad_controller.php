@@ -34,6 +34,23 @@ if(isset($_POST['ope'])){
     }
 }
 
+if(isset($_GET['ope'])){
+    switch($_GET['ope']){
+        case "eliminarActividad":
+            eliminarActividad();
+        break;
+
+        case "Registrar":
+            formulario();
+        break;
+
+    }
+}
+
+function formulario(){
+    header("Location: ".constant("URL")."/actividad/formulario?id_proyecto=".$_GET['id_proyecto']);	
+}
+
 function crearActividad(){
     // $actividad_proyecto=$_POST['actividad_proyecto'];
     $actividad_proyecto=json_decode($_POST['actividad_proyecto']);
@@ -77,11 +94,12 @@ function actualizarActividad(){
 
 function eliminarActividad(){
     $data= new stdClass();
-    $data->id_actividad=$_POST["id_actividad"];
+    $data->id_actividad=$_GET["id_actividad"];
     $actividadModelo=new cls_actividad();
     $actividadModelo->setDatos($data);
     $respuestaConsulta=$actividadModelo->eliminarActividad();
-    print(json_encode(["msj" => $respuestaConsulta]));
+    // print(json_encode(["msj" => $respuestaConsulta]));
+    header("Location: ".constant("URL")."actividad/index?id_proyecto=".$_GET['id_proyecto']);	
 }
 
 function crearAsistenciaHaUnaActividad(){
