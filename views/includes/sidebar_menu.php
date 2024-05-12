@@ -66,6 +66,7 @@
 								</div>
 							</li> -->
 							<!-- Menu Item Dashboard -->
+							<?php if ($_SESSION['update_required'] === false){?>
 							<li>
 								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="<?php $this->SetURL('biblioteca/'); ?>" @click="selected = (selected === 'Biblioteca' ? '':'Biblioteca')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Biblioteca') && (page === 'Biblioteca') }">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
@@ -75,6 +76,7 @@
 								</a>
 							</li>
 							<?php
+							}
 							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false) { ?>
 								<!-- Menu Item Calendar -->
 								<li>
@@ -143,38 +145,6 @@
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
-								<!-- Menu Item Calendar -->
-								<!-- <li>
-								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-									href="<?php //$this->SetURL('semestre/');
-											?>" @click="selected = (selected === 'semestre' ? '':'semestre')"
-									:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'semestre') && (page === 'semestre') }">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-										<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-									</svg>
-									semestre
-								</a>
-							</li> -->
-								<!-- Menu Item Calendar -->
-							<?php
-							}
-							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false || $_SESSION['permisos'] == '3' && $_SESSION['update_required'] === false) {
-							?>
-								<!-- Menu Item Calendar -->
-								<!-- <li>
-								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-									href="<?php //$this->SetURL('inscripcion/');
-											?>" @click="selected = (selected === 'inscripcion' ? '':'inscripcion')"
-									:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'inscripcion') && (page === 'inscripcion') }">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-										<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-										<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-									</svg>
-									inscripción
-								</a>
-							</li> -->
-								<!-- Menu Item Calendar -->
-								<!-- Menu Item Calendar -->
 								<li>
 									<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="<?php $this->SetURL('comunidad/'); ?>" @click="selected = (selected === 'comunidad' ? '':'comunidad')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'comunidad') && (page === 'comunidad') }">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -196,6 +166,10 @@
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
+							<?php
+							}
+							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false || $_SESSION['permisos'] == '3' && $_SESSION['update_required'] === false) {
+							?>
 								<li>
 									<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
 										href="<?php $this->SetURL('proyecto/');?>" @click="selected = (selected === 'proyecto' ? '':'proyecto')"
@@ -206,7 +180,8 @@
 										Proyectos
 									</a>
 								</li>
-								<!-- Menu Item Calendar -->
+							<?php } ?>
+							<!-- Menu Item Calendar -->
 								<li>
 									<button type="button" onclick="document.getElementById('form_logout').submit()" class="group relative flex items-center gap-2.5  rounded-sm py-2 px-3 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 " href="calendar.html" @click="selected = (selected === 'logout' ? '':'logout')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'logout') && (page === 'logout') }">
 										<svg class="fill-current " width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,10 +191,6 @@
 										Cerrar sesión
 									</button>
 								</li>
-								<!-- Menu Item Calendar -->
-							<?php } ?>
-							<!-- Menu Item Calendar -->
-
 							<!-- Menu Item Calendar -->
 
 						</ul>

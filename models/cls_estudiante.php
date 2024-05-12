@@ -49,6 +49,8 @@
 					'table_name'=> "ESTUDIANTES", 
 					'des' => "ACTUALIZACIÓN DE MATRICULA DEL ESTUDIANTE: ".$this->matricula_estudiante
 				]);
+
+				if($_SESSION['cedula'] == $this->cedula_usuario) return "estudiante/formulario/msg/10DONE"; 
 				return "estudiante/index/msg/01DONE"; 
 			} else return "estudiante/index/err/01ERR";
 		}

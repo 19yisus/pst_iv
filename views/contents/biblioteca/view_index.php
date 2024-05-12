@@ -15,13 +15,26 @@
       <?php $this->GetComplement('header'); ?>
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
+         <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 class="text-title-md2 font-bold text-black dark:text-white"> Biblioteca </h2>
+            <nav>
+              <ol class="flex items-center gap-2">
+                <li><a class="font-medium text-capitalize" href="<?php $this->SetURL();?>"><?php echo $this->controlador;?> /</a></li>
+                <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
+                <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/formulario");?>">Registrar</a></li>
+                <?php }?>
+              </ol>
+            </nav>
+          </div>
           <?php
-          $this->GetComplement('breadcrumb', ['title_breadcrumb' => "Biblioteca"]);
+          //$this->GetComplement('breadcrumb', ['title_breadcrumb' => "Biblioteca"]);
           ?>
           <!-- ====== Table Three Start -->
           <div class="w-full mb-5">
             <div x-data="{modalOpen: false}">
+              <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
               <button @click="modalOpen = true" class="rounded-md bg-primary py-3 px-9 font-medium text-white w-28">Categoría</button>
+              <?php }?>
               <div x-show="modalOpen" x-transition class="fixed top-0 left-0 z-100 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5">
                 <div @click.outside="modalOpen = false" class="w-full max-w-142.5 rounded-lg bg-white py-12 px-8 dark:bg-boxdark md:py-15 md:px-17.5 relative">
                   <div style="position: absolute;top: 20px;right: 20px;">
@@ -179,6 +192,7 @@
                           </a>
                         </p>
                       </td>
+                      <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white">
                           <a class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-danger" href="<?php $this->SetURL('controllers/biblioteca_controller.php' . "?ope=Eliminar&id_documento=" . $documento["id_documento"]); ?>">
@@ -186,11 +200,9 @@
                           </a>
                         </p>
                       </td>
+                      <?php } ?>
                     </tr>
-
-                  <?php
-                  }
-                  ?>
+                  <?php  }  ?>
                 </tbody>
               </table>
             </div>

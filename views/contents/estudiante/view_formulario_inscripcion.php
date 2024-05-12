@@ -268,18 +268,18 @@
                         </label>
                         <div class="flex items-center space-x-2">
                           <div class="mr-3">
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="radioDiurno" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" required id="checkboxLabelFour" class="" name="turno_estudiante" value="D" <?php echo ($turno_estudiante == 'D') ? "checked" : "";?>/>
+                                <input type="radio" required id="radioDiurno" class="" name="turno_estudiante" value="D" <?php echo ($turno_estudiante == 'D') ? "checked" : "";?>/>
                               </div>
                               Diurno
                             </label>
                           </div>
 
                           <div >
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="radioNocturno" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" required id="checkboxLabelFour" class="" name="turno_estudiante" value="N" <?php echo ($turno_estudiante == 'N') ? "checked" : "";?>/>
+                                <input type="radio" required id="radioNocturno" class="" name="turno_estudiante" value="N" <?php echo ($turno_estudiante == 'N') ? "checked" : "";?>/>
                               </div>
                               Nocturno
                             </label>

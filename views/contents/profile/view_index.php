@@ -185,9 +185,7 @@
                       <input type="text" minmength="2" maxlength="12" placeholder="Ingrese la matricula" name="matricula_estudiante" value="<?php //echo $matricula; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                     </div>
                   </div> -->
-											<div class="col-span-3"></div>
-
-											
+											<!-- <div class="col-span-3"></div>											 -->
 											<div class="w-full">
 												<label class="mb-3 block font-medium text-black dark:text-white">
 													Seleccione su primera pregunta de seguridad <span class="text-meta-1">*</span>
@@ -254,8 +252,7 @@
 												</div>
 											</div>
 											<div class="mb-6 col-span-2">
-												<label class="mb-2.5 block font-medium text-black dark:text-white">Segunda respuesta de
-													seguridad</label>
+												<label class="mb-2.5 block font-medium text-black dark:text-white">Segunda respuesta de seguridad</label>
 												<div class="relative">
 													<input type="text" required minlength="4" maxlength="60" autocomplete="off"
 														placeholder="Ingrese su respuesta de seguridad" name="respuesta_2"
@@ -263,7 +260,7 @@
 														class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 												</div>
 											</div>
-											<div class="mb-6 col-span-1">
+											<div class="mb-6 col-span-2">
 												<label class="mb-2.5 block font-medium text-black dark:text-white">Tercera pregunta de seguridad</label>
 												<div class="relative">
 													<input type="text" required minlength="4" maxlength="60" autocomplete="off" placeholder="Ingrese su pregunta de seguridad" name="pregunta_3" value="<?php echo $pregunta3; ?>" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
