@@ -34,7 +34,7 @@ $datosDelProyecto=$cls_actividad->consultarProyecto($_GET["id_proyecto"])[0];
           <nav>
             <ol class="flex items-center gap-2">
               <li><a class="font-medium text-capitalize" href="<?php $this->SetURL();?>"><?php echo $this->controlador;?> /</a></li>
-              <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/formulario?id_proyecto=".$_GET["id_proyecto"]."&ope=Registrar");?>">Registrar</a></li>
+              <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/formulario?id_proyecto=".$_GET["id_proyecto"]."&ope=Guardar");?>">Registrar</a></li>
             </ol>
           </nav>
         </div>
@@ -89,7 +89,7 @@ $datosDelProyecto=$cls_actividad->consultarProyecto($_GET["id_proyecto"])[0];
                         </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <div class="flex items-center space-x-3.5">
-                            <a href="<?php $this->SetURL('grupo/formulario/b/'.$actividad['id_actividad']);?>">Editar</a>
+                            <a href="<?php $this->SetURL('actividad/formulario?id_proyecto='.$_GET["id_proyecto"]."&ope=Guardar&id_actividad=".$actividad['id_actividad']);?>">Editar</a>
                           </div>
                         </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">

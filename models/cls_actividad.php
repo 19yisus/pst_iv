@@ -82,7 +82,7 @@ class cls_actividad extends cls_db {
     }
 
     function consultarTodasLasActvidadesDelProyectoSinAsistencias(){
-        $sqlConsulta = "SELECT * FROM actividad where id_proyecto=$this->id_proyecto ORDER BY fecha_actividad ;";
+        $sqlConsulta = "SELECT * FROM actividad where id_proyecto=$this->id_proyecto ORDER BY fecha_actividad DESC;";
         $results = $this->Query($sqlConsulta);
         return $this->Get_todos_array($results);
     }
@@ -107,6 +107,12 @@ class cls_actividad extends cls_db {
 
     function consultarProyecto($id_proyecto){
         $sqlConsulta = "SELECT * FROM proyecto where id_proyecto=$id_proyecto ;";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
+
+    function consultarActividad(){
+        $sqlConsulta = "SELECT * FROM actividad where id_actividad=$this->id_actividad AND id_proyecto=$this->id_proyecto ;";
         $results = $this->Query($sqlConsulta);
         return $this->Get_todos_array($results);
     }

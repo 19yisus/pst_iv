@@ -64,8 +64,21 @@ class cls_asistencia_actividad extends cls_db {
         return $this->Get_todos_array($results);
     }
 
+    function consultarAsistenciaActividad(){
+        $sqlConsulta = "SELECT * FROM asistencia_actividad  WHERE id_actividad = $this->id_actividad";
+        $results = $this->Query($sqlConsulta);
+        return $this->Get_todos_array($results);
+    }
+
     function eliminarAsistenciaDeUnaActividad(){
         $sqlConsulta = "DELETE FROM asistencia_actividad WHERE id_asistencia_actividad = $this->id_asistencia_actividad AND id_actividad = $this->id_actividad";
+        $result = $this->Query($sqlConsulta);
+        return $result;
+    }
+    
+
+    function eliminarAsistenciasPorIdActividad($id_actividad){
+        $sqlConsulta = "DELETE FROM asistencia_actividad WHERE id_actividad=$id_actividad";
         $result = $this->Query($sqlConsulta);
         return $result;
     }

@@ -6,7 +6,7 @@ require_once("../models/cls_asistencia_actividad.php");
 
 if(isset($_POST['ope'])){
     switch($_POST['ope']){
-        case "Registrar":
+        case "Guardar":
             crearActividad();
         break;
             
@@ -52,33 +52,49 @@ function formulario(){
 }
 
 function crearActividad(){
-    // $actividad_proyecto=$_POST['actividad_proyecto'];
+    $actividad_proyecto=$_POST['actividad_proyecto'];
     $actividad_proyecto=json_decode($_POST['actividad_proyecto']);
     $asistencia_estudiantes=json_decode($_POST['asistencia_estudiantes']);
+    $idsAsistencias=[];
     
     $actividadModelo=new cls_actividad();
     $actividadModelo->setDatos($actividad_proyecto);
-    $id_actividad=$actividadModelo->create();
+    if($actividad_proyecto->id_actividad==""){
+        $id_actividad=$actividadModelo->create();
+  
+        for ($index=0; $index < count($asistencia_estudiantes); $index++) { 
+            $asistencia=$asistencia_estudiantes[$index];
+            $asistencia->id_actividad=$id_actividad;
+            $asistenciaActividadModelo=new cls_asistencia_actividad();
+            $id_asistencia_actividad=$asistenciaActividadModelo->setDatos($asistencia);
+            if($asistencia->estado){
+                $id_asistencia_actividad=$asistenciaActividadModelo->create();
+                $idsAsistencias[]=$id_asistencia_actividad;
+            }
+            // $consulta=$asistenciaActividadModelo->consultarAsistenciaEstudiante();
+            // if(count($consulta)==0){
+            //     $id_asistencia_actividad=$asistenciaActividadModelo->create();
+            //     $idsAsistencias[]=$id_asistencia_actividad;
+            // }
+        }
 
-    $idsAsistencias=[];
-
-    for ($index=0; $index < count($asistencia_estudiantes); $index++) { 
-        # code...
-        $asistencia=$asistencia_estudiantes[$index];
-        $asistencia->id_actividad=$id_actividad;
-        $asistenciaActividadModelo=new cls_asistencia_actividad();
-        $id_asistencia_actividad=$asistenciaActividadModelo->setDatos($asistencia);
-        // $consulta=$asistenciaActividadModelo->consultarAsistenciaEstudiante();
-        // if(count($consulta)==0){
-        //     $id_asistencia_actividad=$asistenciaActividadModelo->create();
-        //     $idsAsistencias[]=$id_asistencia_actividad;
-        // }
-        $id_asistencia_actividad=$asistenciaActividadModelo->create();
-        $idsAsistencias[]=$id_asistencia_actividad;
     }
-
-
-
+    else{
+        $actividadModelo->actualizarActividad();
+        $actividad= $actividadModelo->consultarActividad()[0];
+        $asistenciasAuxiliar=new cls_asistencia_actividad();
+        $asistenciasAuxiliar->eliminarAsistenciasPorIdActividad($actividad["id_actividad"]);
+        for ($index=0; $index < count($asistencia_estudiantes); $index++) { 
+            $asistencia=$asistencia_estudiantes[$index];
+            $asistencia->id_actividad=$actividad["id_actividad"];
+            $asistenciaActividadModelo=new cls_asistencia_actividad();
+            $id_asistencia_actividad=$asistenciaActividadModelo->setDatos($asistencia);
+            if($asistencia->estado){
+                $id_asistencia_actividad=$asistenciaActividadModelo->create();
+                $idsAsistencias[]=$id_asistencia_actividad;
+            }
+        }
+    }
     print(json_encode(["msj" => $idsAsistencias]));
 }
 
@@ -97,6 +113,8 @@ function eliminarActividad(){
     $data->id_actividad=$_GET["id_actividad"];
     $actividadModelo=new cls_actividad();
     $actividadModelo->setDatos($data);
+    $asistenciasAuxiliar=new cls_asistencia_actividad();
+    $asistenciasAuxiliar->eliminarAsistenciasPorIdActividad($data->id_actividad);
     $respuestaConsulta=$actividadModelo->eliminarActividad();
     // print(json_encode(["msj" => $respuestaConsulta]));
     header("Location: ".constant("URL")."actividad/index?id_proyecto=".$_GET['id_proyecto']);	
