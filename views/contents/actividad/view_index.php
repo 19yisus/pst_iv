@@ -25,7 +25,7 @@ $datosDelProyecto=$cls_actividad->consultarProyecto($_GET["id_proyecto"])[0];
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
         <?php 
-          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Actividades del Proyecto: ".$datosDelProyecto["titulo_proyecto"],"data" => "id"]);
+          $this->GetComplement('breadcrumb',['title_breadcrumb' => "Actividades del Proyecto: ".$datosDelProyecto["titulo_proyecto"]]);
         ?>
         <?php
 
