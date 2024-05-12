@@ -132,11 +132,11 @@ class cls_auth extends cls_db
     $sql = "UPDATE usuario SET clave_usuario = '$clave_usuario' WHERE cedula_usuario = '$cedula';";
 
     $result = $this->Query($sql);
-    $this->reg_bitacora([
-      'user_id' => $_SESSION['cedula'], 
-      'table_name'=> "USUARIOS", 
-      'des' => "ACTUALIZACIÓN DE CONTRASEÑA"
-    ]);
+    // $this->reg_bitacora([
+    //   'user_id' => $_SESSION['cedula'], 
+    //   'table_name'=> "USUARIOS", 
+    //   'des' => "ACTUALIZACIÓN DE CONTRASEÑA"
+    // ]);
     return true;
   }
 }

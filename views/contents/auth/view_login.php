@@ -34,7 +34,7 @@
 								<div class="w-full p-4 sm:p-12.5 xl:p-17.5">
 									<span class="mb-1.5 block font-medium">Sistema de Gestión de Servicio Comunitario (SGSC)</span>
 									<h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-										Inicia sesion
+										Inicia sesión
 									</h2>
 
 									<form action="<?php $this->SetURL("controllers/auth_controller.php"); ?>" method="POST" autocomplete="off">
@@ -43,7 +43,7 @@
 											<div class="relative">
 												<input type="hidden" name="ope" value="Ingresar">
 												
-												<input type="text" id="cedula_user" onkeyup="validarNumerico(this)" required maxlength="8" minlength="7" placeholder="Ingresa tu cedula" name="cedula_usuario" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+												<input type="text" id="cedula_user" onkeyup="validarNumerico(this)" required maxlength="8" minlength="7" placeholder="Ingresa tu cédula" name="cedula_usuario" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 
 												<span class="absolute right-4 top-4">
 													<svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
 										<div class="mb-6">
 											<label class="mb-2.5 block font-medium text-black dark:text-white">Contraseña</label>
 											<div class="relative">
-												<input type="password" id="pass_user" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" minlength="7" placeholder="7+ Caracteres, 1 mayuscula, 1 numero, 1 caracter especial" name="clave_usuario" onkeyup="validarPassword()" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+												<input type="password" id="pass_user" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" minlength="7" name="clave_usuario" onkeyup="validarPassword()" class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
 
 												<span class="absolute right-4 top-4" style="right: 60px;" onclick="mostrarClave('pass_user',this)">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
@@ -71,6 +71,7 @@
 														</g>
 													</svg>
 												</span>
+												<span>Estudiante, si es la primera vez que ingresas, coloca tú cédula como contraseña</span>
 												<span id="messages_clave"></span>
 											</div>
 										</div>
@@ -139,7 +140,7 @@
 			}
 
 			if (!/[^a-zA-Z0-9]/.test(password)) {
-				messages.innerHTML += 'La contraseña debe contener al menos un caracter especial ejemplo puede ser (@, #, &, $ etc...).<br>';
+				messages.innerHTML += 'La contraseña debe contener al menos un carácter especial ejemplo puede ser (@, #, &, $ etc...).<br>';
 				valido = false;
 			}
 

@@ -129,7 +129,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">                          
                           <select required id="sel_estudiantes" name="id_estudiante" v-model="id_estudiante"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <option v-for="estudi in estudiantes" :key="estudi.id_estudiante" :value="estudi.id_estudiante">{{ estudi.cedula_usuario }} {{ estudi.nombre_usuario }}</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -150,7 +150,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="id_carrera" v-model="id_carrera" v-on:change="consultar_seccione_por_carrera"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($carreras as $carr){?>
                               <option 
                                 <?php echo ($id_carrera == $carr['id_carrera']) ? "selected" : "";?> 
@@ -177,7 +177,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="id_seccion" v-model="id_seccion"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <option v-for="sec in secciones" :key="sec.id_seccion" :value="sec.id_seccion">{{ sec.numero_seccion}}</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
@@ -198,7 +198,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="id_semestre" v-model="id_semestre"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($semestres as $seme){?>
                               <option <?php echo ($id_semestre == $seme['id_semestre']) ? "selected" : "";?> value="<?php echo $seme['id_semestre'];?>"><?php echo $seme['des_semestre'];?></option>
                             <?php }?>

@@ -15,7 +15,7 @@
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
           <?php
-          $this->GetComplement('breadcrumb', ['title_breadcrumb' => "Gestión De Sección"]);
+          $this->GetComplement('breadcrumb', ['title_breadcrumb' => "Gestión de sección"]);
           ?>
           <!-- ====== Table Three Start -->
           <div class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 ">

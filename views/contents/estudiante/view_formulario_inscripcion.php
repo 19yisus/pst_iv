@@ -155,7 +155,7 @@
                         <!-- v-model="id_carrera" v-on:change="consultar_seccione_por_carrera" -->
                           <select required name="id_carrera" 
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php foreach($carreras as $carr){?>
                               <option 
                                 <?php echo ($id_carrera == $carr['id_carrera']) ? "selected" : "";?> 
@@ -183,7 +183,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="id_seccion" 
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php 
                               foreach($secciones as $item){
                                 ?>
@@ -215,7 +215,7 @@
                         <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="des_semestre"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <option value="1">Semestre 1</option>
                             <option value="2">Semestre 2</option>
                           </select>
@@ -232,7 +232,7 @@
                         <!-- <div class="relative z-20 bg-white dark:bg-form-input">
                           <select required name="id_semestre" v-model="id_semestre"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
-                            <option value="">Seleccione una opcion</option>
+                            <option value="">Seleccione una opción</option>
                             <?php //foreach($semestres as $seme){?>
                               <option <?php //echo ($id_semestre == $seme['id_semestre']) ? "selected" : "";?> value="<?php //echo $seme['id_semestre'];?>"><?php //echo $seme['des_semestre'];?></option>
                             <?php //}?>
@@ -268,18 +268,18 @@
                         </label>
                         <div class="flex items-center space-x-2">
                           <div class="mr-3">
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="radioDiurno" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" required id="checkboxLabelFour" class="" name="turno_estudiante" value="D" <?php echo ($turno_estudiante == 'D') ? "checked" : "";?>/>
+                                <input type="radio" required id="radioDiurno" class="" name="turno_estudiante" value="D" <?php echo ($turno_estudiante == 'D') ? "checked" : "";?>/>
                               </div>
                               Diurno
                             </label>
                           </div>
 
                           <div >
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="radioNocturno" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" required id="checkboxLabelFour" class="" name="turno_estudiante" value="N" <?php echo ($turno_estudiante == 'N') ? "checked" : "";?>/>
+                                <input type="radio" required id="radioNocturno" class="" name="turno_estudiante" value="N" <?php echo ($turno_estudiante == 'N') ? "checked" : "";?>/>
                               </div>
                               Nocturno
                             </label>

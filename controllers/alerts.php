@@ -21,7 +21,8 @@
       '01DONE' => "Operación exitosa!",
       '01AUTH' => "Login exitoso!",
       '02AUTH' => "Registro de usuario exitoso!",
-      '03AUTH' => "Cambio de clave exitoso!"
+      '03AUTH' => "Cambio de clave exitoso!",
+      '10DONE' => "Operación exitosa!, debes de cerrar sesión para ver los cambios!"
     ];
     // EL FOREACH BUSCA DENTRO DE LA LISTA DE ERRORES, SI ENCUENTRA DICHO ERROR, PUES LUEGO MUESTRA LA ALERTA
     public function printError($indexError){

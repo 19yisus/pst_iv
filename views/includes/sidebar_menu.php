@@ -66,6 +66,7 @@
 								</div>
 							</li> -->
 							<!-- Menu Item Dashboard -->
+							<?php if ($_SESSION['update_required'] === false){?>
 							<li>
 								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="<?php $this->SetURL('biblioteca/'); ?>" @click="selected = (selected === 'Biblioteca' ? '':'Biblioteca')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Biblioteca') && (page === 'Biblioteca') }">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
@@ -75,6 +76,7 @@
 								</a>
 							</li>
 							<?php
+							}
 							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false) { ?>
 								<!-- Menu Item Calendar -->
 								<li>
@@ -82,7 +84,7 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
 											<path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435z" />
 										</svg>
-										Carrera
+										Carreras
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
@@ -111,7 +113,7 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
 											<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
 										</svg>
-										Estudiante
+										Estudiantes
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
@@ -120,7 +122,7 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
 											<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
 										</svg>
-										Grupo
+										Grupos
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
@@ -129,7 +131,7 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
 											<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" />
 										</svg>
-										Tutor Académico
+										Tutor académico
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
@@ -143,45 +145,13 @@
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
-								<!-- Menu Item Calendar -->
-								<!-- <li>
-								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-									href="<?php //$this->SetURL('semestre/');
-											?>" @click="selected = (selected === 'semestre' ? '':'semestre')"
-									:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'semestre') && (page === 'semestre') }">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-										<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-									</svg>
-									semestre
-								</a>
-							</li> -->
-								<!-- Menu Item Calendar -->
-							<?php
-							}
-							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false || $_SESSION['permisos'] == '3' && $_SESSION['update_required'] === false) {
-							?>
-								<!-- Menu Item Calendar -->
-								<!-- <li>
-								<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-									href="<?php //$this->SetURL('inscripcion/');
-											?>" @click="selected = (selected === 'inscripcion' ? '':'inscripcion')"
-									:class="{ 'bg-graydark dark:bg-meta-4': (selected === 'inscripcion') && (page === 'inscripcion') }">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-										<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-										<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-									</svg>
-									inscripción
-								</a>
-							</li> -->
-								<!-- Menu Item Calendar -->
-								<!-- Menu Item Calendar -->
 								<li>
 									<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="<?php $this->SetURL('comunidad/'); ?>" @click="selected = (selected === 'comunidad' ? '':'comunidad')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'comunidad') && (page === 'comunidad') }">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
 											<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
 											<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
 										</svg>
-										Comunidad
+										Comunidades
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
@@ -192,10 +162,14 @@
 											<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
 											<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
 										</svg>
-										Tutor Comunitario
+										Tutor comunitario
 									</a>
 								</li>
 								<!-- Menu Item Calendar -->
+							<?php
+							}
+							if ($_SESSION['permisos'] == '1' && $_SESSION['update_required'] === false || $_SESSION['permisos'] == '3' && $_SESSION['update_required'] === false) {
+							?>
 								<li>
 									<a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
 										href="<?php $this->SetURL('proyecto/');?>" @click="selected = (selected === 'proyecto' ? '':'proyecto')"
@@ -203,23 +177,20 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
 											<path d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
 										</svg>
-										proyecto
+										Proyectos
 									</a>
 								</li>
-								<!-- Menu Item Calendar -->
+							<?php } ?>
+							<!-- Menu Item Calendar -->
 								<li>
 									<button type="button" onclick="document.getElementById('form_logout').submit()" class="group relative flex items-center gap-2.5  rounded-sm py-2 px-3 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 " href="calendar.html" @click="selected = (selected === 'logout' ? '':'logout')" :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'logout') && (page === 'logout') }">
 										<svg class="fill-current " width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M15.5375 0.618744H11.6531C10.7594 0.618744 10.0031 1.37499 10.0031 2.26874V4.64062C10.0031 5.05312 10.3469 5.39687 10.7594 5.39687C11.1719 5.39687 11.55 5.05312 11.55 4.64062V2.23437C11.55 2.16562 11.5844 2.13124 11.6531 2.13124H15.5375C16.3625 2.13124 17.0156 2.78437 17.0156 3.60937V18.3562C17.0156 19.1812 16.3625 19.8344 15.5375 19.8344H11.6531C11.5844 19.8344 11.55 19.8 11.55 19.7312V17.3594C11.55 16.9469 11.2062 16.6031 10.7594 16.6031C10.3125 16.6031 10.0031 16.9469 10.0031 17.3594V19.7312C10.0031 20.625 10.7594 21.3812 11.6531 21.3812H15.5375C17.2219 21.3812 18.5625 20.0062 18.5625 18.3562V3.64374C18.5625 1.95937 17.1875 0.618744 15.5375 0.618744Z" fill="" />
 											<path d="M6.05001 11.7563H12.2031C12.6156 11.7563 12.9594 11.4125 12.9594 11C12.9594 10.5875 12.6156 10.2438 12.2031 10.2438H6.08439L8.21564 8.07813C8.52501 7.76875 8.52501 7.2875 8.21564 6.97812C7.90626 6.66875 7.42501 6.66875 7.11564 6.97812L3.67814 10.4844C3.36876 10.7938 3.36876 11.275 3.67814 11.5844L7.11564 15.0906C7.25314 15.2281 7.45939 15.3312 7.66564 15.3312C7.87189 15.3312 8.04376 15.2625 8.21564 15.125C8.52501 14.8156 8.52501 14.3344 8.21564 14.025L6.05001 11.7563Z" fill="" />
 										</svg>
-										Cerrar sesion
+										Cerrar sesión
 									</button>
 								</li>
-								<!-- Menu Item Calendar -->
-							<?php } ?>
-							<!-- Menu Item Calendar -->
-
 							<!-- Menu Item Calendar -->
 
 						</ul>
