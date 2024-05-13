@@ -216,8 +216,8 @@
                           <select required name="des_semestre"
                             class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                             <option value="">Seleccione una opción</option>
-                            <option value="1">Semestre 1</option>
-                            <option value="2">Semestre 2</option>
+                            <option value="6">INGENIERIA: 6to Semestre</option>
+                            <option value="4">ENFERMERIA: 4to Semestre</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-10 -translate-y-1/2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

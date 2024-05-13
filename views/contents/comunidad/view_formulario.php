@@ -67,8 +67,15 @@
 
                       <div class="w-full xl:w-2/6">
                         <label class="mb-2.5 block text-black dark:text-white">Tipo de comunidad<span class="text-meta-1">*</span></label>
-                        <input type="text" required maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder="" name="tipo_comunidad" value="<?php echo $tipo_comunidad;?>"
+                        <input type="text" list="tipo_comunidad" required maxlength="45" minlength="5" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder="" name="tipo_comunidad" value="<?php echo $tipo_comunidad;?>"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+
+                        <datalist id="tipo_comunidad">
+                          <option value="Unidad Educativa">
+                          <option value="EPS">
+                          <option value="Comunidad">
+                          <option value="Institución">
+                          <option value="Centro penitenciario">
                       </div>
                   </div>
                   <div>
