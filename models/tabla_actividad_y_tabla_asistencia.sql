@@ -3,7 +3,7 @@ CREATE TABLE `actividad` (
     `id_proyecto` int NOT NULL,
     `descripcion` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
     `fecha_actividad` datetime DEFAULT NULL,
-    `tiempo` time DEFAULT NULL
+    `tiempo` INTEGER DEFAULT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3 COLLATE = utf8mb3_spanish_ci;
 
 ALTER TABLE `actividad`

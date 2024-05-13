@@ -85,7 +85,7 @@ $datosDelProyecto=$cls_actividad->consultarProyecto($_GET["id_proyecto"])[0];
                           <p class="text-black dark:text-white"><?php echo $fecha_actividad->format("d-m-Y");?></p>
                         </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                          <p class="text-black dark:text-white"><?php echo $actividad['tiempo'];?></p>
+                          <p class="text-black dark:text-white"><?php echo $actividad['tiempo'];?> H</p>
                         </td>
                         <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <div class="flex items-center space-x-3.5">

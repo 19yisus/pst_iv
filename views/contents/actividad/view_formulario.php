@@ -82,7 +82,7 @@ if(isset($_GET["id_actividad"])){
                         <label class="mb-2.5 block text-black dark:text-white">
                           Tiempo <span class="text-meta-1">*</span>
                         </label>
-                        <input type="time" required id="tiempo" value="<?php echo ($datosActividad!=null)?$datosActividad["tiempo"]:""?>" name="tiempo" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                        <input type="text" required pattern="^(0?[0-9]|1[0-9]|2[0-3])$" id="tiempo" value="<?php echo ($datosActividad!=null)?$datosActividad["tiempo"]:""?>" name="tiempo" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                   </div>
                   <button class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
