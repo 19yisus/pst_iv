@@ -18,7 +18,7 @@ class cls_asistencia_actividad extends cls_db {
 
     public function setDatos($datos){
         $this->id_asistencia_actividad=isset($datos->id_asistencia_actividad) ? $this->Clean(intval($datos->id_asistencia_actividad)) : null;
-        $this->id_actividad=isset($datos->id_actividad) ? $this->Clean(intval($datos->id_actividad)) : null;
+        $this->id_actividad=isset($datos->id_actividad) ? $this->Clean(intval($datos->id_actividad)) : "null";
         $this->id_estudiante=isset($datos->id_estudiante) ? $this->Clean(intval($datos->id_estudiante)) : null;
     }
 

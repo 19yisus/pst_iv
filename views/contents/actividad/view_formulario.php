@@ -43,6 +43,15 @@ if(isset($_GET["id_actividad"])){
       <?php $this->GetComplement('header'); ?>
       <main>
         <div class="max-w-screen-2xl mx-auto p-4 md:p-6 2xl:p-10">
+          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 class="text-title-md2 font-bold text-black dark:text-white">Registro de actividad</h2>
+
+            <nav>
+              <ol class="flex items-center gap-2">
+                <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/index?id_proyecto=".$_GET["id_proyecto"]);?>">Regresar</a></li>
+              </ol>
+            </nav>
+          </div>
           <!-- ====== Form Layout Section Start -->
           <div class="grid grid-cols-1 gap-9 sm:grid-cols-1">
             <div class="flex flex-col gap-9">

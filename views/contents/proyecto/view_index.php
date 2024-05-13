@@ -189,14 +189,16 @@
             render(data, type, row) {
               return `
                 <div class="row m-4">
-                  <a class="text-primary" style="font-size: 24px;"  href="<?php $this->SetURL('proyecto/formulario/b/');?>${row['id_proyecto']}">
+                  <a title="Actualizar" class="text-primary" style="font-size: 24px;"  href="<?php $this->SetURL('proyecto/formulario/b/');?>${row['id_proyecto']}">
                     <i class="fa-regular fa-pen-to-square"></i>
                   </a>
-                  <a class="text-danger" style="font-size: 24px;" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">
+                  <a title="Reporte pdf" class="text-danger" style="font-size: 24px;" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">
                     <i class="fa-solid fa-file-pdf"></i>
                     </a>
-                  <a class="text-primary" style="font-size: 24px;" href="<?php $this->SetURL('proyecto/formulario/e/');?>${row['id_proyecto']}">
+                  <a title="Evaluación" class="text-primary" style="font-size: 24px;" href="<?php $this->SetURL('proyecto/formulario/e/');?>${row['id_proyecto']}">
                     <i class="fa-solid fa-list-check"></i>
+                  <a title="Registro de actividades" class="text-primary" style="font-size: 24px;" href="<?php $this->SetURL('actividad/index?id_proyecto=');?>${row['id_proyecto']}">
+                    <i class="fa-solid fa-check-to-slot"></i>
                   </a>
                 </div>
                 `;
