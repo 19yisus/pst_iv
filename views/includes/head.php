@@ -7,6 +7,8 @@
 	<link href="<?php echo constant("URL");?>views/css/style.css" rel="stylesheet">
 	<link href="<?php echo constant("URL");?>views/DataTable/css/dataTables.dataTables.css" rel="stylesheet">
 	<link href="<?php echo constant("URL");?>views/DataTable/css/jquery.dataTables.css" rel="stylesheet">
+	<link href="<?php echo constant("URL");?>views/fontawesome/css/all.min.css" rel="stylesheet">
+	<link href="<?php echo constant("URL");?>views/fontawesome/css/fontawesome.min.css" rel="stylesheet">
 	<style>
 		#tabla_length > label > input{
 			width: 100%;

@@ -213,7 +213,7 @@
                         <label class="mb-2.5 block text-black dark:text-white">
                           Planteamiento del proyecto <span class="text-meta-1">*</span>
                         </label>
-                        <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="planteamiento_proyecto"
+                        <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" minlength="5" placeholder="Ingrese su texto" name="planteamiento_proyecto"
                           class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($planteamiento_proyecto) ? $planteamiento_proyecto : '');?></textarea>
                       </div>
                       <div class="col-span-3">
@@ -221,7 +221,7 @@
                           <label class="mb-2.5 block text-black dark:text-white">
                           Objetivos generales <span class="text-meta-1">*</span>
                           </label>
-                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="objetivos_generales_proyecto"
+                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" minlength="5" placeholder="Ingrese su texto" name="objetivos_generales_proyecto"
                             class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($objetivos_generales_proyecto) ? $objetivos_generales_proyecto : '');?></textarea>
                         </div>
                       </div>
@@ -230,7 +230,7 @@
                           <label class="mb-2.5 block text-black dark:text-white">
                           Objetivos especificos <span class="text-meta-1">*</span>
                           </label>
-                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" maxlength="255" minlength="5" placeholder="Ingrese su texto" name="objetivos_especificos_proyecto"
+                          <textarea <?php if($op == "EVALUATE") echo "disabled";?> rows="6" minlength="5" placeholder="Ingrese su texto" name="objetivos_especificos_proyecto"
                             class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"><?php echo (isset($objetivos_especificos_proyecto) ? $objetivos_especificos_proyecto : '');?></textarea>
                         </div>
                       </div>

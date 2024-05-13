@@ -188,9 +188,18 @@
             defaultContent: "",
             render(data, type, row) {
               return `
-                <a class="text-primary" href="<?php $this->SetURL('proyecto/formulario/b/');?>${row['id_proyecto']}">Editar</a>
-                <a class="text-danger" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">PDF</a>
-                <a class="text-primary" href="<?php $this->SetURL('proyecto/formulario/e/');?>${row['id_proyecto']}">Evaluar</a>`;
+                <div class="row m-4">
+                  <a class="text-primary" style="font-size: 24px;"  href="<?php $this->SetURL('proyecto/formulario/b/');?>${row['id_proyecto']}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                  </a>
+                  <a class="text-danger" style="font-size: 24px;" target="__blank" href="<?php $this->SetURL('proyecto/rp/b/');?>${row['id_proyecto']}">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                  <a class="text-primary" style="font-size: 24px;" href="<?php $this->SetURL('proyecto/formulario/e/');?>${row['id_proyecto']}">
+                    <i class="fa-solid fa-list-check"></i>
+                  </a>
+                </div>
+                `;
             }
           }
           ],
