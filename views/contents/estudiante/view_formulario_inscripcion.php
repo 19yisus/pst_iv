@@ -56,6 +56,7 @@
 
   if(isset($this->id_consulta_estudiante)){
     $datos = $model_e->consulta($this->id_consulta_estudiante);
+    
     $info_estudiante = $datos['nacionalidad_usuario'].'-'.$datos['cedula_usuario']." ".$datos['nombre_usuario'];
 
     $date_before = $model_i->consultar_inscripcion($datos['cedula_usuario'],'BEFORE');

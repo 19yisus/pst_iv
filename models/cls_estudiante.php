@@ -23,14 +23,15 @@
 			
 			$sql = "INSERT INTO estudiante(cedula_usuario,turno_estudiante) VALUES('$this->cedula_usuario','$this->turno_estudiante');";
 			$res = $this->Query($sql);
-
+			$id = $this->Returning_id();
+			
 			if($this->Result_last_query()){
 				$this->reg_bitacora([
 					'user_id' => $_SESSION['cedula'], 
 					'table_name'=> "ESTUDIANTES", 
 					'des' => "REGISTRO DE ESTUDIANTE: ".$this->cedula_usuario
 				]);
-				$id = $this->Returning_id();
+				
 				return "estudiante/formulario_inscripcion/i/$id";
 			}
 

@@ -20,7 +20,7 @@
             <nav>
               <ol class="flex items-center gap-2">
                 <li><a class="font-medium text-capitalize" href="<?php $this->SetURL();?>"><?php echo $this->controlador;?> /</a></li>
-                <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
+                <?php  if($_SESSION['nom_rol'] == 'administrador'){ ?>
                 <li class="font-medium text-primary"><a class="font-medium" href="<?php $this->SetURL($this->controlador."/formulario");?>">Registrar</a></li>
                 <?php }?>
               </ol>
