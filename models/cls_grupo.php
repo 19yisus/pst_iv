@@ -27,13 +27,14 @@
 				$this->Start_transacction();
 				$sql = "INSERT INTO grupo(nombre_grupo,tipo_grupo,estado_grupo) VALUES('$this->nombre_grupo','$this->tipo_grupo','$this->estado_grupo');";
 				$this->Query($sql);
+				$id = $this->Returning_id();
 				$this->reg_bitacora([
 					'user_id' => $_SESSION['cedula'], 
 					'table_name'=> "GRUPO", 
 					'des' => "REGISTRO DE GRUPO DE ESTUDIANTE: ".$this->nombre_grupo
 				]);
 
-				$id = $this->Returning_id();
+				
 				foreach($this->estudiantes as $est){
 					$this->Query("INSERT INTO grupo_alumno(id_grupo, id_alumno) VALUES('$id','$est');");
 					$this->reg_bitacora([

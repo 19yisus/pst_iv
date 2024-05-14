@@ -195,7 +195,7 @@ if (isset($this->id_consulta)) {
                             Seleccione carrera <span class="text-meta-1">*</span>
                           </label>
                           <div class="relative z-20 bg-white dark:bg-form-input">
-                            <select required v-model="id_carrera_filtro" name="id_pregunta_1" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
+                            <select v-bind:required="tipo_grupo == 0" v-model="id_carrera_filtro" name="id_carrera" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                               <option value="">Seleccione una opción</option>
                               <option v-for="item in carreras" :value="item.id_carrera">{{ item.nombre_carrera }}</option>
                             </select>
