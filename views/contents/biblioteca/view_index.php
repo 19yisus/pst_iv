@@ -32,7 +32,7 @@
           <!-- ====== Table Three Start -->
           <div class="w-full mb-5">
             <div x-data="{modalOpen: false}">
-              <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
+              <?php  if($_SESSION['nom_rol'] == 'administrador'){ ?>
               <button @click="modalOpen = true" class="rounded-md bg-primary py-3 px-9 font-medium text-white w-28">Categoría</button>
               <?php }?>
               <div x-show="modalOpen" x-transition class="fixed top-0 left-0 z-100 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5">
