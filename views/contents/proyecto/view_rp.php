@@ -15,3 +15,10 @@
     <?php
   }  
 ?>
+
+  <!-- <script> -->
+  // window.matchMedia('download').addListener((evento) => {
+    //   if (!evento.matches) window.close()
+    // });
+    
+  <!-- </script> -->

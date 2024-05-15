@@ -4,6 +4,7 @@
   $model = new cls_proyecto();
   $datos = $model->consultaPdfWithFiltros($_POST);
   // rp_proyectos($datos);
+
   require './vendor/autoload.php';
 
   use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
@@ -137,16 +138,17 @@
   $sheet->setCellValue("AF14","Observaciones");
   // DATOS
   $inicial_row1 = 15;
+  
   for($i = 0; $i < sizeof($datos); $i++){
     $dp = $datos[$i]['pt'];
     $estudiantes = $datos[$i]['estu'];
     $num = $i + 1;
     $alto = (sizeof($estudiantes) > 1) ? $inicial_row1+(sizeof($estudiantes)-1) : $inicial_row1;
     
-    if($dp['categoria_tutor'] == "TC") $categoria = "Tiempo Completo";
-    if($dp['categoria_tutor'] == "DXCL") $categoria = "Tiempo Completo";
-    if($dp['categoria_tutor'] == "MT") $categoria = "Tiempo Completo";
-    if($dp['categoria_tutor'] == "TV") $categoria = "Tiempo Completo";
+    // if($dp['categoria_tutor'] == "TC") $categoria = "Tiempo Completo";
+    // if($dp['categoria_tutor'] == "DXCL") $categoria = "Tiempo Completo";
+    // if($dp['categoria_tutor'] == "MT") $categoria = "Tiempo Completo";
+    // if($dp['categoria_tutor'] == "TV") $categoria = "Tiempo Completo";
 
     $celdas2 = ["B$inicial_row1:B$alto","C$inicial_row1:C$alto","D$inicial_row1:D$alto","E$inicial_row1:E$alto","F$inicial_row1:F$alto","G$inicial_row1:G$alto"];
     foreach($celdas2 as $celda){
@@ -158,7 +160,7 @@
     $sheet->mergeCells("D$inicial_row1:D$alto")->setCellValue("D$inicial_row1",$dp['cedula_usuario']);
     $sheet->mergeCells("E$inicial_row1:E$alto")->setCellValue("E$inicial_row1",$dp['tipo_tutor']);
     $sheet->mergeCells("F$inicial_row1:F$alto")->setCellValue("F$inicial_row1","");
-    $sheet->mergeCells("G$inicial_row1:G$alto")->setCellValue("G$inicial_row1",$categoria);
+    $sheet->mergeCells("G$inicial_row1:G$alto")->setCellValue("G$inicial_row1","hola");
     $inicial_row2 = $inicial_row1;
     // ESTUDIANTES
     $num = 0;

@@ -176,7 +176,7 @@
 			}else $where .= " AND proyecto.tipo_proyecto = '$tipos' ";
 
 			$sql = "SELECT 
-				proyecto.*, tutor_comunidad.*, grupo.*, ano_escolar.*, comunidad.*, usuario.*, grupo.*
+				proyecto.*, tutor_comunidad.*, grupo.*, ano_escolar.*, comunidad.*, usuario.*, grupo.*, tutor.*
 				FROM proyecto
 				INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = proyecto.id_ano_escolar
 				INNER JOIN comunidad ON comunidad.id_comunidad = proyecto.id_comunidad
@@ -189,7 +189,7 @@
 				INNER JOIN inscripcion ON inscripcion.id_estudiante = estudiante.id_estudiante
 				INNER JOIN carrera ON carrera.id_carrera = inscripcion.id_carrera $where 
 				GROUP BY proyecto.id_proyecto,tutor_comunidad.id_tutor";			
-
+			
 			$results_pt = $this->Query($sql);
 			$d_pt = $this->Get_todos_array($results_pt);
 			// var_dump($d_pt);
@@ -201,8 +201,8 @@
 				INNER JOIN inscripcion ON inscripcion.id_estudiante = estudiante.id_estudiante
 				INNER JOIN carrera ON carrera.id_carrera = inscripcion.id_carrera
 				INNER JOIN seccion ON seccion.id_seccion = inscripcion.id_seccion
-				INNER JOIN semestre ON semestre.id_semestre = inscripcion.id_semestre
 				INNER JOIN usuario ON usuario.cedula_usuario = estudiante.cedula_usuario WHERE grupo_alumno.id_grupo = '$id_grupo';";
+				
 				$results = $this->Query($sql);
 				$estudiantes = $this->Get_todos_array($results);
 				array_push($d_proyectos, [

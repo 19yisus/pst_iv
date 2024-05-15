@@ -27,11 +27,13 @@
 							<div class=" rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
 
 								<div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark justify-center items-center text-center flex mb-4 justify-center">
-
-		
+									<h2 class="text-xl font-semibold text-center text-primary dark:text-bodydark">Bienvenido: <span class="text-black text-md"><?php echo $_SESSION['username'];?></span></h2>		
 								</div>
+								<!-- <div class="p-10">
+									sdfdf	
+								</div> -->
 							</div>
-							</form>
+							
 						</div>
 					</div>
 				</div>
