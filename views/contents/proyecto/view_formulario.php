@@ -237,24 +237,33 @@
                       <?php 
                         if($_SESSION['permisos'] != 3 && $op == "EVALUATE"){
                           ?>
-                          <div class="w-full xl:w-2/6">
+                          <div class="w-full">
                             <label class="mb-2.5 block text-black dark:text-white">
                               Estado del proyecto <span class="text-meta-1">*</span>
                             </label>
                             <div class="flex items-center space-x-2">
                               <div class="mr-3">
-                                <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                                <label for="checkAprobado" class="flex cursor-pointer select-none items-center">
                                   <div class="relative">
-                                    <input type="radio" required id="checkboxLabelFour" class="" name="estado_proyecto" value="1" <?php echo ($estado_proyecto == '1') ? "checked" : "";?>/>
+                                    <input type="radio" required id="checkAprobado" class="" name="estado_proyecto" value="1" <?php echo ($estado_proyecto == '1') ? "checked" : "";?>/>
                                   </div>
                                   Aprobado
                                 </label>
                               </div>
 
-                              <div >
-                                <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                              <div class="mr-3">
+                                <label for="checkReprobado" class="flex cursor-pointer select-none items-center">
                                   <div class="relative">
-                                    <input type="radio" required id="checkboxLabelFour" class="" name="estado_proyecto" value="0" <?php echo ($estado_proyecto == '0') ? "checked" : "";?>/>
+                                    <input type="radio" required id="checkReprobado" class="" name="estado_proyecto" value="3" <?php echo ($estado_proyecto == '3') ? "checked" : "";?>/>
+                                  </div>
+                                  Reprobado
+                                </label>
+                              </div>
+
+                              <div >
+                                <label for="checkProceso" class="flex cursor-pointer select-none items-center">
+                                  <div class="relative">
+                                    <input type="radio" required id="checkProceso" class="" name="estado_proyecto" value="0" <?php echo ($estado_proyecto == '0') ? "checked" : "";?>/>
                                   </div>
                                   En proceso
                                 </label>

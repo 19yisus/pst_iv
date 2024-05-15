@@ -181,7 +181,7 @@
             data: "estado_proyecto",
             defaultContent: "",
             render(data){
-              return (data == 0) ? "En proceso" : "Aprobado";
+              return (data == 0) ? "En proceso" : (data == 1) ? "Aprobado" : "Reprobado";
             }
           },
           {

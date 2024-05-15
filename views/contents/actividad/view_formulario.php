@@ -85,13 +85,13 @@ if(isset($_GET["id_actividad"])){
                         </label>
                         <?php $fecha_actividad=($datosActividad!=null)?new DateTime($datosActividad["fecha_actividad"]):null ?>
                         <?php $fecha_actividad=($fecha_actividad!=null)? $fecha_actividad->format("Y-m-d") :null ?>
-                        <input type="date" required id="fecha_actividad" value="<?php echo $fecha_actividad?>" name="fecha_actividad" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                        <input type="date" max="<?php echo date("Y-m-d"); ?>" required id="fecha_actividad" value="<?php echo $fecha_actividad?>" name="fecha_actividad" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                       <div class="w-full xl:w-2/6">
                         <label class="mb-2.5 block text-black dark:text-white">
                           Tiempo <span class="text-meta-1">*</span>
                         </label>
-                        <input type="text" required pattern="^(0?[0-9]|1[0-9]|2[0-3])$" id="tiempo" value="<?php echo ($datosActividad!=null)?$datosActividad["tiempo"]:""?>" name="tiempo" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                        <input type="number" max="24" required pattern="^(0?[0-9]|1[0-9]|2[0-3])$" id="tiempo" value="<?php echo ($datosActividad!=null)?$datosActividad["tiempo"]:""?>" name="tiempo" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                       </div>
                   </div>
                   <button class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
@@ -206,7 +206,7 @@ if(isset($_GET["id_actividad"])){
         })
         .then(data => {
           console.log('Datos enviados con éxito:', data);
-          location.href="/actividad/index?id_proyecto=<?php echo $id_proyecto?>"
+          location.href="<?php echo constant("URL");?>/actividad/index?id_proyecto=<?php echo $id_proyecto?>"
         })
         .catch(error => {
           console.error('Error al enviar los datos:', error);

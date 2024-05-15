@@ -61,8 +61,8 @@
 
 			$sql = "UPDATE ano_escolar SET 
 				ano_escolar_nombre = '$this->ano_escolar_nombre',
-				estado_incripciones = '$this->estado_inscripciones',
-				estado_ano_escolar = '$this->estado_ano_escolar',
+				estado_incripciones = $this->estado_inscripciones,
+				estado_ano_escolar = $this->estado_ano_escolar,
 				fecha_inicio = '$this->fecha_inicio',
 				fecha_cierre = '$this->fecha_cierre'
 				WHERE id_ano_escolar = $this->id_ano_escolar ;";

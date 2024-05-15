@@ -41,12 +41,14 @@ class cls_actividad extends cls_db {
             $this->Query($sql);
 
 			$id = $this->Returning_id();
+
+            $proyecto = $this->consultaProyecto($this->id_proyecto);
             
-            // $this->reg_bitacora([
-            //     'user_id' => $_SESSION['cedula'], 
-            //     'table_name'=> "ACTIVIDAD", 
-            //     'des' => "REGISTRO DE ACTIVIDAD DEL PROYECTO ESTUDIANTE: ".$result->num_rows
-            // ]);
+            $this->reg_bitacora([
+                'user_id' => $_SESSION['cedula'], 
+                'table_name'=> "ACTIVIDAD", 
+                'des' => "REGISTRO DE ACTIVIDAD DEL PROYECTO: ".$this->descripcion." | EN EPPROYECTO: ".$proyecto['titulo_proyecto']
+            ]);
 
 
             // if($this->Result_last_query()){
@@ -72,7 +74,14 @@ class cls_actividad extends cls_db {
 
         $sql = "UPDATE actividad SET id_proyecto=$this->id_proyecto,descripcion='$this->descripcion',fecha_actividad='$this->fecha_actividad',tiempo='$this->tiempo' where id_actividad=$this->id_actividad;";
         $this->Query($sql);
-        return $this->Returning_id();
+        $id = $this->Returning_id();
+        $proyecto = $this->consultaProyecto($this->id_proyecto);
+        $this->reg_bitacora([
+            'user_id' => $_SESSION['cedula'], 
+            'table_name'=> "ACTIVIDAD", 
+            'des' => "ACTUALIZACIÓN DE ACTIVIDAD DEL PROYECTO: ".$this->descripcion." | EN EPPROYECTO: ".$proyecto['titulo_proyecto']
+        ]);
+        return $id;
     }
 
     function eliminarActividad(){
@@ -124,6 +133,12 @@ class cls_actividad extends cls_db {
         where grupo_alumno.id_grupo=$id_grupo ;";
         $results = $this->Query($sqlConsulta);
         return $this->Get_todos_array($results);
+    }
+
+    public function consultaProyecto($id){
+        $sql = "SELECT * FROM proyecto WHERE id_proyecto = '$id';";
+        $results = $this->Query($sql);
+        return $this->Get_array($results);
     }
 
 }

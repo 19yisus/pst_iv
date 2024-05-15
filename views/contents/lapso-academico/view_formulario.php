@@ -113,18 +113,18 @@
                         </label>
                         <div class="flex items-center space-x-2">
                           <div class="mr-3">
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="checkInscripciones1" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" id="checkboxLabelFour" required class="" name="estado_inscripciones" value="1" <?php if(isset($estado_inscripciones) && $estado_inscripciones == "1") echo "checked";?>/>
+                                <input type="radio" id="checkInscripciones1" required class="" name="estado_inscripciones" value="1" <?php if(isset($estado_inscripciones) && $estado_inscripciones == "1") echo "checked";?>/>
                               </div>
                               Activo
                             </label>
                           </div>
     
                           <div >
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="checkInscripciones2" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" id="checkboxLabelFour" required class="" name="estado_inscripciones" value="0" <?php if(isset($estado_inscripciones) && $estado_inscripciones == "0") echo "checked";?>/>
+                                <input type="radio" id="checkInscripciones2" required class="" name="estado_inscripciones" value="0" <?php if(isset($estado_inscripciones) && $estado_inscripciones == "0") echo "checked";?>/>
                               </div>
                               Inactivo
                             </label>
@@ -138,18 +138,18 @@
                         </label>
                         <div class="flex items-center space-x-2">
                           <div class="mr-3">
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="checkLapso1" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" id="checkboxLabelFour" class="" requried name="estado_ano_escolar" value="1" <?php if(isset($estado_ano_escolar) && $estado_ano_escolar == "1") echo "checked";?>/>
+                                <input type="radio" id="checkLapso1" class="" requried name="estado_ano_escolar" value="1" <?php if(isset($estado_ano_escolar) && $estado_ano_escolar == "1") echo "checked";?>/>
                               </div>
                               Activo
                             </label>
                           </div>
     
                           <div >
-                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                            <label for="checkLapso2" class="flex cursor-pointer select-none items-center">
                               <div class="relative">
-                                <input type="radio" id="checkboxLabelFour" class="" required name="estado_ano_escolar" value="0" <?php if(isset($estado_ano_escolar) && $estado_ano_escolar == "0") echo "checked";?>/>
+                                <input type="radio" id="checkLapso2" class="" required name="estado_ano_escolar" value="0" <?php if(isset($estado_ano_escolar) && $estado_ano_escolar == "0") echo "checked";?>/>
                               </div>
                               Inactivo
                             </label>

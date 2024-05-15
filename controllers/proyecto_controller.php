@@ -11,6 +11,10 @@
 			case "Actualizar":
 				fn_Actualizar();
 			break;
+
+			case "EVALUATE":
+				fn_Evaluar();
+			break;
 		}
 	}
 
@@ -36,6 +40,15 @@
 				
 		$model_s->setDatos($_POST);
 		$mensaje = $model_s->update();
+
+		header("Location: ".constant("URL")."proyecto/index/$mensaje");	
+	}
+
+	function fn_Evaluar(){
+		$model_s = new cls_proyecto();
+				
+		$model_s->setDatos($_POST);
+		$mensaje = $model_s->evaluate();
 
 		header("Location: ".constant("URL")."proyecto/index/$mensaje");	
 	}

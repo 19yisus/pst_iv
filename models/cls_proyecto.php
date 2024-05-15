@@ -84,6 +84,24 @@
 			return "msg/01DONE";
 		}
 
+		public function evaluate(){
+			$proyecto = $this->consulta($this->id_proyecto);
+			$sql = "UPDATE proyecto SET estado_proyecto = '$this->estado_proyecto' WHERE id_proyecto = $this->id_proyecto ;";
+			$this->Query($sql);
+			$estatusProyecto = "";
+
+			if($this->estado_proyecto == 1) $estatusProyecto = 'APROBADO';
+			if($this->estado_proyecto == 0) $estatusProyecto = 'EN PROCESO';
+			if($this->estado_proyecto == 3) $estatusProyecto = 'REPROBADO';
+			
+			$this->reg_bitacora([
+				'user_id' => $_SESSION['cedula'],
+				'table_name'=> "PROYECTO",
+				'des' => "EVALUACIÓN DE PROYECTO ($estatusProyecto): ".$proyecto['titulo_proyecto']
+			]);
+			return "msg/01DONE";
+		}
+
 		public function Get_proyectos(){
 			$sql = "SELECT * FROM proyecto 
 				INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = proyecto.id_ano_escolar
