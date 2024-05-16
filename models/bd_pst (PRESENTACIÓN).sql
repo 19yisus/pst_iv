@@ -50,7 +50,7 @@ CREATE TABLE `ano_escolar` (
   `estado_incripciones` tinyint(1) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_cierre` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE `carrera` (
   `turno_carrera` enum('D','N') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `admite_grupos_mixtos` tinyint(1) NOT NULL,
   `estado_carrera` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ CREATE TABLE `categorias_documentos` (
   `des_categoria` varchar(30) NOT NULL,
   `estatus_categoria` tinyint(1) NOT NULL,
   `creacion_categoria` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,7 @@ CREATE TABLE `comunidad` (
   `nombre_comunidad` varchar(80) NOT NULL,
   `tipo_comunidad` varchar(45) NOT NULL,
   `direccion_comunidad` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -133,7 +133,7 @@ CREATE TABLE `documentos` (
   `extension_documento` varchar(10) NOT NULL,
   `fecha_subida_documento` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `estatus_documento` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ CREATE TABLE `estados` (
   `id_estado` int NOT NULL,
   `estado` varchar(250) NOT NULL,
   `iso_3166-2` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Dumping data for table `estados`
@@ -189,7 +189,7 @@ CREATE TABLE `estudiante` (
   `cedula_usuario` int NOT NULL,
   `turno_estudiante` varchar(45) NOT NULL,
   `matricula_estudiante` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,7 @@ CREATE TABLE `grupo` (
   `nombre_grupo` varchar(30) NOT NULL,
   `tipo_grupo` tinyint DEFAULT NULL,
   `estado_grupo` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,7 @@ CREATE TABLE `grupo` (
 CREATE TABLE `grupo_alumno` (
   `id_grupo` int NOT NULL,
   `id_alumno` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -225,7 +225,7 @@ CREATE TABLE `historial_claves` (
   `id_historial_claves` int NOT NULL,
   `clave_vieja` text NOT NULL,
   `cedula_usuario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -241,7 +241,7 @@ CREATE TABLE `inscripcion` (
   `id_semestre` int DEFAULT NULL,
   `id_ano_escolar` int NOT NULL,
   `des_semestre` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -253,7 +253,7 @@ CREATE TABLE `municipios` (
   `id_municipio` int NOT NULL,
   `id_estado` int NOT NULL,
   `municipio` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Dumping data for table `municipios`
@@ -606,7 +606,7 @@ CREATE TABLE `parroquias` (
   `id_parroquia` int NOT NULL,
   `id_municipio` int NOT NULL,
   `parroquia` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Dumping data for table `parroquias`
@@ -1762,7 +1762,7 @@ INSERT INTO `parroquias` (`id_parroquia`, `id_municipio`, `parroquia`) VALUES
 CREATE TABLE `preguntas_seguridad` (
   `id_pregunta` int NOT NULL,
   `des_pregunta` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Dumping data for table `preguntas_seguridad`
@@ -1773,7 +1773,7 @@ INSERT INTO `preguntas_seguridad` (`id_pregunta`, `des_pregunta`) VALUES
 (2, '¿Cual es el nombre de mi mascota?'),
 (3, '¿País que siempre he querido visitar?'),
 (4, '¿Cual es el segundo apellido de mi padre?'),
-(5, '¿Cual es el segundo apellido de mi madre?'),
+(5, '¿Cual es el segundo apellido de mi madre?');
 
 
 -- --------------------------------------------------------
@@ -1795,7 +1795,7 @@ CREATE TABLE `proyecto` (
   `tipo_proyecto` varchar(45) NOT NULL,
   `estado_proyecto` char(1) NOT NULL,
   `ruta_file` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -1808,7 +1808,7 @@ CREATE TABLE `seccion` (
   `numero_seccion` varchar(13) NOT NULL,
   `carrera_id` int DEFAULT NULL,
   `estado_seccion` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -1820,7 +1820,7 @@ CREATE TABLE `semestre` (
   `id_semestre` int NOT NULL,
   `des_semestre` varchar(15) NOT NULL,
   `estado_semestre` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -1837,7 +1837,7 @@ CREATE TABLE `tutor` (
   `calle_tutor` varchar(60) DEFAULT NULL,
   `avenida_tutor` varchar(60) DEFAULT NULL,
   `sector_tutor` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -1851,7 +1851,7 @@ CREATE TABLE `tutor_comunidad` (
   `cedula_tutor` varchar(45) NOT NULL,
   `telefono_tutor` varchar(45) DEFAULT NULL,
   `id_comunidad` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -1879,14 +1879,14 @@ CREATE TABLE `usuario` (
   `respuesta_3` varchar(50) DEFAULT NULL,
   `dias_de_caducidad_clave` int DEFAULT NULL,
   `fecha_de_caducidad_clave` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`cedula_usuario`, `clave_usuario`, `nacionalidad_usuario`, `nombre_usuario`, `estatus_usuario`, `edad_usuario`, `genero_usuario`, `permiso_usuario`, `tipo_usuario`, `telefono_usuario`, `correo_usuario`, `id_pregunta_1`, `id_pregunta_2`, `pregunta_3`, `respuesta_1`, `respuesta_2`, `respuesta_3`, `dias_de_caducidad_clave`, `fecha_de_caducidad_clave`) VALUES
-(27111222, '$2y$12$yUk0ENs/jTSy0sXAPHc0UuY/eMrI2wQwcFhgVm0lNS1rwM3lpRGCG', 'V', 'ADMINISTRADOR', 1, '20', 'M', '1', 'administrador', '0424-519-8398', 'FAKE@GMAIL.COM', 1, 2, 'COLOR', 'PERRO', '¿Mi pregunta personal?', 'MI RESPUESTA PERSONAL', 120, '2024-08-22')
+(27111222, '$2y$12$yUk0ENs/jTSy0sXAPHc0UuY/eMrI2wQwcFhgVm0lNS1rwM3lpRGCG', 'V', 'ADMINISTRADOR', 1, '20', 'M', '1', 'administrador', '0424-519-8398', 'FAKE@GMAIL.COM', 1, 2, 'COLOR', 'PERRO', '¿Mi pregunta personal?', 'MI RESPUESTA PERSONAL', 120, '2024-08-22');
 
 --
 -- Indexes for dumped tables
