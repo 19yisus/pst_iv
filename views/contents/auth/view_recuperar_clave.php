@@ -38,7 +38,7 @@ if (isset($_POST['op'])) {
       $cedula_usuario = $_POST['cedula_usuario'];
 
       $formulario = 3;
-    } else header("Location: " . constant("URL") . "auth/login/err/08AUTH");
+    } else header("Location: " . constant("URL") . "auth/login/err/09AUTH");
   }
 
   if ($_POST['op'] == "Cambio") {

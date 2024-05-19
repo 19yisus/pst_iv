@@ -156,6 +156,18 @@
 			return [$datos_proyecto, $datos_estudiantes];
 		}
 
+		public function consultarPorGrupo($id_grupo){
+			$sql = "SELECT * FROM proyecto 
+			INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = proyecto.id_ano_escolar
+				INNER JOIN comunidad ON comunidad.id_comunidad = proyecto.id_comunidad
+				INNER JOIN grupo ON grupo.id_grupo = proyecto.id_grupo
+			WHERE proyecto.id_grupo = $id_grupo";
+
+
+			$results = $this->Query($sql);
+			return $this->Get_array($results);
+		}
+
 		public function consultaPdfWithFiltros($filtros){
 			$filtro = $filtros['filtro_lapsos'];
 			$carreras = $filtros['filtro_carreras'];

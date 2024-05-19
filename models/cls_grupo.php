@@ -113,9 +113,9 @@
 		}
 
 		public function consultar_grupo($cedula){
-			$sql = "SELECT grupo.id_grupo FROM grupo_alumno INNER JOIN estudiante ON estudiante.id_estudiante = grupo_alumno.id_alumno
-				INNER JOIN grupo On grupo.id_grupo = grupo_alumno.id_grupo WHERE grupo.estado_grupo = 1 AND estudiante.cedula_usuario = '$cedula';";
-
+			$sql = "SELECT grupo.*,  (SELECT COUNT(*) FROM grupo_alumno WHERE grupo_alumno.id_grupo = grupo.id_grupo) AS cantidad_estudiantes FROM 
+				grupo_alumno INNER JOIN estudiante ON estudiante.id_estudiante = grupo_alumno.id_alumno 
+				INNER JOIN grupo ON grupo.id_grupo = grupo_alumno.id_grupo WHERE grupo.estado_grupo = 1 AND estudiante.cedula_usuario = '$cedula';";
 			$results = $this->Query($sql);
 			return $this->Get_array($results);
 		}

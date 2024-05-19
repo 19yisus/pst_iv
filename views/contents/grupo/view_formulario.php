@@ -234,7 +234,7 @@ if (isset($this->id_consulta)) {
                               <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
                                 <option value="">Seleccione una opción</option>
                                 <!-- <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option> -->
-                                <option v-for="est in estudiantes_filter" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
+                                <option v-for="est in estudiantes_filter" :selected="grupo_est.some(item => item.id_estudiante == est.id_estudiante)" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
                               </select>
                             </td>
                             <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -400,6 +400,10 @@ if (isset($this->id_consulta)) {
                   nombre: item.nombre_usuario
                 });
               })
+
+              console.log(this.grupo_est)
+              var res = this.grupo_est.some(item => item.id_estudiante == 1);
+              console.log(res)
 
             }).catch(error => console.error(error))
 
