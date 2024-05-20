@@ -37,7 +37,8 @@ function guardar(){
 
 	crearCarpeta($carpeta,"../".$ruta);
 	$rutaDestinoArchivo="../".$ruta."/".$carpeta."/".$nombrePdf;
-	$_POST["ruta_file_documento"]=rutaHost()."/".$ruta."/".$carpeta."/".$nombrePdf;
+	// $_POST["ruta_file_documento"]=rutaHost()."/".$ruta."/".$carpeta."/".$nombrePdf;
+	$_POST["ruta_file_documento"]=$ruta."/".$carpeta."/".$nombrePdf;
 	$_POST["extension_documento"]="pdf";
 	$_POST["fecha_subida_documento"]=$hoy->format("Y-m-d");
 	$documentosModelo=new cls_documentos();
@@ -112,7 +113,7 @@ function eliminar(){
 	$result=$documentosModelo->consultar();
 	if($result){
 		if(count($result)>0){
-			$nombreDelArchivo=end(explode("/",$result[0]["ruta_file_documento"]));
+			$nombreDelArchivo=end(explode("/",$result["ruta_file_documento"]));
 			crearCarpeta($carpeta,"../".$ruta);
 			$rutaDestinoArchivo="../".$ruta."/".$carpeta."/".$nombreDelArchivo;
 			$mensaje=$documentosModelo->eliminar();

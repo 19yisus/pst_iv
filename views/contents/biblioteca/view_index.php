@@ -173,7 +173,7 @@
                       </td>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white">
-                          <a title="descargar" class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-primary" href="<?php print($documento["ruta_file_documento"]); ?>" download>
+                          <a title="descargar" class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-primary" href="<?php print(constant("URL").$documento["ruta_file_documento"]); ?>" download>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
                               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                               <polyline points="7 10 12 15 17 10"></polyline>
@@ -184,7 +184,7 @@
                       </td>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white">
-                          <a title="ver documento" class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-danger" href="<?php print($documento["ruta_file_documento"]); ?>" target="_blank">
+                          <a title="ver documento" class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-danger" href="<?php print(constant("URL").$documento["ruta_file_documento"]); ?>" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
                               <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
@@ -192,7 +192,7 @@
                           </a>
                         </p>
                       </td>
-                      <?php  if($_SESSION['nom_rol'] == 'Administrador'){ ?>
+                      <?php  if($_SESSION['nom_rol'] == 'administrador'){ ?>
                       <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <p class="text-black dark:text-white">
                           <a class="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-danger" href="<?php $this->SetURL('controllers/biblioteca_controller.php' . "?ope=Eliminar&id_documento=" . $documento["id_documento"]); ?>">

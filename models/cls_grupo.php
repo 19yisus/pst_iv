@@ -64,7 +64,7 @@
       
 			try{
 				$this->Start_transacction();
-				$sql = "UPDATE grupo SET nombre_grupo = '$this->nombre_grupo', id_seccion = '$this->id_seccion', estado_grupo = '$this->estado_grupo' WHERE id_grupo = $this->id_grupo ;";
+				$sql = "UPDATE grupo SET nombre_grupo = '$this->nombre_grupo', estado_grupo = '$this->estado_grupo' WHERE id_grupo = $this->id_grupo ;";
 				$this->Query($sql);
 				$this->Query("DELETE FROM grupo_alumno WHERE id_grupo = '$this->id_grupo';");
 

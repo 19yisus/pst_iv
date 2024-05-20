@@ -173,7 +173,7 @@ if (isset($this->id_consulta)) {
                             <div class="mr-3">
                               <label for="tipoCarrera1" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" @click="setTipoCarrera(1)" :checked="tipo_grupo == 1" required id="tipoCarrera1" class="" name="tipo_grupo" value="1" <?php //echo ($tipo_grupo == '1') ? "checked" : "";?> />
+                                  <input type="radio" :disabled="id_grupo != '' " @click="setTipoCarrera(1)" :checked="tipo_grupo == 1" required id="tipoCarrera1" class="" name="tipo_grupo" value="1" <?php //echo ($tipo_grupo == '1') ? "checked" : "";?> />
                                 </div>
                                 Mixtas
                               </label>
@@ -182,7 +182,7 @@ if (isset($this->id_consulta)) {
                             <div>
                               <label for="tipoCarrera2" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
-                                  <input type="radio" @click="setTipoCarrera(0)" :checked="tipo_grupo == 0" required id="tipoCarrera2" class="" name="tipo_grupo" value="0" <?php //echo ($tipo_grupo == '0') ? "checked" : "";?> />
+                                  <input type="radio" :disabled="id_grupo != '' " @click="setTipoCarrera(0)" :checked="tipo_grupo == 0" required id="tipoCarrera2" class="" name="tipo_grupo" value="0" <?php //echo ($tipo_grupo == '0') ? "checked" : "";?> />
                                 </div>
                                 No mixtas
                               </label>
@@ -234,7 +234,8 @@ if (isset($this->id_consulta)) {
                               <select required id="est" name="id_estudiante[]" v-model="grupo_est[index].id_estudiante" :data-index="index" v-on:change="set_datos" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input sel_est">
                                 <option value="">Seleccione una opción</option>
                                 <!-- <option v-for="est in estudiantes" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option> -->
-                                <option v-for="est in estudiantes_filter" :selected="grupo_est.some(item => item.id_estudiante == est.id_estudiante)" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
+                                <option v-if="id_grupo == ''" v-for="est in estudiantes_filter" :selected="grupo_est.some(item => item.id_estudiante == est.id_estudiante)" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
+                                <option v-else v-for="est in estudiantes" :selected="grupo_est.some(item => item.id_estudiante == est.id_estudiante)" :key="est.id_estudiante" :value="est.id_estudiante">{{ est.matricula_estudiante}} {{ est.nombre_usuario}}</option>
                               </select>
                             </td>
                             <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -395,16 +396,15 @@ if (isset($this->id_consulta)) {
 
               this.grupo_est = [];
               estudiantes.forEach(item => {
+                console.group("ESTUDIANTES")
+                console.log(item)
                 this.grupo_est.push({
                   id_estudiante: item.id_estudiante,
                   nombre: item.nombre_usuario
                 });
               })
 
-              console.log(this.grupo_est)
-              var res = this.grupo_est.some(item => item.id_estudiante == 1);
-              console.log(res)
-
+              console.groupEnd();
             }).catch(error => console.error(error))
 
           return false;
@@ -452,13 +452,13 @@ if (isset($this->id_consulta)) {
     if (isset($this->id_consulta)) {
     ?>
       app.consultar('<?php echo $this->id_consulta ?>')
+      app.id_grupo = '<?php echo $id_grupo;?>'
     <?php
     }
 
     if (isset($datos_inscripcion) && $op == "Registrar") {
     ?>
-      //app.id_carrera = '<?php //echo $datos_inscripcion[0]['id_carrera'];
-                          ?>'
+      
       //app.id_seccion = '<?php //echo $datos_inscripcion[0]['id_seccion'];
                           ?>'  
       setTimeout(() => {

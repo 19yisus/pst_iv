@@ -70,9 +70,11 @@
 				INNER JOIN inscripcion ON inscripcion.id_estudiante = estudiante.id_estudiante
 				INNER JOIN ano_escolar ON ano_escolar.id_ano_escolar = inscripcion.id_ano_escolar
 				INNER JOIN carrera ON carrera.id_carrera = inscripcion.id_carrera WHERE  ano_escolar.estado_ano_escolar = 1  AND carrera.admite_grupos_mixtos = $tipo 
-				AND NOT EXISTS(
-					SELECT * FROM grupo_alumno INNER JOIN grupo ON grupo.id_grupo = grupo_alumno.id_grupo WHERE grupo.estado_grupo = 1 AND grupo_alumno.id_alumno = estudiante.id_estudiante);
+				;
 			";
+
+// AND NOT EXISTS(
+// 	SELECT * FROM grupo_alumno INNER JOIN grupo ON grupo.id_grupo = grupo_alumno.id_grupo WHERE grupo.estado_grupo = 1 AND grupo_alumno.id_alumno = estudiante.id_estudiante)
 			$results = $this->Query($sql);
 			return $this->Get_todos_array($results);
 		}

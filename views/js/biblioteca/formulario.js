@@ -7,7 +7,7 @@ function mensajeCargarDeArchivo(){
     if(archivoPdf.files.length>0){
         if(archivoPdf.files[0].type===TIPO_DOCUMENTO_PERMITIDO){
             Swal.fire(
-                'Archivo Cargardo con Exito',
+                'Archivo cargado con Exito',
                 '',
                 'success'
               )
